@@ -1,0 +1,31 @@
+Modelim bez modifikacijam: 302
+
+-- VT1: Passenger cars --
+  Brendi: 139
+  OK Audi | A6 Allroad, 4G: 11 modif. (atliek: 301)
+  OK Audi | A7, S7, RS 7, 4K (2018 - ): 26 modif. (atliek: 300)
+  OK Audi | A8, S8, 4D: 24 modif. (atliek: 299)
+  OK Hyundai | Lantra/ Elantra, HD: 4 modif. (atliek: 298)
+  OK Hyundai | Lantra/ Elantra, RD/J2: 5 modif. (atliek: 297)
+  OK Hyundai | Lantra/ Elantra, XD: 8 modif. (atliek: 296)
+  OK Hyundai | Matrix, FC: 7 modif. (atliek: 295)
+  OK Hyundai | NEXO, FE (2018 - ): 1 modif. (atliek: 294)
+  OK Hyundai | Santa Fe, DM: 24 modif. (atliek: 293)
+
+-- VT2: Light commercial --
+  Brendi: 0
+
+-- VT3: Heavy truck/Bus --
+  Brendi: 0
+
+-- VT4: Motorcycle --
+  Brendi: 0
+
+-- VT5: Agricultural --
+  Brendi: 0
+
+=== Pabeidzu ===
+  Modeli aizpilditi:    9
+  Jaunas modifikacijas: 110
+  Jaunas saderibas:     715
+  API kludas:           8

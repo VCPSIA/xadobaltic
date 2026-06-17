@@ -1,0 +1,931 @@
+C:\Users\USER\xadobaltic\xado_fix_nomods.py:4: SyntaxWarning: invalid escape sequence '\S'
+  Run: venv\Scripts\python.exe xado_fix_nomods.py
+=== Fix: modeļi bez modifikācijām (VT1) ===
+
+Markas: 139
+
+[  1%] Acura (USA / CAN): 7 modeļi bez modif
+       + 'TL, UA6, UA7': 3 modif, 0 sader. kopā
+       + 'TL, UA8, UA9': 6 modif, 4 sader. kopā
+       + 'TLX': 6 modif, 12 sader. kopā
+       + 'TLX(2020 - )': 3 modif, 15 sader. kopā
+       + 'TSX, CL9': 3 modif, 30 sader. kopā
+       + 'TSX, CU2': 4 modif, 33 sader. kopā
+       + 'ZDX': 1 modif, 34 sader. kopā
+[  6%] Aston Martin: 10 modeļi bez modif
+       + 'DBX(2020 - )': 2 modif, 40 sader. kopā
+       + 'One-77': 1 modif, 43 sader. kopā
+       + 'Rapide': 4 modif, 55 sader. kopā
+       + 'V12 Vanquish': 2 modif, 61 sader. kopā
+       + 'V12 Vantage': 7 modif, 82 sader. kopā
+       + 'V8': 7 modif, 155 sader. kopā
+       + 'V8 Vantage': 16 modif, 171 sader. kopā
+       + 'Vanquish': 2 modif, 177 sader. kopā
+       + 'Vantage(2018 - )': 4 modif, 187 sader. kopā
+       + 'Virage': 1 modif, 190 sader. kopā
+[  7%] Audi (EU): 42 modeļi bez modif
+       + 'A4 Allroad, 8W (2016 - )': 16 modif, 198 sader. kopā
+       0  'A4, S4, RS 4, 8D': getTypes tukss
+       0  'A4, S4, RS 4, 8E': getTypes tukss
+       0  'A4, S4, RS 4, 8K': getTypes tukss
+       0  'A4, S4, RS 4, 8W (2015 - )': getTypes tukss
+       0  'A5, S5, RS 5, 8T': getTypes tukss
+       0  'A5, S5, RS 5, F5 (2016 - )': getTypes tukss
+       0  'A6 Allroad, 4A (2019 - )': getTypes tukss
+       0  'A6 Allroad, 4B': getTypes tukss
+       0  'A6 Allroad, 4F': getTypes tukss
+       0  'A6 Allroad, 4G': getTypes tukss
+       + 'A6, S6, 4A': 14 modif, 438 sader. kopā
+       + 'A6, S6, RS 6, 4A (2018 - )': 28 modif, 479 sader. kopā
+       + 'A6, S6, RS 6, 4B': 37 modif, 812 sader. kopā
+       + 'A6, S6, RS 6, 4F': 44 modif, 1223 sader. kopā
+       + 'A6, S6, RS 6, 4G': 48 modif, 1387 sader. kopā
+       + 'A7, S7, RS 7, 4G': 36 modif, 1571 sader. kopā
+       0  'A7, S7, RS 7, 4K (2018 - )': getTypes tukss
+       0  'A8, S8, 4D': getTypes tukss
+       0  'A8, S8, 4E': getTypes tukss
+       0  'A8, S8, 4H': getTypes tukss
+       0  'A8, S8, 4N (2018 - )': getTypes tukss
+       0  'Cabriolet': getTypes tukss
+       0  'Coupé, S2': getTypes tukss
+       0  'Q2, SQ2, GA (2016 - )': getTypes tukss
+       0  'Q3, RS Q3, 8U': getTypes tukss
+       0  'Q3, RS Q3, F3 (2018 - )': getTypes tukss
+       0  'Q4 e-tron, F4 (2021 - )': getTypes tukss
+       0  'Q5, SQ5, 8R': getTypes tukss
+       0  'Q5, SQ5, FY (2017 - )': getTypes tukss
+       0  'Q7, 4L': getTypes tukss
+       0  'Q7, SQ7, 4MB (2015 - )': getTypes tukss
+       0  'Q8, SQ8, RS Q8, 4MN (2018 - )': getTypes tukss
+       0  'Quattro': getTypes tukss
+       + 'R8 Coupé, 423/427': 8 modif, 1585 sader. kopā
+       + 'R8 Coupé, 4S3 (2015 - )': 10 modif, 1605 sader. kopā
+       + 'R8 Spyder, 429': 6 modif, 1615 sader. kopā
+       + 'TT, TTS, TTRS, 8J3': 14 modif, 1745 sader. kopā
+       + 'TT, TTS, TTRS, FV3, FVP (2014 - )': 24 modif, 1784 sader. kopā
+       0  'V8': getTypes tukss
+       0  'e-tron GT, F8 (2021 - )': getTypes tukss
+       0  'e-tron, GE (2019 - )': getTypes tukss
+[  7%] Audi (USA): 9 modeļi bez modif
+       ~ 'A7, S7, RS7, 4KA (2018 - )': nav xado.ua atbilstibas
+       ~ 'A8, 4D': nav xado.ua atbilstibas
+       ~ 'A8, 4E': nav xado.ua atbilstibas
+       ~ 'A8, 4H': nav xado.ua atbilstibas
+       ~ 'A8L, S8L, 4N / 4NL (2018 - )': nav xado.ua atbilstibas
+       ~ 'Q7, 4MB / 4MG (2016 - )': nav xado.ua atbilstibas
+       ~ 'Q8, 4MN (2018 - )': nav xado.ua atbilstibas
+       ~ 'R8, 42': nav xado.ua atbilstibas
+       ~ 'R8, 4S (2016 - )': nav xado.ua atbilstibas
+[  8%] Austin: 2 modeļi bez modif
+       ~ 'MINI': nav xado.ua atbilstibas
+       ~ 'Montego': nav xado.ua atbilstibas
+[  9%] Bentley: 1 modeļi bez modif
+       ~ 'Continental GTC, 3W': nav xado.ua atbilstibas
+[ 10%] BMW (EU): 4 modeļi bez modif
+       ~ '4 series Gran Coupé, F36': nav xado.ua atbilstibas
+       ~ '4 series Gran Coupé, G26 (2020 - )': nav xado.ua atbilstibas
+       ~ 'i3, I01 (2013 - )': nav xado.ua atbilstibas
+       ~ 'i4 series Gran Coupé, G26 (2021 - )': nav xado.ua atbilstibas
+[ 10%] BMW (USA): 3 modeļi bez modif
+       ~ 'X2, F39 (2017 - )': nav xado.ua atbilstibas
+       ~ 'X3, E83': nav xado.ua atbilstibas
+       ~ 'Z8, E52': nav xado.ua atbilstibas
+[ 12%] Buick (USA / CAN): 6 modeļi bez modif
+       ~ 'Enclave, GM C1XX (2017 - )': nav xado.ua atbilstibas
+       ~ 'LaCrosse, Allure, GM10': nav xado.ua atbilstibas
+       ~ 'LaCrosse, E2XX': nav xado.ua atbilstibas
+       ~ 'LeSabre': nav xado.ua atbilstibas
+       ~ 'Lucerne': nav xado.ua atbilstibas
+       ~ 'Park Avenue': nav xado.ua atbilstibas
+[ 14%] Cadillac (EU): 5 modeļi bez modif
+       ~ 'CT6(2016 - )': nav xado.ua atbilstibas
+       ~ 'CTS(-V)(2013 - )': nav xado.ua atbilstibas
+       ~ 'Escalade(2013 - )': nav xado.ua atbilstibas
+       ~ 'SRX(2012 - )': nav xado.ua atbilstibas
+       ~ 'XT5(2017 - )': nav xado.ua atbilstibas
+[ 15%] Cadillac (USA / CAN): 8 modeļi bez modif
+       ~ 'CT6': nav xado.ua atbilstibas
+       ~ 'ELR': nav xado.ua atbilstibas
+       ~ 'Escalade, GMT 400': nav xado.ua atbilstibas
+       ~ 'Escalade, GMT 800': nav xado.ua atbilstibas
+       ~ 'Escalade, GMT 900': nav xado.ua atbilstibas
+       ~ 'Escalade, GMT K2XX': nav xado.ua atbilstibas
+       ~ 'Escalade, T1XX (2020 - )': nav xado.ua atbilstibas
+       ~ 'Lyriq(2023 - )': nav xado.ua atbilstibas
+[ 16%] Chevrolet (EU) (Daewoo): 6 modeļi bez modif
+       0  'Alero': getTypes tukss
+       + 'Kalos': 2 modif, 1799 sader. kopā
+       + 'Lacetti': 6 modif, 1835 sader. kopā
+       + 'Lanos': 3 modif, 1868 sader. kopā
+       + 'Leganza': 1 modif, 1879 sader. kopā
+       + 'Malibu, V300': 3 modif, 1894 sader. kopā
+[ 17%] Chevrolet (USA / CAN): 14 modeļi bez modif
+       + 'Captiva': 2 modif, 1894 sader. kopā
+       + 'Corvette, C7': 10 modif, 1894 sader. kopā
+       + 'Corvette, C8 (2020 - )': 4 modif, 1894 sader. kopā
+       + 'Cruze': 4 modif, 1900 sader. kopā
+       + 'Cruze, J300': 4 modif, 1903 sader. kopā
+       + 'Lumina': 2 modif, 1905 sader. kopā
+       + 'Malibu Maxx': 2 modif, 1905 sader. kopā
+       + 'Suburban, GMT931': 14 modif, 1906 sader. kopā
+       0  'Suburban, GMTK2YC': getTypes tukss
+       0  'Suburban, T1XX (2020 - )': getTypes tukss
+       0  'Tahoe, GMT820': getTypes tukss
+       0  'Tahoe, GMT921': getTypes tukss
+       0  'Tahoe, GMTK2UC': getTypes tukss
+       0  'Uplander': getTypes tukss
+[ 17%] Chrysler (EU): 4 modeļi bez modif
+       ~ '300C, LX': nav xado.ua atbilstibas
+       ~ '300M': nav xado.ua atbilstibas
+       ~ 'Crossfire, ZH': nav xado.ua atbilstibas
+       ~ 'Delta': nav xado.ua atbilstibas
+[ 18%] Chrysler (USA / CAN): 7 modeļi bez modif
+       ~ '(Grand) Voyager / Town & Country, RS': nav xado.ua atbilstibas
+       ~ '(Grand) Voyager / Town & Country, RT': nav xado.ua atbilstibas
+       ~ '200, JS': nav xado.ua atbilstibas
+       ~ '200, UF': nav xado.ua atbilstibas
+       ~ '300(C), LX': nav xado.ua atbilstibas
+       ~ '300, LX (2011 - )': nav xado.ua atbilstibas
+       ~ '300M, LH': nav xado.ua atbilstibas
+[ 19%] Citroën: 2 modeļi bez modif
+       + 'C4, B71': 28 modif, 1971 sader. kopā
+       + 'Nemo Multispace, A9': 10 modif, 2034 sader. kopā
+[ 21%] Daihatsu: 1 modeļi bez modif
+       + 'Gran Move': 3 modif, 2043 sader. kopā
+[ 23%] Dodge (USA / CAN): 19 modeļi bez modif
+       + 'Challenger, LA (2009 - )': 31 modif, 2043 sader. kopā
+       + 'Charger, LD (2010 - )': 26 modif, 2049 sader. kopā
+       + 'Charger, LX': 9 modif, 2054 sader. kopā
+       + 'Dakota, AN': 14 modif, 2068 sader. kopā
+       + 'Dakota, ND': 16 modif, 2068 sader. kopā
+       0  'Dart, PF': getTypes tukss
+       0  'Durango, HB': getTypes tukss
+       0  'Durango, WD (2010 - )': getTypes tukss
+       0  'Intrepid, LH': getTypes tukss
+       0  'Journey, JC': getTypes tukss
+       0  'Magnum, LX': getTypes tukss
+       0  'Neon / SX, PL': getTypes tukss
+       0  'Nitro, KA': getTypes tukss
+       0  'Shadow, AP': getTypes tukss
+       0  'Stratus / Cirrus, JA': getTypes tukss
+       0  'Stratus, JR': getTypes tukss
+       0  'Viper, SR': getTypes tukss
+       0  'Viper, VX': getTypes tukss
+       0  'Viper, ZB': getTypes tukss
+[ 25%] DS: 3 modeļi bez modif
+       + 'DS 4, F (2021 - )': 7 modif, 2068 sader. kopā
+       + 'DS 4, N': 12 modif, 2074 sader. kopā
+       + 'DS 5, K': 8 modif, 2077 sader. kopā
+[ 25%] Ferrari: 1 modeļi bez modif
+       + '575M Maranello': 1 modif, 2082 sader. kopā
+[ 28%] Ford (EU): 42 modeļi bez modif
+       + 'Cougar': 2 modif, 2082 sader. kopā
+       + 'EcoSport, JK8 (2013 - )': 16 modif, 2086 sader. kopā
+       + 'Edge': 7 modif, 2086 sader. kopā
+       0  'Escort': getTypes tukss
+       0  'Explorer(2019 - )': getTypes tukss
+       0  'Fiesta, MK II': getTypes tukss
+       0  'Fiesta, MK III': getTypes tukss
+       0  'Fiesta, MK IV': getTypes tukss
+       0  'Fiesta, MK V': getTypes tukss
+       0  'Fiesta, MK VI': getTypes tukss
+       0  'Fiesta, MK VII (2017 - )': getTypes tukss
+       0  'Focus C-Max, MK I': getTypes tukss
+       0  'Focus, MK I': getTypes tukss
+       0  'Focus, MK II': getTypes tukss
+       0  'Focus, MK III (C346)': getTypes tukss
+       0  'Focus, MK IV (2018 - )': getTypes tukss
+       0  'Fusion': getTypes tukss
+       0  'Galaxy, MK I': getTypes tukss
+       0  'Galaxy, MK II (WGR)': getTypes tukss
+       + 'Galaxy, MK III (WA6)': 21 modif, 2086 sader. kopā
+       + 'Galaxy, MK IV (2015 - )': 28 modif, 2093 sader. kopā
+       0  'Grand C-Max': getTypes tukss
+       0  'Ka+, MK III': getTypes tukss
+       0  'Ka, MK I': getTypes tukss
+       0  'Ka, MK II': getTypes tukss
+       0  'Kuga, I': getTypes tukss
+       0  'Mondeo, MK III': getTypes tukss
+       0  'Mondeo, MK IV': getTypes tukss
+       0  'Mondeo, MK V (2014 - )': getTypes tukss
+       0  'Mustang Mach-E(2020 - )': getTypes tukss
+       0  'Mustang, 6th Gen(2014 - )': getTypes tukss
+       0  'Orion': getTypes tukss
+       0  'Puma': getTypes tukss
+       0  'Puma(2019 - )': getTypes tukss
+       0  'S-Max, MK I': getTypes tukss
+       0  'S-Max, MK II (2015 - )': getTypes tukss
+       0  'Scorpio / Granada': getTypes tukss
+       0  'Sierra / Sapphire': getTypes tukss
+       0  'Tourneo Connect': getTypes tukss
+       0  'Tourneo Connect, PJ2 (2013 - )': getTypes tukss
+       0  'Tourneo Courier(2014 - )': getTypes tukss
+       0  'Tourneo Custom(2012 - )': getTypes tukss
+[ 33%] GMC (USA / CAN): 10 modeļi bez modif
+       ~ 'Acadia, GMT960': nav xado.ua atbilstibas
+       ~ 'Envoy': nav xado.ua atbilstibas
+       ~ 'Jimmy': nav xado.ua atbilstibas
+       ~ 'Safari': nav xado.ua atbilstibas
+       ~ 'Savana Passenger, GMT610 (2003 - )': nav xado.ua atbilstibas
+       ~ 'Terrain': nav xado.ua atbilstibas
+       ~ 'Terrain(2017 - )': nav xado.ua atbilstibas
+       ~ 'Yukon / XL, GMT922/932': nav xado.ua atbilstibas
+       ~ 'Yukon / XL, GMTK2UG/YG': nav xado.ua atbilstibas
+       ~ 'Yukon / XL, T1XX (2020 - )': nav xado.ua atbilstibas
+[ 34%] Honda (USA / CAN): 2 modeļi bez modif
+       ~ 'CR-Z, ZF1': nav xado.ua atbilstibas
+       ~ 'Civic V, EG/EH/EJ': nav xado.ua atbilstibas
+[ 36%] Hyundai (EU): 41 modeļi bez modif
+       ~ 'Elantra / i35, MD': nav xado.ua atbilstibas
+       ~ 'Elantra, AD': nav xado.ua atbilstibas
+       ~ 'Equus / Centennial, VI': nav xado.ua atbilstibas
+       ~ 'Galloper': nav xado.ua atbilstibas
+       ~ 'Genesis Coupé, BK': nav xado.ua atbilstibas
+       ~ 'Genesis, DH': nav xado.ua atbilstibas
+       ~ 'Getz, GT': nav xado.ua atbilstibas
+       ~ 'Grand Santa Fe, NC': nav xado.ua atbilstibas
+       ~ 'Grandeur / Azera / i55, HG': nav xado.ua atbilstibas
+       ~ 'Grandeur / Azera, TG': nav xado.ua atbilstibas
+       ~ 'IONIQ 5, NE EV (2021 - )': nav xado.ua atbilstibas
+       ~ 'IONIQ, AE (2016 - )': nav xado.ua atbilstibas
+       ~ 'KONA, OS EV (2018 - )': nav xado.ua atbilstibas
+       ~ 'KONA, OS/OSN (2017 - )': nav xado.ua atbilstibas
+       ~ 'Lantra / Elantra, J1': nav xado.ua atbilstibas
+       ~ 'Lantra/ Elantra, HD': nav xado.ua atbilstibas
+       ~ 'Lantra/ Elantra, RD/J2': nav xado.ua atbilstibas
+       ~ 'Lantra/ Elantra, XD': nav xado.ua atbilstibas
+       ~ 'Matrix, FC': nav xado.ua atbilstibas
+       ~ 'NEXO, FE (2018 - )': nav xado.ua atbilstibas
+       ~ 'Santa Fe, CM': nav xado.ua atbilstibas
+       ~ 'Santa Fe, DM': nav xado.ua atbilstibas
+       ~ 'Santa Fe, SM': nav xado.ua atbilstibas
+       ~ 'Santa Fe, TM (2018 - )': nav xado.ua atbilstibas
+       ~ 'i10, AC3 (2020 - )': nav xado.ua atbilstibas
+       ~ 'i10, IA': nav xado.ua atbilstibas
+       ~ 'i10, PA': nav xado.ua atbilstibas
+       ~ 'i20, BC3 (2020 - )': nav xado.ua atbilstibas
+       ~ 'i20, GB/IB': nav xado.ua atbilstibas
+       ~ 'i20, PB': nav xado.ua atbilstibas
+       ~ 'i30, FD': nav xado.ua atbilstibas
+       ~ 'i30, GD (ROW)': nav xado.ua atbilstibas
+       ~ 'i30, GDe (EU)': nav xado.ua atbilstibas
+       ~ 'i30, PDE (2017 - )': nav xado.ua atbilstibas
+       ~ 'i30N, PDEN (2017 - )': nav xado.ua atbilstibas
+       ~ 'i40, VF': nav xado.ua atbilstibas
+       ~ 'i800, TQ': nav xado.ua atbilstibas
+       ~ 'ix20, JC': nav xado.ua atbilstibas
+       ~ 'ix35 / Tucson, EL/LM': nav xado.ua atbilstibas
+       ~ 'ix35 FCEV, EL/LM': nav xado.ua atbilstibas
+       ~ 'ix55 / Veracruz, EN': nav xado.ua atbilstibas
+[ 37%] Hyundai (USA): 36 modeļi bez modif
+       + 'Accent, RB': 2 modif, 2103 sader. kopā
+       + 'Azera, HG': 1 modif, 2108 sader. kopā
+       + 'Azera, TG': 5 modif, 2133 sader. kopā
+       + 'Elantra Coupé, JK': 2 modif, 2143 sader. kopā
+       + 'Elantra GT, GD': 3 modif, 2158 sader. kopā
+       + 'Elantra GT, PD': 4 modif, 2179 sader. kopā
+       + 'Elantra, AD/ADA': 6 modif, 2194 sader. kopā
+       + 'Elantra, CN7 (2020 - )': 4 modif, 2197 sader. kopā
+       + 'Elantra, HD': 2 modif, 2207 sader. kopā
+       + 'Elantra, MD/UD': 3 modif, 2222 sader. kopā
+       + 'Entourage, EP': 4 modif, 2242 sader. kopā
+       + 'Equus, VI': 3 modif, 2257 sader. kopā
+       + 'Genesis Coupé, BK': 5 modif, 2284 sader. kopā
+       0  'Genesis, BH': getTypes tukss
+       0  'Genesis, DH': getTypes tukss
+       0  'IONIQ 5, NE EV (2022 - )': getTypes tukss
+       0  'IONIQ, AE (2017 - )': getTypes tukss
+       0  'Kona, OS (2018 - )': getTypes tukss
+       0  'Nexo, FE (2018 - )': getTypes tukss
+       0  'Palisade, LX2 (2019 - )': getTypes tukss
+       0  'Santa Cruz, NX4A OB (2022 - )': getTypes tukss
+       0  'Santa Fe, CM': getTypes tukss
+       0  'Santa Fe, DMA/NC': getTypes tukss
+       0  'Santa Fe, TMA (2019 - )': getTypes tukss
+       0  'Sonata, DN8 (2019 - )': getTypes tukss
+       0  'Sonata, LFA/LF': getTypes tukss
+       0  'Sonata, NF': getTypes tukss
+       0  'Sonata, YF': getTypes tukss
+       0  'Tiburon, RC / GK': getTypes tukss
+       + 'Tucson, LM': 7 modif, 2319 sader. kopā
+       + 'Tucson, NX4 (2021 - )': 2 modif, 2321 sader. kopā
+       + 'Tucson, TL': 9 modif, 2378 sader. kopā
+       + 'Veloster, FS': 4 modif, 2399 sader. kopā
+       + 'Veloster, JS (2018 - )': 4 modif, 2410 sader. kopā
+       + 'Venue, QX (2019 - )': 1 modif, 2411 sader. kopā
+       + 'Veracruz, EN': 4 modif, 2427 sader. kopā
+[ 38%] Infiniti (EU): 1 modeļi bez modif
+       0  'Q50, HV37 (2013 - )': getTypes tukss
+[ 38%] Infiniti (USA): 1 modeļi bez modif
+       0  'QX60, L51 (2020 - )': getTypes tukss
+[ 41%] Jaguar: 5 modeļi bez modif
+       + 'I-Pace, X590 (2018 - )': 1 modif, 2427 sader. kopā
+       + 'S-Type, X200': 13 modif, 2457 sader. kopā
+       0  'X-Type, X400': getTypes tukss
+       0  'XJ6 - XJ12, XJ40 / X305 / X306': getTypes tukss
+       0  'XJS, XJ27': getTypes tukss
+[ 43%] Kia (EU): 40 modeļi bez modif
+       ~ 'Ceed, CD (2018 - )': nav xado.ua atbilstibas
+       ~ 'Cerato / Forte, TD': nav xado.ua atbilstibas
+       ~ 'Cerato / Forte, YD': nav xado.ua atbilstibas
+       ~ 'Cerato / Spectra, LD': nav xado.ua atbilstibas
+       ~ 'Clarus / Credos, FE': nav xado.ua atbilstibas
+       ~ 'EV6, CV (2021 - )': nav xado.ua atbilstibas
+       ~ 'Joice / Carstar': nav xado.ua atbilstibas
+       ~ 'Magentis / Optima, MS/MG': nav xado.ua atbilstibas
+       ~ 'Mohave / Borrego, HM': nav xado.ua atbilstibas
+       ~ 'Niro, DE (2016 - )': nav xado.ua atbilstibas
+       ~ 'Opirus / Amanti, GH': nav xado.ua atbilstibas
+       ~ 'Optima, JF': nav xado.ua atbilstibas
+       ~ 'Optima, TF': nav xado.ua atbilstibas
+       ~ 'Picanto, JA (2017 - )': nav xado.ua atbilstibas
+       ~ 'Picanto, SA': nav xado.ua atbilstibas
+       ~ 'Picanto, TA': nav xado.ua atbilstibas
+       ~ 'Pride, PRD': nav xado.ua atbilstibas
+       ~ 'ProCeed, CD (2018 - )': nav xado.ua atbilstibas
+       ~ 'Quoris, KH': nav xado.ua atbilstibas
+       ~ 'Rio, BC/DC': nav xado.ua atbilstibas
+       ~ 'Rio, JB': nav xado.ua atbilstibas
+       ~ 'Rio, UB': nav xado.ua atbilstibas
+       ~ 'Rio, YB (2017 - )': nav xado.ua atbilstibas
+       ~ 'Sephia / Mentor / Shuma / Spectra, FB12/FB22': nav xado.ua atbilstibas
+       ~ 'Sorento, BL/JC': nav xado.ua atbilstibas
+       ~ 'Sorento, MQ4 (2020 - )': nav xado.ua atbilstibas
+       ~ 'Sorento, UM': nav xado.ua atbilstibas
+       ~ 'Sorento, XM': nav xado.ua atbilstibas
+       ~ 'Soul, AM': nav xado.ua atbilstibas
+       ~ 'Soul, PS': nav xado.ua atbilstibas
+       ~ 'Soul, SK3 (2019 - )': nav xado.ua atbilstibas
+       ~ 'Sportage, AL / KM': nav xado.ua atbilstibas
+       ~ 'Sportage, NQ5 (2022 - )': nav xado.ua atbilstibas
+       ~ 'Sportage, QLe (EU) (2016 - )': nav xado.ua atbilstibas
+       ~ 'Sportage, SL (ROW)': nav xado.ua atbilstibas
+       ~ 'Sportage, SLe (EU)': nav xado.ua atbilstibas
+       ~ "cee'd, JD": nav xado.ua atbilstibas
+       ~ 'e-Niro(2019 - )': nav xado.ua atbilstibas
+       ~ "pro_cee'd, ED": nav xado.ua atbilstibas
+       ~ "pro_cee'd, JD": nav xado.ua atbilstibas
+[ 44%] Kia (USA / CAN): 41 modeļi bez modif
+       ~ 'Cadenza, VG': nav xado.ua atbilstibas
+       ~ 'Cadenza, YG (2016 - )': nav xado.ua atbilstibas
+       ~ 'Carnival, KA4 (2020 - )': nav xado.ua atbilstibas
+       ~ 'EV6, CV (2022 - )': nav xado.ua atbilstibas
+       ~ 'Forte, TD': nav xado.ua atbilstibas
+       ~ 'Forte, YD': nav xado.ua atbilstibas
+       ~ 'Forte, YDm (2016 - )': nav xado.ua atbilstibas
+       ~ 'K5, DL3 (2020 - )': nav xado.ua atbilstibas
+       ~ 'K900, KH': nav xado.ua atbilstibas
+       ~ 'K900, RJ': nav xado.ua atbilstibas
+       ~ 'Niro, DE (2016 - )': nav xado.ua atbilstibas
+       ~ 'Optima, JF/JFA': nav xado.ua atbilstibas
+       ~ 'Optima, MG': nav xado.ua atbilstibas
+       ~ 'Optima, MS': nav xado.ua atbilstibas
+       ~ 'Optima, TF': nav xado.ua atbilstibas
+       ~ 'Rio, DC': nav xado.ua atbilstibas
+       ~ 'Rio, JB': nav xado.ua atbilstibas
+       ~ 'Rio, SC (2017 - )': nav xado.ua atbilstibas
+       ~ 'Rio, UB': nav xado.ua atbilstibas
+       ~ 'Rondo, RP': nav xado.ua atbilstibas
+       ~ 'Rondo, UN': nav xado.ua atbilstibas
+       ~ 'Sedona, GQ': nav xado.ua atbilstibas
+       ~ 'Sedona, VQ': nav xado.ua atbilstibas
+       ~ 'Sedona, YP': nav xado.ua atbilstibas
+       ~ 'Seltos, SP2 (2020 - )': nav xado.ua atbilstibas
+       ~ 'Sephia': nav xado.ua atbilstibas
+       ~ 'Sorento, JC/BL': nav xado.ua atbilstibas
+       ~ 'Sorento, MQ4 (2020 - )': nav xado.ua atbilstibas
+       ~ 'Sorento, UM/UMA': nav xado.ua atbilstibas
+       ~ 'Sorento, XM': nav xado.ua atbilstibas
+       ~ 'Soul, AM': nav xado.ua atbilstibas
+       ~ 'Soul, PS': nav xado.ua atbilstibas
+       ~ 'Soul, SK3 (2019 - )': nav xado.ua atbilstibas
+       ~ 'Spectra': nav xado.ua atbilstibas
+       ~ 'Spectra, LD': nav xado.ua atbilstibas
+       ~ 'Sportage, KM': nav xado.ua atbilstibas
+       ~ 'Sportage, NQ5 (2021 - )': nav xado.ua atbilstibas
+       ~ 'Sportage, QL (2016 - )': nav xado.ua atbilstibas
+       ~ 'Sportage, SL': nav xado.ua atbilstibas
+       ~ 'Stinger, CK (2018 - )': nav xado.ua atbilstibas
+       ~ 'Telluride, ON (2019 - )': nav xado.ua atbilstibas
+[ 46%] Lamborghini: 1 modeļi bez modif
+       ~ 'Reventon Roadster': nav xado.ua atbilstibas
+[ 47%] Lancia: 13 modeļi bez modif
+       ~ 'Lybra': nav xado.ua atbilstibas
+       ~ 'Musa, 350': nav xado.ua atbilstibas
+       ~ 'Phedra': nav xado.ua atbilstibas
+       ~ 'Prisma': nav xado.ua atbilstibas
+       ~ 'Thema': nav xado.ua atbilstibas
+       ~ 'Thema, LX': nav xado.ua atbilstibas
+       ~ 'Thesis, 841': nav xado.ua atbilstibas
+       ~ 'Voyager, RT': nav xado.ua atbilstibas
+       ~ 'Y10': nav xado.ua atbilstibas
+       ~ 'Ypsilon': nav xado.ua atbilstibas
+       ~ 'Ypsilon, 312 (2011 - )': nav xado.ua atbilstibas
+       ~ 'Ypsilon, 843': nav xado.ua atbilstibas
+       ~ 'Z': nav xado.ua atbilstibas
+[ 48%] Land Rover (EU): 14 modeļi bez modif
+       ~ 'Discovery 3, L319': nav xado.ua atbilstibas
+       ~ 'Discovery 4, L319': nav xado.ua atbilstibas
+       ~ 'Discovery Sport, L550 (2015 - )': nav xado.ua atbilstibas
+       ~ 'Discovery, L462 (2016 - )': nav xado.ua atbilstibas
+       ~ 'Freelander 1, L314': nav xado.ua atbilstibas
+       ~ 'Freelander 2, L359': nav xado.ua atbilstibas
+       ~ 'Range Rover Evoque, L538': nav xado.ua atbilstibas
+       ~ 'Range Rover Evoque, L551 (2019 - )': nav xado.ua atbilstibas
+       ~ 'Range Rover Sport, L320': nav xado.ua atbilstibas
+       ~ 'Range Rover Sport, L494 (2013 - )': nav xado.ua atbilstibas
+       ~ 'Range Rover Velar, L560 (2017 - )': nav xado.ua atbilstibas
+       ~ 'Range Rover, L322/LM': nav xado.ua atbilstibas
+       ~ 'Range Rover, L405/LG (2013 - )': nav xado.ua atbilstibas
+       ~ 'Range Rover, P38A/LP': nav xado.ua atbilstibas
+[ 48%] Land Rover (USA): 2 modeļi bez modif
+       ~ 'Range Rover Sport, L320': nav xado.ua atbilstibas
+       ~ 'Range Rover Sport, L494 (2013 - )': nav xado.ua atbilstibas
+[ 52%] Lincoln: 8 modeļi bez modif
+       ~ 'MKS': nav xado.ua atbilstibas
+       ~ 'MKT': nav xado.ua atbilstibas
+       ~ 'MKX': nav xado.ua atbilstibas
+       ~ 'MKZ': nav xado.ua atbilstibas
+       ~ 'Nautilus(2018 - )': nav xado.ua atbilstibas
+       ~ 'Navigator (L)(1997 - )': nav xado.ua atbilstibas
+       ~ 'Town Car': nav xado.ua atbilstibas
+       ~ 'Zephyr': nav xado.ua atbilstibas
+[ 53%] Lotus: 3 modeļi bez modif
+       ~ 'Eclat': nav xado.ua atbilstibas
+       ~ 'Elan, M100': nav xado.ua atbilstibas
+       ~ 'Elise, MK1': nav xado.ua atbilstibas
+[ 56%] Mazda (EU): 32 modeļi bez modif
+       ~ '3, BL': nav xado.ua atbilstibas
+       ~ '3, BM/BN': nav xado.ua atbilstibas
+       ~ '3, BP (2019 - )': nav xado.ua atbilstibas
+       ~ '323': nav xado.ua atbilstibas
+       ~ '323F': nav xado.ua atbilstibas
+       ~ '5, CR': nav xado.ua atbilstibas
+       ~ '5, CW': nav xado.ua atbilstibas
+       ~ '6, GG/GY': nav xado.ua atbilstibas
+       ~ '6, GH/GZ': nav xado.ua atbilstibas
+       ~ '6, GJ/GL (2012 - )': nav xado.ua atbilstibas
+       ~ '626': nav xado.ua atbilstibas
+       ~ '929': nav xado.ua atbilstibas
+       ~ 'CX-3, DK (2015 - )': nav xado.ua atbilstibas
+       ~ 'CX-30, DM (2019 - )': nav xado.ua atbilstibas
+       ~ 'CX-5, KE': nav xado.ua atbilstibas
+       ~ 'CX-5, KF (2017 - )': nav xado.ua atbilstibas
+       ~ 'CX-60(2022 - )': nav xado.ua atbilstibas
+       ~ 'CX-7, ER': nav xado.ua atbilstibas
+       ~ 'CX-9, TB': nav xado.ua atbilstibas
+       ~ 'Demio, DW': nav xado.ua atbilstibas
+       ~ 'MPV, LV': nav xado.ua atbilstibas
+       ~ 'MPV, LW': nav xado.ua atbilstibas
+       ~ 'MX-3': nav xado.ua atbilstibas
+       ~ 'MX-30, DR (2020 - )': nav xado.ua atbilstibas
+       ~ 'MX-5 / Miata, NA': nav xado.ua atbilstibas
+       ~ 'MX-5 / Miata, NB': nav xado.ua atbilstibas
+       ~ 'MX-5 / Miata, NC': nav xado.ua atbilstibas
+       ~ 'MX-5 / Miata, ND (2015 - )': nav xado.ua atbilstibas
+       ~ 'MX-6': nav xado.ua atbilstibas
+       ~ 'Premacy, CP': nav xado.ua atbilstibas
+       ~ 'RX-7, FC': nav xado.ua atbilstibas
+       ~ 'RX-7, FD': nav xado.ua atbilstibas
+[ 57%] Mazda (USA / CAN): 27 modeļi bez modif
+       ~ '3, BM': nav xado.ua atbilstibas
+       ~ '3, BP (2018 - )': nav xado.ua atbilstibas
+       ~ '323 / Protegé, BJ': nav xado.ua atbilstibas
+       ~ '5, CR': nav xado.ua atbilstibas
+       ~ '5, CW': nav xado.ua atbilstibas
+       ~ '6, GG/GY': nav xado.ua atbilstibas
+       ~ '6, GH/GZ': nav xado.ua atbilstibas
+       ~ '6, GJ (2013 - )': nav xado.ua atbilstibas
+       ~ 'B, UN': nav xado.ua atbilstibas
+       ~ 'CX-3, DK (2015 - )': nav xado.ua atbilstibas
+       ~ 'CX-30, DM (2019 - )': nav xado.ua atbilstibas
+       ~ 'CX-5, KE': nav xado.ua atbilstibas
+       ~ 'CX-5, KF (2016 - )': nav xado.ua atbilstibas
+       ~ 'CX-50(2022 - )': nav xado.ua atbilstibas
+       ~ 'CX-7, ER': nav xado.ua atbilstibas
+       ~ 'CX-9, TB': nav xado.ua atbilstibas
+       ~ 'CX-9, TC (2015 - )': nav xado.ua atbilstibas
+       ~ 'MPV, LV': nav xado.ua atbilstibas
+       ~ 'MPV/ Premacy, CP': nav xado.ua atbilstibas
+       ~ 'MX-30, DR (2021 - )': nav xado.ua atbilstibas
+       ~ 'MX-5 / Miata, NA': nav xado.ua atbilstibas
+       ~ 'MX-5 / Miata, NB': nav xado.ua atbilstibas
+       ~ 'MX-5 / Miata, NC': nav xado.ua atbilstibas
+       ~ 'MX-5 / Miata, ND (2015 - )': nav xado.ua atbilstibas
+       ~ 'Millennia, TA': nav xado.ua atbilstibas
+       ~ 'RX-8, SE': nav xado.ua atbilstibas
+       ~ 'Tribute': nav xado.ua atbilstibas
+[ 59%] Mercedes-Benz (EU): 56 modeļi bez modif
+       ~ 'A-Class, W176': nav xado.ua atbilstibas
+       ~ 'A-Class, W177 / V177 (2018 - )': nav xado.ua atbilstibas
+       ~ 'AMG GT 4-Doors, X290 (2018 - )': nav xado.ua atbilstibas
+       ~ 'B-Class, W245': nav xado.ua atbilstibas
+       ~ 'B-Class, W246 / W242': nav xado.ua atbilstibas
+       ~ 'B-Class, W247 (2018 - )': nav xado.ua atbilstibas
+       ~ 'C-Class, W202 / S202': nav xado.ua atbilstibas
+       ~ 'C-Class, W203 / S203 / CL203': nav xado.ua atbilstibas
+       ~ 'C-Class, W204 / S204 / C204': nav xado.ua atbilstibas
+       ~ 'C-Class, W205 / V205 / S205 / C205 / A205': nav xado.ua atbilstibas
+       ~ 'C-Class, W206 / S206 / V206 (2021 - )': nav xado.ua atbilstibas
+       ~ 'CL-Class, C215': nav xado.ua atbilstibas
+       ~ 'CL-Class, C216': nav xado.ua atbilstibas
+       ~ 'CLA-Class, C117 / X117': nav xado.ua atbilstibas
+       ~ 'CLS-Class, C218 / X218': nav xado.ua atbilstibas
+       ~ 'CLS-Class, C219': nav xado.ua atbilstibas
+       ~ 'CLS-Class, C257 (2018 - )': nav xado.ua atbilstibas
+       ~ 'E-Class Coupé / Cabriolet, C207 / A207': nav xado.ua atbilstibas
+       ~ 'E-Class Coupé / Cabriolet, C238 / A238 (2017 - )': nav xado.ua atbilstibas
+       ~ 'E-Class, W124 / V124 / S124 / C124 / A124': nav xado.ua atbilstibas
+       ~ 'E-Class, W210 / S210': nav xado.ua atbilstibas
+       ~ 'E-Class, W211 / S211': nav xado.ua atbilstibas
+       ~ 'E-Class, W212 / V212 / S212': nav xado.ua atbilstibas
+       ~ 'E-Class, W213 / V213 / S213 (2016 - )': nav xado.ua atbilstibas
+       ~ 'EQA-Class, H243 (2021 - )': nav xado.ua atbilstibas
+       ~ 'EQB-Class, X243 (2022 - )': nav xado.ua atbilstibas
+       ~ 'EQC-Class, N293 (2019 - )': nav xado.ua atbilstibas
+       ~ 'EQS-Class, W297 (2021 - )': nav xado.ua atbilstibas
+       ~ 'G-Class, W460': nav xado.ua atbilstibas
+       ~ 'G-Class, W461 / 463': nav xado.ua atbilstibas
+       ~ 'G-Class, W463B (2018 - )': nav xado.ua atbilstibas
+       ~ 'GL-Class, X164': nav xado.ua atbilstibas
+       ~ 'GL-Class, X166': nav xado.ua atbilstibas
+       ~ 'GLA-Class, H247 (2019 - )': nav xado.ua atbilstibas
+       ~ 'GLA-Class, X156': nav xado.ua atbilstibas
+       ~ 'GLB-Class, X247 (2019 - )': nav xado.ua atbilstibas
+       ~ 'GLC-Class Coupé, C253 (2016 - )': nav xado.ua atbilstibas
+       ~ 'GLC-Class, X253 (2015 - )': nav xado.ua atbilstibas
+       ~ 'GLS-Class, X166': nav xado.ua atbilstibas
+       ~ 'GLS-Class, X167 (2019 - )': nav xado.ua atbilstibas
+       ~ 'M-Class, W163': nav xado.ua atbilstibas
+       ~ 'M-Class, W164': nav xado.ua atbilstibas
+       ~ 'M-Class, W166': nav xado.ua atbilstibas
+       ~ 'Mercedes-AMG GT, C190 / R190 (2015 - )': nav xado.ua atbilstibas
+       ~ 'R-Class, W251': nav xado.ua atbilstibas
+       ~ 'S-Class Coupé / Cabriolet, C217 / A217': nav xado.ua atbilstibas
+       ~ 'S-Class, W140 / V140 / C140': nav xado.ua atbilstibas
+       ~ 'S-Class, W220 / V220': nav xado.ua atbilstibas
+       ~ 'S-Class, W221 / V221': nav xado.ua atbilstibas
+       ~ 'S-Class, W222 / V222 / X222': nav xado.ua atbilstibas
+       ~ 'S-Class, W223 / V223 (2020 - )': nav xado.ua atbilstibas
+       ~ 'SL-Class, R129': nav xado.ua atbilstibas
+       ~ 'SL-Class, R230': nav xado.ua atbilstibas
+       ~ 'SL-Class, R231': nav xado.ua atbilstibas
+       ~ 'SL-Class, R232 (2021 - )': nav xado.ua atbilstibas
+       ~ 'SLC-Class, R172': nav xado.ua atbilstibas
+[ 60%] Mercedes-Benz (USA / CAN): 41 modeļi bez modif
+       ~ 'C-Class, W202 / S202': nav xado.ua atbilstibas
+       ~ 'C-Class, W203 / S203 / CL203': nav xado.ua atbilstibas
+       ~ 'C-Class, W204': nav xado.ua atbilstibas
+       ~ 'C-Class, W205 / V205 / S205 / C205 / A205 (2014 - )': nav xado.ua atbilstibas
+       ~ 'C-class, W206 / S206 / V206 (2021 - )': nav xado.ua atbilstibas
+       ~ 'CLA-Class, C117 / X117': nav xado.ua atbilstibas
+       ~ 'CLA-Class, C118 / X118 (2019 - )': nav xado.ua atbilstibas
+       ~ 'CLS-Class, C218 / X218': nav xado.ua atbilstibas
+       ~ 'CLS-Class, C219': nav xado.ua atbilstibas
+       ~ 'CLS-Class, C257 (2018 - )': nav xado.ua atbilstibas
+       ~ 'E-Class Coupé / Cabriolet, C238 / A238 (2017 - )': nav xado.ua atbilstibas
+       ~ 'E-Class, W211 / S211': nav xado.ua atbilstibas
+       ~ 'E-Class, W212 / V212 / S212': nav xado.ua atbilstibas
+       ~ 'E-Class, W213 / V213 / S213 (2016 - )': nav xado.ua atbilstibas
+       ~ 'EQS-Class, W297 (2021 - )': nav xado.ua atbilstibas
+       ~ 'G-Class, W461 / 463': nav xado.ua atbilstibas
+       ~ 'G-Class, W463B (2019 - )': nav xado.ua atbilstibas
+       ~ 'GL-Class, X164': nav xado.ua atbilstibas
+       ~ 'GL-Class, X166': nav xado.ua atbilstibas
+       ~ 'GLA-Class, H247 (2020 - )': nav xado.ua atbilstibas
+       ~ 'GLA-Class, X156': nav xado.ua atbilstibas
+       ~ 'GLB-Class, X247 (2019 - )': nav xado.ua atbilstibas
+       ~ 'GLC-Class / Coupé, X253 / C253 (2016 - )': nav xado.ua atbilstibas
+       ~ 'GLE-Class Coupé, C292': nav xado.ua atbilstibas
+       ~ 'GLE-Class, V167 (2018 - )': nav xado.ua atbilstibas
+       ~ 'GLE-Class, W166': nav xado.ua atbilstibas
+       ~ 'GLK-Class, X204': nav xado.ua atbilstibas
+       ~ 'GLS-Class, X166': nav xado.ua atbilstibas
+       ~ 'GLS-Class, X167 (2019 - )': nav xado.ua atbilstibas
+       ~ 'M-Class, W164': nav xado.ua atbilstibas
+       ~ 'M-Class, W166': nav xado.ua atbilstibas
+       ~ 'Mercedes-AMG GT, C190 / A190 (2015 - )': nav xado.ua atbilstibas
+       ~ 'R-Class, W251': nav xado.ua atbilstibas
+       ~ 'S-Class Coupé / Cabriolet, C217 / A217 (2014 - )': nav xado.ua atbilstibas
+       ~ 'S-Class, W220/V220': nav xado.ua atbilstibas
+       ~ 'S-Class, W221 / V221': nav xado.ua atbilstibas
+       ~ 'S-Class, W222 / V222 / X222': nav xado.ua atbilstibas
+       ~ 'S-Class, W223 / V223 (2021 - )': nav xado.ua atbilstibas
+       ~ 'SL-Class, R129': nav xado.ua atbilstibas
+       ~ 'SL-Class, R230': nav xado.ua atbilstibas
+       ~ 'SL-Class, R231 (2012 - )': nav xado.ua atbilstibas
+[ 61%] Mercury: 5 modeļi bez modif
+       ~ 'Mystique': nav xado.ua atbilstibas
+       ~ 'Sable': nav xado.ua atbilstibas
+       ~ 'Topaz': nav xado.ua atbilstibas
+       ~ 'Tracer': nav xado.ua atbilstibas
+       ~ 'Villager': nav xado.ua atbilstibas
+[ 64%] MINI (USA): 5 modeļi bez modif
+       ~ 'MINI Paceman, R61': nav xado.ua atbilstibas
+       ~ 'MINI Roadster, R59': nav xado.ua atbilstibas
+       ~ 'MINI, F55, F56 (2013 - )': nav xado.ua atbilstibas
+       ~ 'MINI, R50, R53': nav xado.ua atbilstibas
+       ~ 'MINI, R56, R56 LCI': nav xado.ua atbilstibas
+[ 64%] Mitsubishi (EU): 6 modeļi bez modif
+       ~ 'Eclipse': nav xado.ua atbilstibas
+       ~ 'Eclipse Cross(2017 - )': nav xado.ua atbilstibas
+       ~ 'FTO': nav xado.ua atbilstibas
+       ~ 'Lancer Evolution': nav xado.ua atbilstibas
+       ~ 'Lancer Sportback': nav xado.ua atbilstibas
+       ~ 'Lancer, CS0': nav xado.ua atbilstibas
+[ 67%] Nissan (EU): 30 modeļi bez modif
+       + 'Maxima': 1 modif, 2465 sader. kopā
+       + 'Maxima QX': 4 modif, 2493 sader. kopā
+       + 'Micra / March, K10': 4 modif, 2525 sader. kopā
+       + 'Micra / March, K11': 5 modif, 2574 sader. kopā
+       + 'Micra / March, K12': 8 modif, 2652 sader. kopā
+       + 'Micra / March, K13': 7 modif, 2707 sader. kopā
+       + 'Micra / March, K14 (2016 - )': 8 modif, 2747 sader. kopā
+       + 'Murano, Z50': 1 modif, 2758 sader. kopā
+       + 'Murano, Z51': 2 modif, 2773 sader. kopā
+       + 'Navara, D40': 8 modif, 2819 sader. kopā
+       + 'Note, E11': 12 modif, 2819 sader. kopā
+       + 'Note, E12': 3 modif, 2834 sader. kopā
+       + 'Pathfinder / Terrano': 14 modif, 2950 sader. kopā
+       + 'Pathfinder, R51': 7 modif, 2999 sader. kopā
+       + 'Patrol': 6 modif, 3045 sader. kopā
+       + 'Patrol, Y60': 12 modif, 3151 sader. kopā
+       + 'Patrol, Y61': 15 modif, 3241 sader. kopā
+       0  'Patrol, Y62': getTypes tukss
+       0  'Pixo, UA0': getTypes tukss
+       0  'Prairie': getTypes tukss
+       0  'Primera': getTypes tukss
+       0  'Pulsar, C13': getTypes tukss
+       0  'Qashqai, J10': getTypes tukss
+       0  'Qashqai, J11': getTypes tukss
+       0  'Qashqai, J12 (2021 - )': getTypes tukss
+       0  'Serena, C23': getTypes tukss
+       0  'Tiida, C11': getTypes tukss
+       0  'X-Trail, T30': getTypes tukss
+       0  'X-Trail, T31': getTypes tukss
+       + 'X-Trail, T32 (2014 - )': 11 modif, 3281 sader. kopā
+[ 68%] Nissan (USA / CAN): 10 modeļi bez modif
+       + 'Rogue, T33 (2020 - )': 4 modif, 3285 sader. kopā
+       + 'Sentra, B14': 10 modif, 3315 sader. kopā
+       + 'Sentra, B15': 16 modif, 3439 sader. kopā
+       + 'Titan, TA60': 13 modif, 3532 sader. kopā
+       0  'Versa Note, E12': getTypes tukss
+       0  'Versa, C11': getTypes tukss
+       0  'Versa, C12 (2011 - )': getTypes tukss
+       0  'X-trail, T30': getTypes tukss
+       0  'Xterra, N50': getTypes tukss
+       0  'Xterra, WD22': getTypes tukss
+[ 70%] Opel: 51 modeļi bez modif
+       ~ 'Ascona C, J82': nav xado.ua atbilstibas
+       ~ 'Astra F Cabrio, T92': nav xado.ua atbilstibas
+       ~ 'Astra F Classic I, M99': nav xado.ua atbilstibas
+       ~ 'Astra F, T92': nav xado.ua atbilstibas
+       ~ 'Astra G Cabrio, T98': nav xado.ua atbilstibas
+       ~ 'Astra G Classic II, T98': nav xado.ua atbilstibas
+       ~ 'Astra G, T98': nav xado.ua atbilstibas
+       ~ 'Astra H TwinTop, A04': nav xado.ua atbilstibas
+       ~ 'Astra H, A04': nav xado.ua atbilstibas
+       ~ 'Astra J, P10': nav xado.ua atbilstibas
+       ~ 'Astra K, B16 (2015 - )': nav xado.ua atbilstibas
+       ~ 'Astra L(2021 - )': nav xado.ua atbilstibas
+       ~ 'Calibra, C89': nav xado.ua atbilstibas
+       ~ 'Cascada, W13': nav xado.ua atbilstibas
+       ~ 'Combo C Tour': nav xado.ua atbilstibas
+       ~ 'Combo D Tour, X12': nav xado.ua atbilstibas
+       ~ 'Combo E Life, X19, K9 (2018 - )': nav xado.ua atbilstibas
+       ~ 'Corsa A, S83': nav xado.ua atbilstibas
+       ~ 'Corsa B, S93': nav xado.ua atbilstibas
+       ~ 'Corsa C, X01': nav xado.ua atbilstibas
+       ~ 'Corsa D, S07': nav xado.ua atbilstibas
+       ~ 'Corsa E, X15': nav xado.ua atbilstibas
+       ~ 'Corsa F(2019 - )': nav xado.ua atbilstibas
+       ~ 'Crossland X, P17': nav xado.ua atbilstibas
+       ~ 'Crossland(2020 - )': nav xado.ua atbilstibas
+       ~ 'Frontera A, U92': nav xado.ua atbilstibas
+       ~ 'Frontera B, U99': nav xado.ua atbilstibas
+       ~ 'GT, M07': nav xado.ua atbilstibas
+       ~ 'Grandland X, A18': nav xado.ua atbilstibas
+       ~ 'Grandland(2021 - )': nav xado.ua atbilstibas
+       ~ 'Insignia A, G09': nav xado.ua atbilstibas
+       ~ 'Insignia B, Z18 (2017 - )': nav xado.ua atbilstibas
+       ~ 'Kadett E, T85': nav xado.ua atbilstibas
+       ~ 'Karl, C16': nav xado.ua atbilstibas
+       ~ 'Meriva A, X03': nav xado.ua atbilstibas
+       ~ 'Meriva B, S10': nav xado.ua atbilstibas
+       ~ 'Mokka B(2021 - )': nav xado.ua atbilstibas
+       ~ 'Mokka X, J13': nav xado.ua atbilstibas
+       ~ 'Mokka, J13': nav xado.ua atbilstibas
+       ~ 'Monterey A, M92': nav xado.ua atbilstibas
+       ~ 'Monterey B, M98': nav xado.ua atbilstibas
+       ~ 'Sintra, APV': nav xado.ua atbilstibas
+       ~ 'Speedster, E01': nav xado.ua atbilstibas
+       ~ 'Tigra TwinTop, X04': nav xado.ua atbilstibas
+       ~ 'Tigra, S93': nav xado.ua atbilstibas
+       ~ 'Vectra A, J89': nav xado.ua atbilstibas
+       ~ 'Vectra B, J96': nav xado.ua atbilstibas
+       ~ 'Vectra C, Z02': nav xado.ua atbilstibas
+       ~ 'Zafira A, T98': nav xado.ua atbilstibas
+       ~ 'Zafira B, A05': nav xado.ua atbilstibas
+       ~ 'Zafira C, P12': nav xado.ua atbilstibas
+[ 71%] Peugeot: 37 modeļi bez modif
+       ~ '2008(2019 - )': nav xado.ua atbilstibas
+       ~ '205': nav xado.ua atbilstibas
+       ~ '206': nav xado.ua atbilstibas
+       ~ '206 CC': nav xado.ua atbilstibas
+       ~ '206+, T3E': nav xado.ua atbilstibas
+       ~ '207': nav xado.ua atbilstibas
+       ~ '207 Compact': nav xado.ua atbilstibas
+       ~ '208(2019 - )': nav xado.ua atbilstibas
+       ~ '208, CA, CC': nav xado.ua atbilstibas
+       ~ '3008': nav xado.ua atbilstibas
+       ~ '3008, P84 (2016 - )': nav xado.ua atbilstibas
+       ~ '301': nav xado.ua atbilstibas
+       ~ '306': nav xado.ua atbilstibas
+       ~ '307': nav xado.ua atbilstibas
+       ~ '308(2021 - )': nav xado.ua atbilstibas
+       ~ '308, T7': nav xado.ua atbilstibas
+       ~ '308, T9 (2013 - )': nav xado.ua atbilstibas
+       ~ '309': nav xado.ua atbilstibas
+       ~ '4007': nav xado.ua atbilstibas
+       ~ '4008': nav xado.ua atbilstibas
+       ~ '405': nav xado.ua atbilstibas
+       ~ '406': nav xado.ua atbilstibas
+       ~ '406 Coupé': nav xado.ua atbilstibas
+       ~ '407': nav xado.ua atbilstibas
+       ~ '5008': nav xado.ua atbilstibas
+       ~ '5008(2016 - )': nav xado.ua atbilstibas
+       ~ '505': nav xado.ua atbilstibas
+       ~ '508': nav xado.ua atbilstibas
+       ~ '508, R8 (2018 - )': nav xado.ua atbilstibas
+       ~ '605': nav xado.ua atbilstibas
+       ~ '607': nav xado.ua atbilstibas
+       ~ '806': nav xado.ua atbilstibas
+       ~ '807': nav xado.ua atbilstibas
+       ~ 'Bipper Tepee, A9': nav xado.ua atbilstibas
+       ~ 'RCZ': nav xado.ua atbilstibas
+       ~ 'Rifter, K9 (2018 - )': nav xado.ua atbilstibas
+       ~ 'Traveller(2016 - )': nav xado.ua atbilstibas
+[ 74%] Pontiac (USA / CAN): 4 modeļi bez modif
+       ~ 'GTO': nav xado.ua atbilstibas
+       ~ 'Montana': nav xado.ua atbilstibas
+       ~ 'Pursuit': nav xado.ua atbilstibas
+       ~ 'Solstice': nav xado.ua atbilstibas
+[ 74%] Porsche: 3 modeļi bez modif
+       ~ 'Cayenne Coupé, 9YB (2019 - )': nav xado.ua atbilstibas
+       ~ 'Taycan Sport Turismo, Y1C (2022 - )': nav xado.ua atbilstibas
+       ~ 'Taycan, Y1A (2019 - )': nav xado.ua atbilstibas
+[ 76%] Renault: 18 modeļi bez modif
+       ~ 'Buses': nav xado.ua atbilstibas
+       ~ 'C': nav xado.ua atbilstibas
+       ~ 'C series Euro 6(2014 - )': nav xado.ua atbilstibas
+       ~ 'D series Euro 6(2014 - )': nav xado.ua atbilstibas
+       ~ 'G Manager': nav xado.ua atbilstibas
+       ~ 'K series Euro 6(2014 - )': nav xado.ua atbilstibas
+       ~ 'Kerax': nav xado.ua atbilstibas
+       ~ 'M Midliner': nav xado.ua atbilstibas
+       ~ 'Magnum DXi': nav xado.ua atbilstibas
+       ~ 'Magnum E.Tech': nav xado.ua atbilstibas
+       ~ 'Midlum': nav xado.ua atbilstibas
+       ~ 'Premium': nav xado.ua atbilstibas
+       ~ 'Premium Euro 3': nav xado.ua atbilstibas
+       ~ 'Premium Euro 4/5': nav xado.ua atbilstibas
+       ~ 'R Major': nav xado.ua atbilstibas
+       ~ 'S Midliner': nav xado.ua atbilstibas
+       ~ 'T series Euro 5(2014 - )': nav xado.ua atbilstibas
+       ~ 'T series Euro 6(2014 - )': nav xado.ua atbilstibas
+[ 77%] Rolls-Royce: 1 modeļi bez modif
+       ~ 'Phantom, RR1': nav xado.ua atbilstibas
+[ 78%] Rover: 1 modeļi bez modif
+       ~ '600': nav xado.ua atbilstibas
+[ 79%] Samsung: 1 modeļi bez modif
+       ~ 'SM6, LFD': nav xado.ua atbilstibas
+[ 82%] Scion (USA / CAN): 7 modeļi bez modif
+       ~ 'iA': nav xado.ua atbilstibas
+       ~ 'iM': nav xado.ua atbilstibas
+       ~ 'iQ': nav xado.ua atbilstibas
+       ~ 'tC': nav xado.ua atbilstibas
+       ~ 'xA': nav xado.ua atbilstibas
+       ~ 'xB': nav xado.ua atbilstibas
+       ~ 'xD': nav xado.ua atbilstibas
+[ 82%] Seat: 5 modeļi bez modif
+       ~ 'Altea Freetrack, 5P8': nav xado.ua atbilstibas
+       ~ 'Altea XL, 5P5': nav xado.ua atbilstibas
+       ~ 'Altea, 5P1': nav xado.ua atbilstibas
+       ~ 'Arona, KJ7 (2017 - )': nav xado.ua atbilstibas
+       ~ 'León, KL (2019 - )': nav xado.ua atbilstibas
+[ 83%] Skoda: 2 modeļi bez modif
+       + 'Favorit': 3 modif, 3556 sader. kopā
+       + 'Felicia, 6U': 8 modif, 3691 sader. kopā
+[ 87%] Subaru (USA / CAN): 1 modeļi bez modif
+       + 'WRX, VA': 3 modif, 3694 sader. kopā
+[ 87%] Suzuki: 20 modeļi bez modif
+       + 'Ignis': 7 modif, 3751 sader. kopā
+       + 'Ignis, ATK (2016 - )': 12 modif, 3823 sader. kopā
+       + 'Jimny': 9 modif, 3913 sader. kopā
+       + 'Jimny, A6G (2018 - )': 2 modif, 3925 sader. kopā
+       + 'Kizashi': 2 modif, 3935 sader. kopā
+       + 'Liana': 7 modif, 3952 sader. kopā
+       0  'SX4 Classic': getTypes tukss
+       0  'SX4 S-Cross, AKK (2013 - )': getTypes tukss
+       0  'SX4 S-Cross, AKK (2022 - )': getTypes tukss
+       0  'Samurai': getTypes tukss
+       0  'Splash': getTypes tukss
+       0  'Swace(2020 - )': getTypes tukss
+       0  'Swift, A2L (2017 - )': getTypes tukss
+       0  'Swift, AZ': getTypes tukss
+       0  'Swift, RS': getTypes tukss
+       0  'Swift, SF': getTypes tukss
+       + 'Vitara': 7 modif, 4018 sader. kopā
+       + 'Vitara, APK / LY (2015 - )': 30 modif, 4215 sader. kopā
+       + 'Wagon R+': 10 modif, 4302 sader. kopā
+       + 'X-90': 1 modif, 4311 sader. kopā
+[ 89%] Tata: 2 modeļi bez modif
+       + 'Sumo(2008 - )': 5 modif, 4318 sader. kopā
+       0  'Tiago(2016 - )': getTypes tukss
+[ 90%] Tesla (USA): 1 modeļi bez modif
+       ~ 'Roadster': nav xado.ua atbilstibas
+[ 92%] Toyota (EU): 66 modeļi bez modif
+       ~ 'Avensis, T25': nav xado.ua atbilstibas
+       ~ 'Avensis, T27': nav xado.ua atbilstibas
+       ~ 'Aygo X, XB70 (2022 - )': nav xado.ua atbilstibas
+       ~ 'Aygo, XB10': nav xado.ua atbilstibas
+       ~ 'Aygo, XB40 (2014 - )': nav xado.ua atbilstibas
+       ~ 'C-HR(2016 - )': nav xado.ua atbilstibas
+       ~ 'Camry': nav xado.ua atbilstibas
+       ~ 'Camry, XV70 (2017 - )': nav xado.ua atbilstibas
+       ~ 'Carina E': nav xado.ua atbilstibas
+       ~ 'Carina II': nav xado.ua atbilstibas
+       ~ 'Celica': nav xado.ua atbilstibas
+       ~ 'Corolla Verso, E12': nav xado.ua atbilstibas
+       ~ 'Corolla Verso, R1': nav xado.ua atbilstibas
+       ~ 'Corolla, E10': nav xado.ua atbilstibas
+       ~ 'Corolla, E11': nav xado.ua atbilstibas
+       ~ 'Corolla, E12': nav xado.ua atbilstibas
+       ~ 'Corolla, E15': nav xado.ua atbilstibas
+       ~ 'Corolla, E18': nav xado.ua atbilstibas
+       ~ 'Corolla, E21 (2018 - )': nav xado.ua atbilstibas
+       ~ 'Corolla, E9': nav xado.ua atbilstibas
+       ~ 'Cressida': nav xado.ua atbilstibas
+       ~ 'GR86, ZN8 (2021 - )': nav xado.ua atbilstibas
+       ~ 'GT86, ZN6': nav xado.ua atbilstibas
+       ~ 'Highlander(2021 - )': nav xado.ua atbilstibas
+       ~ 'Hilux(2015 - )': nav xado.ua atbilstibas
+       ~ 'Hilux, AN10 / AN20': nav xado.ua atbilstibas
+       ~ 'Hilux, N140 / N150 / N160 / N170': nav xado.ua atbilstibas
+       ~ 'Hilux, N40 / N50': nav xado.ua atbilstibas
+       ~ 'Land Cruiser (Prado) 120, J12': nav xado.ua atbilstibas
+       ~ 'Land Cruiser (Prado) 150, J15 (2009 - )': nav xado.ua atbilstibas
+       ~ 'Land Cruiser (Prado) 70': nav xado.ua atbilstibas
+       ~ 'Land Cruiser (Prado) 70, J7': nav xado.ua atbilstibas
+       ~ 'Land Cruiser (Prado) 90, J9': nav xado.ua atbilstibas
+       ~ 'Land Cruiser 100, J10': nav xado.ua atbilstibas
+       ~ 'Land Cruiser 200 / V8, J20': nav xado.ua atbilstibas
+       ~ 'Land Cruiser 60, J6': nav xado.ua atbilstibas
+       ~ 'Land Cruiser 80, J8': nav xado.ua atbilstibas
+       ~ 'Lite-Ace': nav xado.ua atbilstibas
+       ~ 'MR2, W11': nav xado.ua atbilstibas
+       ~ 'MR2, W20': nav xado.ua atbilstibas
+       ~ 'MR2, W30': nav xado.ua atbilstibas
+       ~ 'Mirai(2014 - )': nav xado.ua atbilstibas
+       ~ 'Paseo, EL54': nav xado.ua atbilstibas
+       ~ 'Picnic, M10': nav xado.ua atbilstibas
+       ~ 'Prius +, W4': nav xado.ua atbilstibas
+       ~ 'Pro-Ace': nav xado.ua atbilstibas
+       ~ 'Pro-Ace City(2019 - )': nav xado.ua atbilstibas
+       ~ 'Pro-Ace(2016 - )': nav xado.ua atbilstibas
+       ~ 'RAV4, A3': nav xado.ua atbilstibas
+       ~ 'RAV4, A4': nav xado.ua atbilstibas
+       ~ 'RAV4, A5 (2018 - )': nav xado.ua atbilstibas
+       ~ 'Starlet': nav xado.ua atbilstibas
+       ~ 'Supra': nav xado.ua atbilstibas
+       ~ 'Supra, DB (2019 - )': nav xado.ua atbilstibas
+       ~ 'Urban Cruiser, XP10': nav xado.ua atbilstibas
+       ~ 'Verso S/ Ractis, XP12': nav xado.ua atbilstibas
+       ~ 'Verso, R1': nav xado.ua atbilstibas
+       ~ 'Verso, R2': nav xado.ua atbilstibas
+       ~ 'Yaris Cross(2021 - )': nav xado.ua atbilstibas
+       ~ 'Yaris(2020 - )': nav xado.ua atbilstibas
+       ~ 'Yaris, XP10': nav xado.ua atbilstibas
+       ~ 'Yaris, XP130': nav xado.ua atbilstibas
+       ~ 'Yaris, XP90': nav xado.ua atbilstibas
+       ~ 'Yaris/Echo Verso, XP20': nav xado.ua atbilstibas
+       ~ 'bZ4X(2022 - )': nav xado.ua atbilstibas
+       ~ 'iQ, XJ10': nav xado.ua atbilstibas
+[ 95%] Vauxhall: 8 modeļi bez modif
+       ~ 'Astra F Classic, M99': nav xado.ua atbilstibas
+       ~ 'Astra F, T92': nav xado.ua atbilstibas
+       ~ 'Monterey B, M98': nav xado.ua atbilstibas
+       ~ 'NOVA, S83': nav xado.ua atbilstibas
+       ~ 'Omega B, V94': nav xado.ua atbilstibas
+       ~ 'Senator B, V88': nav xado.ua atbilstibas
+       ~ 'Signum, Z03': nav xado.ua atbilstibas
+       ~ 'Sintra, APV': nav xado.ua atbilstibas
+[ 97%] Volkswagen (VW) (USA / CAN): 3 modeļi bez modif
+       ~ 'Golf VII, AU1': nav xado.ua atbilstibas
+       ~ 'Passat, A34 (2019 - )': nav xado.ua atbilstibas
+       ~ 'Phaeton, 3D': nav xado.ua atbilstibas
+
+=== Pabeigts ===
+  Laboti modeļi:        117
+  Jaunas modifikācijas: 1019
+  Jaunas saderības:     4318

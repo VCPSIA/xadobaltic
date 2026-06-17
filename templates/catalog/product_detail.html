@@ -1,0 +1,661 @@
+{% extends 'base.html' %}
+{% load i18n static catalog_filters %}
+
+{% block extra_css %}
+<style>
+/* Sociālie pogas */
+.soc-btn { display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;font-size:1.1rem;text-decoration:none;transition:.2s; }
+.soc-fb  { background:#1877f2;color:#fff; } .soc-fb:hover  { background:#0d65d9;color:#fff; }
+.soc-wa  { background:#25d366;color:#fff; } .soc-wa:hover  { background:#1da851;color:#fff; }
+.soc-tg  { background:#0088cc;color:#fff; } .soc-tg:hover  { background:#006ba3;color:#fff; }
+.soc-x   { background:#000;color:#fff; }    .soc-x:hover   { background:#333;color:#fff; }
+.soc-mail{ background:#6c757d;color:#fff; } .soc-mail:hover{ background:#5a6268;color:#fff; }
+/* Zvaigznīšu vērtējums */
+.star-rating { flex-direction:row-reverse; }
+.star-label i { color:#dee2e6; transition:.15s; }
+.star-rating input:checked ~ label i,
+.star-rating label:hover ~ label i,
+.star-rating label:hover i { color:#ffc107; }
+</style>
+{% endblock %}
+
+{% block title %}
+{% if LANGUAGE_CODE == 'ru' and product.name_ru %}{{ product.name_ru }}
+{% elif LANGUAGE_CODE == 'en' and product.name_en %}{{ product.name_en }}
+{% elif LANGUAGE_CODE == 'de' and product.name_de %}{{ product.name_de }}
+{% else %}{{ product.name_lv }}{% endif %} — XADO Baltic
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Atpakaļ poga -->
+    <button onclick="history.back()" class="btn btn-link text-decoration-none text-secondary ps-0 mb-2" style="font-size:.95rem;">
+        <i class="bi bi-arrow-left me-1"></i>{% trans "Atpakaļ" %}
+    </button>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">{% trans "Sākums" %}</a></li>
+            {% if product.category %}
+            <li class="breadcrumb-item"><a href="{% url 'category_detail' product.category.slug %}">
+                {% if LANGUAGE_CODE == 'ru' and product.category.name_ru %}{{ product.category.name_ru }}
+                {% elif LANGUAGE_CODE == 'en' and product.category.name_en %}{{ product.category.name_en }}
+                {% else %}{{ product.category.name_lv }}{% endif %}
+            </a></li>
+            {% endif %}
+            <li class="breadcrumb-item active">
+                {% if LANGUAGE_CODE == 'ru' and product.name_ru %}{{ product.name_ru|truncatechars:50 }}
+                {% elif LANGUAGE_CODE == 'en' and product.name_en %}{{ product.name_en|truncatechars:50 }}
+                {% elif LANGUAGE_CODE == 'de' and product.name_de %}{{ product.name_de|truncatechars:50 }}
+                {% else %}{{ product.name_lv|truncatechars:50 }}{% endif %}
+            </li>
+        </ol>
+    </nav>
+
+    <div class="row g-5">
+        <!-- Attēli -->
+        <div class="col-lg-5">
+            <div class="product-gallery">
+                <div class="product-main-img-wrap mb-3 rounded border bg-light p-3 text-center">
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" id="mainImg" class="img-fluid product-main-img" alt="{{ product.name_lv }}" style="max-height:420px;object-fit:contain">
+                    {% else %}
+                    <div class="d-flex align-items-center justify-content-center" style="height:350px">
+                        <i class="bi bi-image text-muted" style="font-size:5rem"></i>
+                    </div>
+                    {% endif %}
+                </div>
+                <!-- Thumbnails -->
+                {% with all_imgs=product.images.all %}
+                {% if product.image2 or product.image3 or all_imgs %}
+                <div class="d-flex gap-2 flex-wrap" id="thumbWrap">
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" class="product-thumb active" onclick="switchImg(this, '{{ product.image.url }}')">
+                    {% endif %}
+                    {% if product.image2 %}
+                    <img src="{{ product.image2.url }}" class="product-thumb" onclick="switchImg(this, '{{ product.image2.url }}')">
+                    {% endif %}
+                    {% if product.image3 %}
+                    <img src="{{ product.image3.url }}" class="product-thumb" onclick="switchImg(this, '{{ product.image3.url }}')">
+                    {% endif %}
+                    {% for img in all_imgs %}
+                    <img src="{{ img.image.url }}" class="product-thumb" onclick="switchImg(this, '{{ img.image.url }}')">
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+
+        <!-- Info -->
+        <div class="col-lg-7">
+            {% if product.brand %}
+            <a href="{% url 'brand_detail' product.brand.slug %}" class="badge bg-danger text-decoration-none fs-6 mb-2 d-inline-block">{{ product.brand.name }}</a>
+            {% endif %}
+
+            <div class="d-flex align-items-start gap-2 mb-2">
+            <h1 class="h2 fw-bold mb-0 flex-grow-1">
+                {% if LANGUAGE_CODE == 'ru' and product.name_ru %}{{ product.name_ru }}
+                {% elif LANGUAGE_CODE == 'en' and product.name_en %}{{ product.name_en }}
+                {% elif LANGUAGE_CODE == 'de' and product.name_de %}{{ product.name_de }}
+                {% else %}{{ product.name_lv }}{% endif %}
+            </h1>
+            <div class="d-flex flex-column gap-1 pt-1">
+                <button class="btn btn-sm {% if in_wishlist %}btn-danger{% else %}btn-outline-danger{% endif %} wishlist-btn"
+                        data-id="{{ product.pk }}"
+                        data-url="{% url 'wishlist_toggle' product.pk %}"
+                        title="Vēlmju saraksts" style="width:38px;height:38px;padding:0">
+                    <i class="bi {% if in_wishlist %}bi-heart-fill{% else %}bi-heart{% endif %}"></i>
+                </button>
+                <button class="btn btn-sm {% if in_compare %}btn-danger{% else %}btn-outline-secondary{% endif %} compare-btn"
+                        data-id="{{ product.pk }}"
+                        data-url="{% url 'compare_toggle' product.pk %}"
+                        title="Salīdzināt" style="width:38px;height:38px;padding:0">
+                    <i class="bi bi-bar-chart-line"></i>
+                </button>
+            </div>
+            </div>
+
+            <p class="text-muted small mb-2" id="skuRow"{% if not product.sku and not product.volumes.all %} style="display:none"{% endif %}>{% trans "Art." %}: <strong id="skuValue">{% with dv=product.default_volume %}{% if dv and dv.sku %}{{ dv.sku }}{% else %}{{ product.sku }}{% endif %}{% endwith %}</strong></p>
+
+            <!-- Tags -->
+            <div class="d-flex gap-2 mb-3 flex-wrap">
+                {% if product.is_new %}<span class="badge bg-success">NEW</span>{% endif %}
+                {% if product.is_sale %}<span class="badge bg-danger">SALE</span>{% endif %}
+                {% if product.viscosity %}<span class="badge bg-light text-dark border">{{ product.viscosity }}</span>{% endif %}
+                {% for app in product.applications.all %}
+                <span class="badge bg-secondary">
+                    {% if LANGUAGE_CODE == 'ru' and app.name_ru %}{{ app.name_ru }}
+                    {% elif LANGUAGE_CODE == 'en' and app.name_en %}{{ app.name_en }}
+                    {% else %}{{ app.name_lv }}{% endif %}
+                </span>
+                {% endfor %}
+            </div>
+
+            <!-- ===== TILPUMU IZVĒLE ===== -->
+            {% with volumes=product.volumes.all %}
+            {% if volumes %}
+            <div class="volume-selector mb-4">
+                <label class="form-label fw-semibold mb-2">{% trans "Izvēlieties tilpumu:" %}</label>
+                <div class="d-flex flex-wrap gap-2" id="volumeBtns">
+                    {% for vol in volumes %}
+                    {% if vol.is_active and vol.in_stock %}
+                    <button type="button"
+                        class="btn volume-btn {% if vol.is_default or forloop.first %}btn-danger active{% else %}btn-outline-secondary{% endif %}"
+                        data-vol-id="{{ vol.id }}"
+                        data-price="{{ vol.price }}"
+                        data-price-no-vat="{{ vol.price_without_vat }}"
+                        data-price-old="{% if vol.price_old %}{{ vol.price_old }}{% endif %}"
+                        data-label="{{ vol.label }}"
+                        data-sku="{{ vol.sku }}"
+                        data-stock="{% if vol.stock is not None %}{{ vol.stock }}{% else %}999{% endif %}"
+                        data-image="{% if vol.image %}{{ vol.image.url }}{% endif %}"
+                        data-images="[{% if vol.image %}&quot;{{ vol.image.url }}&quot;{% endif %}{% for img in vol.extra_images.all %}{% if vol.image or not forloop.first %},{% endif %}&quot;{{ img.image.url }}&quot;{% endfor %}]">
+                        {{ vol.get_label_display }}
+                    </button>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- CENA AR/BEZ PVN -->
+            <div class="price-block mb-4">
+                {% with default_vol=product.default_volume %}
+                {% if default_vol %}
+                <div id="priceDisplay">
+                    <div class="d-flex align-items-baseline gap-3 flex-wrap">
+                        <span class="display-6 fw-bold text-danger" id="priceWithVat">{{ default_vol.price|floatformat:2 }} €</span>
+                        {% if default_vol.price_old %}
+                        <span class="text-muted text-decoration-line-through fs-5" id="priceOld">{{ default_vol.price_old|floatformat:2 }} €</span>
+                        {% else %}
+                        <span class="text-muted text-decoration-line-through fs-5 d-none" id="priceOld"></span>
+                        {% endif %}
+                    </div>
+                    <div class="text-muted mt-1">
+                        {% trans "Bez PVN:" %} <span id="priceNoVat">{{ default_vol.price_without_vat|floatformat:2 }} €</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% endwith %}
+            </div>
+
+            <!-- PIEVIENOT GROZAM -->
+            <form method="post" action="{% url 'cart_add' product.id %}" id="addToCartForm">
+                {% csrf_token %}
+                <input type="hidden" name="volume_id" id="selectedVolumeId" value="{{ product.default_volume.id }}">
+                <div class="d-flex gap-3 align-items-center mb-3">
+                    <div class="qty-control d-flex align-items-center border rounded">
+                        <button type="button" class="btn btn-sm px-3" onclick="changeQty(-1)">−</button>
+                        <input type="number" name="quantity" id="qtyInput" value="1" min="1" max="99"
+                               class="form-control text-center border-0" style="width:60px">
+                        <button type="button" class="btn btn-sm px-3" onclick="changeQty(1)">+</button>
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-lg px-5 flex-grow-1" id="addBtn">
+                        <i class="bi bi-cart-plus"></i> {% trans "Pievienot grozam" %}
+                    </button>
+                </div>
+                <div id="stockInfo" class="text-muted small"></div>
+            </form>
+            {% else %}
+            <!-- Nav tilpumu — cena no produkta lauka -->
+            {% if product.price %}
+            <div class="price-block mb-4">
+                <span class="display-6 fw-bold text-danger">{{ product.price }} €</span>
+                {% if product.price_old %}
+                <span class="text-muted text-decoration-line-through ms-2 fs-5">{{ product.price_old }} €</span>
+                {% endif %}
+            </div>
+            {% endif %}
+            <div class="alert alert-warning">{% trans "Sazināties ar mums pasūtīšanai." %}</div>
+            {% endif %}
+            {% endwith %}
+
+            <!-- KONTAKTS -->
+            {% if site_settings.whatsapp or site_settings.viber %}
+            <div class="d-flex flex-wrap gap-2 mt-3">
+                {% if site_settings.whatsapp %}
+                <a href="https://wa.me/{{ site_settings.whatsapp }}" target="_blank" rel="noopener"
+                   class="d-inline-flex align-items-center gap-2 px-4 py-2 rounded-pill text-white text-decoration-none fw-semibold"
+                   style="background:#25d366;font-size:.95rem;">
+                    <i class="bi bi-whatsapp fs-5"></i> WhatsApp
+                </a>
+                {% endif %}
+                {% if site_settings.viber %}
+                <a href="viber://chat?number=%2B{{ site_settings.viber }}" target="_blank" rel="noopener"
+                   class="d-inline-flex align-items-center gap-2 px-4 py-2 rounded-pill text-white text-decoration-none fw-semibold"
+                   style="background:#7360f2;font-size:.95rem;">
+                    <i class="bi bi-phone fs-5"></i> Viber
+                </a>
+                {% endif %}
+            </div>
+            <div class="text-muted small mt-2">{% trans "Jautājumi? Sazinieties ar mums!" %}</div>
+            {% elif site_settings.phone %}
+            <div class="d-flex align-items-center gap-2 text-muted mt-2">
+                <i class="bi bi-telephone text-danger"></i>
+                {% trans "Jautājumi:" %}
+                <a href="tel:{{ site_settings.phone }}" class="text-danger fw-semibold text-decoration-none">{{ site_settings.phone }}</a>
+            </div>
+            {% endif %}
+
+            <!-- SOCIĀLIE TĪKLI -->
+            {% include 'catalog/_social_share.html' %}
+
+        </div>
+    </div>
+
+    <!-- TABS -->
+            <ul class="nav nav-tabs mt-5" id="productTabs">
+                <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tabDesc">
+                        <i class="bi bi-card-text"></i> {% trans "Apraksts" %}
+                    </button>
+                </li>
+                {% if product.specifications.exists or product.specifications_lv or product.specifications_ru or product.specifications_en or product.specifications_de %}
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabSpecs">
+                        <i class="bi bi-list-check"></i> {% trans "Specifikācijas" %}
+                    </button>
+                </li>
+                {% endif %}
+                {% if product.technical_items.exists %}
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabTech">
+                        <i class="bi bi-cpu"></i> {% trans "Tehniskā informācija" %}
+                    </button>
+                </li>
+                {% endif %}
+                {% if product.requirement_items.exists %}
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabReqs">
+                        <i class="bi bi-shield-check"></i> {% trans "Prasības" %}
+                    </button>
+                </li>
+                {% endif %}
+                {% if product.applications.exists %}
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabApps">
+                        <i class="bi bi-gear"></i> {% trans "Pielietojumi" %}
+                    </button>
+                </li>
+                {% endif %}
+                {% if product.video_embed_url %}
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabVideo">
+                        <i class="bi bi-play-circle"></i> Video
+                    </button>
+                </li>
+                {% endif %}
+            </ul>
+            <div class="tab-content border border-top-0 rounded-bottom p-4">
+
+                <!-- Apraksts -->
+                <div class="tab-pane fade show active" id="tabDesc">
+                    {% if LANGUAGE_CODE == 'ru' and product.description_ru %}{{ product.description_ru|clean_html }}
+                    {% elif LANGUAGE_CODE == 'en' and product.description_en %}{{ product.description_en|clean_html }}
+                    {% elif LANGUAGE_CODE == 'de' and product.description_de %}{{ product.description_de|clean_html }}
+                    {% elif product.description_lv %}{{ product.description_lv|clean_html }}
+                    {% else %}<p class="text-muted">Apraksts tiks pievienots drīzumā.</p>
+                    {% endif %}
+                </div>
+
+                <!-- Specifikācijas -->
+                <div class="tab-pane fade" id="tabSpecs">
+                    {% if product.specifications.exists %}
+                    <table class="table table-striped table-sm mb-3">
+                        {% for spec in product.specifications.all %}
+                        <tr>
+                            <td class="fw-semibold text-muted" style="width:40%">
+                                {% if LANGUAGE_CODE == 'ru' and spec.name_ru %}{{ spec.name_ru }}
+                                {% elif LANGUAGE_CODE == 'en' and spec.name_en %}{{ spec.name_en }}
+                                {% elif LANGUAGE_CODE == 'de' and spec.name_de %}{{ spec.name_de }}
+                                {% else %}{{ spec.name_lv }}{% endif %}
+                            </td>
+                            <td>{{ spec.value }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    {% endif %}
+                    {% if LANGUAGE_CODE == 'ru' and product.specifications_ru %}{{ product.specifications_ru|clean_html }}
+                    {% elif LANGUAGE_CODE == 'en' and product.specifications_en %}{{ product.specifications_en|clean_html }}
+                    {% elif LANGUAGE_CODE == 'de' and product.specifications_de %}{{ product.specifications_de|clean_html }}
+                    {% elif product.specifications_lv %}{{ product.specifications_lv|clean_html }}
+                    {% elif not product.specifications.exists %}<p class="text-muted">Specifikācijas nav pievienotas.</p>
+                    {% endif %}
+                </div>
+
+                <!-- Tehniskā informācija -->
+                <div class="tab-pane fade" id="tabTech">
+                    {% if product.technical_items.exists %}
+                    <table class="table table-striped table-sm mb-0">
+                        {% for item in product.technical_items.all %}
+                        <tr>
+                            <td class="fw-semibold text-muted" style="width:45%">
+                                {% if LANGUAGE_CODE == 'ru' and item.name_ru %}{{ item.name_ru }}
+                                {% elif LANGUAGE_CODE == 'en' and item.name_en %}{{ item.name_en }}
+                                {% elif LANGUAGE_CODE == 'de' and item.name_de %}{{ item.name_de }}
+                                {% else %}{{ item.name_lv }}{% endif %}
+                            </td>
+                            <td>{{ item.value }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    {% else %}
+                    <p class="text-muted">Tehniskā informācija nav pievienota.</p>
+                    {% endif %}
+                </div>
+
+                <!-- Prasības -->
+                <div class="tab-pane fade" id="tabReqs">
+                    {% if product.requirement_items.exists %}
+                    <table class="table table-striped table-sm mb-0">
+                        {% for item in product.requirement_items.all %}
+                        <tr>
+                            <td class="fw-semibold text-muted" style="width:45%">
+                                {% if LANGUAGE_CODE == 'ru' and item.name_ru %}{{ item.name_ru }}
+                                {% elif LANGUAGE_CODE == 'en' and item.name_en %}{{ item.name_en }}
+                                {% elif LANGUAGE_CODE == 'de' and item.name_de %}{{ item.name_de }}
+                                {% else %}{{ item.name_lv }}{% endif %}
+                            </td>
+                            <td>{{ item.value }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    {% else %}
+                    <p class="text-muted">Prasības nav norādītas.</p>
+                    {% endif %}
+                </div>
+
+                <!-- Pielietojumi -->
+                {% if product.applications.exists %}
+                <div class="tab-pane fade" id="tabApps">
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for app in product.applications.all %}
+                        <span class="badge bg-light text-dark border px-3 py-2 fs-6">
+                            {% if app.icon %}<i class="bi {{ app.icon }} me-1"></i>{% endif %}
+                            {% if LANGUAGE_CODE == 'ru' and app.name_ru %}{{ app.name_ru }}
+                            {% elif LANGUAGE_CODE == 'en' and app.name_en %}{{ app.name_en }}
+                            {% elif LANGUAGE_CODE == 'de' and app.name_de %}{{ app.name_de }}
+                            {% else %}{{ app.name_lv }}{% endif %}
+                        </span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Video -->
+                {% if product.video_embed_url %}
+                <div class="tab-pane fade" id="tabVideo">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="{{ product.video_embed_url }}"
+                                title="{{ product.name_lv }}"
+                                allowfullscreen
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                        </iframe>
+                    </div>
+                </div>
+                {% endif %}
+
+    </div>
+
+    <!-- ATSAUKSMES -->
+    <hr class="my-5">
+    <div class="row g-5">
+        <!-- Atsauksmju saraksts -->
+        <div class="col-lg-7">
+            <h3 class="section-title mb-4">
+                {% trans "Atsauksmes" %}
+                {% if review_count %}
+                <span class="badge bg-danger ms-2" style="font-size:.7rem">{{ review_count }}</span>
+                {% if avg_rating %}
+                <span class="text-warning ms-2" style="font-size:1rem">
+                    {% for i in "12345" %}{% if forloop.counter <= avg_rating %}★{% else %}☆{% endif %}{% endfor %}
+                    <span class="text-muted small">{{ avg_rating }}/5</span>
+                </span>
+                {% endif %}
+                {% endif %}
+            </h3>
+
+            {% for review in reviews %}
+            <div class="card border-0 shadow-sm mb-3">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <strong>{{ review.name }}</strong>
+                            <span class="text-warning ms-2">
+                                {% for i in "12345" %}{% if forloop.counter <= review.rating %}★{% else %}☆{% endif %}{% endfor %}
+                            </span>
+                        </div>
+                        <small class="text-muted">{{ review.created_at|date:"d.m.Y" }}</small>
+                    </div>
+                    <p class="mt-2 mb-0">{{ review.text }}</p>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-muted">{% trans "Vēl nav atsauksmju. Esiet pirmais!" %}</p>
+            {% endfor %}
+        </div>
+
+        <!-- Atsauksmes forma -->
+        <div class="col-lg-5">
+            <h4 class="mb-3">{% trans "Rakstīt atsauksmi" %}</h4>
+            {% if messages %}
+            {% for msg in messages %}
+            <div class="alert alert-{{ msg.tags }} alert-dismissible fade show">{{ msg }}<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>
+            {% endfor %}
+            {% endif %}
+            <form method="post" action="{% url 'add_review' product.slug %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">{% trans "Vārds" %} <span class="text-danger">*</span></label>
+                    <input type="text" name="name" class="form-control"
+                           value="{% if request.user.is_authenticated %}{{ request.user.get_full_name|default:request.user.username }}{% endif %}"
+                           required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{% trans "E-pasts" %}</label>
+                    <input type="email" name="email" class="form-control"
+                           value="{% if request.user.is_authenticated %}{{ request.user.email }}{% endif %}">
+                </div>
+                <!-- Zvaigznīšu vērtējums -->
+                <div class="mb-3">
+                    <label class="form-label">{% trans "Vērtējums" %}</label>
+                    <div class="d-flex gap-1 align-items-center">
+                        <div id="starWidget" style="display:flex;flex-direction:row;gap:4px;">
+                            <i class="bi bi-star-fill star-pick" data-val="1" style="font-size:1.8rem;cursor:pointer;color:#ffc107"></i>
+                            <i class="bi bi-star-fill star-pick" data-val="2" style="font-size:1.8rem;cursor:pointer;color:#ffc107"></i>
+                            <i class="bi bi-star-fill star-pick" data-val="3" style="font-size:1.8rem;cursor:pointer;color:#ffc107"></i>
+                            <i class="bi bi-star-fill star-pick" data-val="4" style="font-size:1.8rem;cursor:pointer;color:#ffc107"></i>
+                            <i class="bi bi-star-fill star-pick" data-val="5" style="font-size:1.8rem;cursor:pointer;color:#ffc107"></i>
+                        </div>
+                        <span id="starLabel" class="ms-2 text-muted small">5 — Lieliski</span>
+                    </div>
+                    <input type="hidden" name="rating" id="ratingInput" value="5">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{% trans "Atsauksme" %} <span class="text-danger">*</span></label>
+                    <textarea name="text" class="form-control" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-danger w-100">
+                    <i class="bi bi-send me-1"></i> {% trans "Nosūtīt atsauksmi" %}
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Saistītie produkti -->
+    {% if related %}
+    <hr class="my-5">
+    <h3 class="section-title mb-4">{% trans "Saistītie produkti" %}</h3>
+    <div class="row g-3">
+        {% for product in related %}
+        {% include 'catalog/product_card.html' %}
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Noklusētais attēls (pirms tilpuma izvēles)
+const mainImg = document.getElementById('mainImg');
+const defaultImgSrc = mainImg ? mainImg.src : '';
+
+// Tilpumu cenu maiņa
+const volBtns = document.querySelectorAll('.volume-btn');
+volBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        volBtns.forEach(b => { b.classList.remove('btn-danger', 'active'); b.classList.add('btn-outline-secondary'); });
+        this.classList.remove('btn-outline-secondary');
+        this.classList.add('btn-danger', 'active');
+
+        const price = parseFloat(this.dataset.price.replace(',', '.'));
+        const priceOld = this.dataset.priceOld ? parseFloat(this.dataset.priceOld.replace(',', '.')) : null;
+        const volId = this.dataset.volId;
+        const stock = parseInt(this.dataset.stock);
+
+        // Attēlu galerijas maiņa
+        const images = JSON.parse(this.dataset.images || '[]');
+        const thumbWrap = document.getElementById('thumbWrap');
+        if (mainImg) {
+            if (images.length > 0) {
+                mainImg.src = images[0];
+                if (thumbWrap) {
+                    thumbWrap.innerHTML = images.map((url, i) =>
+                        `<img src="${url}" class="product-thumb${i===0?' active':''}" onclick="switchImg(this,'${url}')">`
+                    ).join('');
+                }
+            } else {
+                mainImg.src = this.dataset.image || defaultImgSrc;
+                if (thumbWrap) thumbWrap.innerHTML = '';
+            }
+        }
+
+        document.getElementById('priceWithVat').textContent = price.toFixed(2) + ' €';
+        document.getElementById('priceNoVat').textContent = (price / 1.21).toFixed(2) + ' €';
+        document.getElementById('selectedVolumeId').value = volId;
+
+        const sku = this.dataset.sku;
+        const skuRow = document.getElementById('skuRow');
+        const skuVal = document.getElementById('skuValue');
+        if (skuRow && skuVal) {
+            if (sku) { skuVal.textContent = sku; skuRow.style.display = ''; }
+            else { skuRow.style.display = 'none'; }
+        }
+
+        const oldEl = document.getElementById('priceOld');
+        if (priceOld) {
+            oldEl.textContent = priceOld.toFixed(2) + ' €';
+            oldEl.classList.remove('d-none');
+        } else {
+            oldEl.classList.add('d-none');
+        }
+
+        const stockInfo = document.getElementById('stockInfo');
+        if (stock <= 0) {
+            stockInfo.innerHTML = '<span class="text-danger"><i class="bi bi-x-circle"></i> Nav noliktavā</span>';
+            document.getElementById('addBtn').disabled = true;
+        } else if (stock < 5) {
+            stockInfo.innerHTML = '<span class="text-warning"><i class="bi bi-exclamation-circle"></i> Palicis maz: ' + stock + ' gab.</span>';
+            document.getElementById('addBtn').disabled = false;
+        } else {
+            stockInfo.innerHTML = '<span class="text-success"><i class="bi bi-check-circle"></i> Ir noliktavā</span>';
+            document.getElementById('addBtn').disabled = false;
+        }
+    });
+});
+
+// Quantity kontrole
+function changeQty(delta) {
+    const input = document.getElementById('qtyInput');
+    const newVal = Math.max(1, Math.min(99, parseInt(input.value || 1) + delta));
+    input.value = newVal;
+}
+
+// Attēlu galerija
+function switchImg(el, url) {
+    document.getElementById('mainImg').src = url;
+    document.querySelectorAll('.product-thumb').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+}
+
+// AJAX pievienošana grozam
+document.getElementById('addToCartForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('addBtn');
+    const origText = btn.innerHTML;
+    fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: {'X-Requested-With': 'XMLHttpRequest'}
+    }).then(r => r.json()).then(data => {
+        btn.innerHTML = '<i class="bi bi-check-lg"></i> {% trans "Pievienots!" %}';
+        btn.classList.add('btn-success');
+        btn.classList.remove('btn-danger');
+        // Atjaunina grozu badge
+        const badge = document.getElementById('cartBadge');
+        if (badge) badge.textContent = data.cart_count;
+        else {
+            const cartLink = document.querySelector('a[href*="cart"]');
+            if (cartLink) cartLink.innerHTML += '<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartBadge">' + data.cart_count + '</span>';
+        }
+        setTimeout(() => { btn.innerHTML = origText; btn.classList.remove('btn-success'); btn.classList.add('btn-danger'); }, 2500);
+    }).catch(() => this.submit());
+});
+
+// Wishlist & Compare AJAX
+function ajaxToggle(url, btn, activeClass, activeIcon, inactiveIcon) {
+    fetch(url, {
+        method: 'POST',
+        headers: { 'X-CSRFToken': '{{ csrf_token }}', 'X-Requested-With': 'XMLHttpRequest' }
+    }).then(r => r.json()).then(data => {
+        if (data.error === 'max') {
+            alert('Salīdzināšanā var pievienot ne vairāk kā 4 produktus.'); return;
+        }
+        const icon = btn.querySelector('i');
+        if (data.in_wishlist !== undefined) {
+            if (data.in_wishlist) { btn.classList.add('btn-danger'); btn.classList.remove('btn-outline-danger'); icon.className = 'bi ' + activeIcon; }
+            else { btn.classList.remove('btn-danger'); btn.classList.add('btn-outline-danger'); icon.className = 'bi ' + inactiveIcon; }
+            const wlBadge = document.getElementById('wishlistBadge');
+            if (wlBadge) wlBadge.textContent = data.count || '';
+        }
+        if (data.in_compare !== undefined) {
+            if (data.in_compare) { btn.classList.add('btn-danger'); btn.classList.remove('btn-outline-secondary'); }
+            else { btn.classList.remove('btn-danger'); btn.classList.add('btn-outline-secondary'); }
+            const cmpBadge = document.getElementById('compareBadge');
+            if (cmpBadge) cmpBadge.textContent = data.count || '';
+        }
+    });
+}
+
+// Zvaigznīšu vērtējums
+const starLabels = {1:'1 — Ļoti slikti', 2:'2 — Slikti', 3:'3 — Vidēji', 4:'4 — Labi', 5:'5 — Lieliski'};
+const stars = document.querySelectorAll('.star-pick');
+const ratingInput = document.getElementById('ratingInput');
+const starLabelEl = document.getElementById('starLabel');
+function setStars(val) {
+    stars.forEach(s => {
+        s.style.color = parseInt(s.dataset.val) <= val ? '#ffc107' : '#dee2e6';
+    });
+    if (ratingInput) ratingInput.value = val;
+    if (starLabelEl) starLabelEl.textContent = starLabels[val] || '';
+}
+stars.forEach(s => {
+    s.addEventListener('click', () => setStars(parseInt(s.dataset.val)));
+    s.addEventListener('mouseenter', () => {
+        stars.forEach(x => x.style.color = parseInt(x.dataset.val) <= parseInt(s.dataset.val) ? '#ffc107' : '#dee2e6');
+    });
+    s.addEventListener('mouseleave', () => setStars(parseInt(ratingInput ? ratingInput.value : 5)));
+});
+setStars(5);
+
+document.querySelectorAll('.wishlist-btn').forEach(btn => {
+    btn.addEventListener('click', () => ajaxToggle(btn.dataset.url, btn, 'btn-danger', 'bi-heart-fill', 'bi-heart'));
+});
+document.querySelectorAll('.compare-btn').forEach(btn => {
+    btn.addEventListener('click', () => ajaxToggle(btn.dataset.url, btn, 'btn-danger', 'bi-bar-chart-line', 'bi-bar-chart-line'));
+});
+</script>
+{% endblock %}

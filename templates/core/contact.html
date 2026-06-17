@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Kontakti" %} — XADO Baltic{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1 class="section-title mb-5">{% trans "Kontakti" %}</h1>
+    <div class="row g-5">
+        <div class="col-md-6">
+            <div class="contact-info">
+                {% if site_settings.phone %}
+                <div class="contact-item mb-4">
+                    <i class="bi bi-telephone-fill text-danger fs-3"></i>
+                    <div class="ms-3">
+                        <div class="fw-bold">{% trans "Tālrunis" %}</div>
+                        <a href="tel:{{ site_settings.phone }}" class="text-dark fs-5">{{ site_settings.phone }}</a>
+                    </div>
+                </div>
+                {% endif %}
+                {% if site_settings.email %}
+                <div class="contact-item mb-4">
+                    <i class="bi bi-envelope-fill text-danger fs-3"></i>
+                    <div class="ms-3">
+                        <div class="fw-bold">{% trans "E-pasts" %}</div>
+                        <a href="mailto:{{ site_settings.email }}" class="text-dark fs-5">{{ site_settings.email }}</a>
+                    </div>
+                </div>
+                {% endif %}
+                {% if site_settings.address_lv %}
+                <div class="contact-item mb-4">
+                    <i class="bi bi-geo-alt-fill text-danger fs-3"></i>
+                    <div class="ms-3">
+                        <div class="fw-bold">{% trans "Adrese" %}</div>
+                        <p class="mb-0">
+                        {% if LANGUAGE_CODE == 'ru' and site_settings.address_ru %}{{ site_settings.address_ru }}
+                        {% elif LANGUAGE_CODE == 'en' and site_settings.address_en %}{{ site_settings.address_en }}
+                        {% elif LANGUAGE_CODE == 'de' and site_settings.address_de %}{{ site_settings.address_de }}
+                        {% else %}{{ site_settings.address_lv }}{% endif %}
+                        </p>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="d-flex gap-3 mt-4">
+                    {% if site_settings.facebook %}<a href="{{ site_settings.facebook }}" target="_blank" class="btn btn-outline-secondary"><i class="bi bi-facebook"></i> Facebook</a>{% endif %}
+                    {% if site_settings.instagram %}<a href="{{ site_settings.instagram }}" target="_blank" class="btn btn-outline-secondary"><i class="bi bi-instagram"></i> Instagram</a>{% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm p-4">
+                <h5 class="fw-bold mb-4">{% trans "Nosūtīt ziņojumu" %}</h5>
+                <div class="mb-3">
+                    <label class="form-label">{% trans "Vārds" %}</label>
+                    <input type="text" class="form-control" placeholder="{% trans 'Jūsu vārds' %}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{% trans "E-pasts vai tālrunis" %}</label>
+                    <input type="text" class="form-control" placeholder="{% trans 'Kontaktinformācija' %}">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{% trans "Ziņojums" %}</label>
+                    <textarea class="form-control" rows="5" placeholder="{% trans 'Jūsu jautājums vai pieprasījums' %}"></textarea>
+                </div>
+                <button class="btn btn-danger px-5">{% trans "Nosūtīt" %}</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% load i18n %}
+<div class="col-6 col-md-4 col-lg-3">
+    <div class="product-card h-100 position-relative">
+        <!-- Wishlist/Compare pogas -->
+        <div class="product-card-actions">
+            <button class="pca-btn wishlist-btn"
+                    data-id="{{ product.pk }}"
+                    data-url="{% url 'wishlist_toggle' product.pk %}"
+                    title="Pievienot vēlmju sarakstam">
+                <i class="bi bi-heart"></i>
+            </button>
+            <button class="pca-btn compare-btn"
+                    data-id="{{ product.pk }}"
+                    data-url="{% url 'compare_toggle' product.pk %}"
+                    title="Pievienot salīdzināšanai">
+                <i class="bi bi-bar-chart-line"></i>
+            </button>
+        </div>
+
+        <a href="{% url 'product_detail' product.slug %}" class="product-card-img-link">
+            {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name_lv }}" class="product-card-img">
+            {% else %}
+            <div class="product-card-no-img"><i class="bi bi-image text-muted fs-1"></i></div>
+            {% endif %}
+            <div class="product-badges">
+                {% if product.is_new %}<span class="badge bg-success">NEW</span>{% endif %}
+                {% if product.is_sale %}<span class="badge bg-danger">SALE</span>{% endif %}
+                {% if product.discount_percent %}<span class="badge bg-warning text-dark">-{{ product.discount_percent }}%</span>{% endif %}
+            </div>
+        </a>
+        <div class="product-card-body">
+            {% if product.brand %}
+            <div class="product-brand text-muted small">{{ product.brand.name }}</div>
+            {% endif %}
+            <h6 class="product-name mt-1">
+                <a href="{% url 'product_detail' product.slug %}" class="text-dark text-decoration-none">
+                    {% if LANGUAGE_CODE == 'ru' and product.name_ru %}{{ product.name_ru }}
+                    {% elif LANGUAGE_CODE == 'en' and product.name_en %}{{ product.name_en }}
+                    {% elif LANGUAGE_CODE == 'de' and product.name_de %}{{ product.name_de }}
+                    {% else %}{{ product.name_lv }}{% endif %}
+                </a>
+            </h6>
+            {% if product.viscosity %}
+            <span class="badge bg-light text-dark border">{{ product.viscosity }}</span>
+            {% endif %}
+            <div class="product-price mt-2">
+                {% if product.price %}
+                <span class="fw-bold text-danger fs-5">{{ product.price|floatformat:2 }} €</span>
+                {% if product.price_old %}
+                <span class="text-muted text-decoration-line-through ms-2 small">{{ product.price_old|floatformat:2 }} €</span>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ subcat_name }} — XADO Baltic{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">Sākums</a></li>
+            <li class="breadcrumb-item text-muted">{{ tab_label }}</li>
+            <li class="breadcrumb-item">
+                <a href="{% url 'nav_category_detail' subcat.parent.pk %}">{{ parent_name }}</a>
+            </li>
+            <li class="breadcrumb-item active">{{ subcat_name }}</li>
+        </ol>
+    </nav>
+
+    <h1 class="section-title mb-5">{{ subcat_name }}</h1>
+
+    {% if products %}
+    <div class="row g-4">
+        {% for product in products %}
+        {% include 'catalog/product_card.html' %}
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-5">
+        <i class="bi bi-box-seam text-muted" style="font-size:3rem;"></i>
+        <p class="text-muted mt-3">Šajā kategorijā produkti vēl nav pievienoti.</p>
+        <a href="{% url 'nav_category_detail' subcat.parent.pk %}" class="btn btn-outline-danger mt-2">
+            Atpakaļ uz {{ parent_name }}
+        </a>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

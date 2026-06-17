@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { margin:0; padding:0; background:#f5f5f5; font-family: Arial, Helvetica, sans-serif; color:#333; font-size:14px; }
+  .wrap { max-width:720px; margin:24px auto; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,.1); }
+  .header { background:#1a1a1a; color:#fff; padding:28px 32px; }
+  .header-brand { font-size:28px; font-weight:900; letter-spacing:-1px; }
+  .header-brand span { color:#e30613; }
+  .header-sub { font-size:13px; color:#aaa; margin-top:4px; }
+  .invoice-title { background:#e30613; color:#fff; padding:14px 32px; font-size:18px; font-weight:bold; display:flex; justify-content:space-between; align-items:center; }
+  .invoice-title .inv-date { font-size:13px; font-weight:normal; opacity:.85; }
+  .body { padding:28px 32px; }
+  .parties { display:table; width:100%; margin-bottom:28px; border-collapse:collapse; }
+  .party { display:table-cell; width:50%; vertical-align:top; padding-right:24px; }
+  .party:last-child { padding-right:0; padding-left:24px; border-left:1px solid #e8e8e8; }
+  .party-title { font-size:11px; text-transform:uppercase; letter-spacing:1px; color:#e30613; font-weight:bold; margin-bottom:8px; }
+  .party-name { font-size:15px; font-weight:bold; margin-bottom:4px; }
+  .party p { margin:2px 0; color:#555; font-size:13px; }
+  table.items { width:100%; border-collapse:collapse; margin-bottom:20px; }
+  table.items th { background:#1a1a1a; color:#fff; padding:10px 12px; text-align:left; font-size:12px; text-transform:uppercase; letter-spacing:.5px; }
+  table.items td { padding:10px 12px; border-bottom:1px solid #f0f0f0; font-size:13px; }
+  table.items tr:last-child td { border-bottom:none; }
+  table.items .num { text-align:right; }
+  table.items .shipping td { color:#666; font-style:italic; }
+  .totals { margin-left:auto; width:320px; }
+  .totals table { width:100%; border-collapse:collapse; }
+  .totals td { padding:6px 12px; font-size:13px; }
+  .totals td:last-child { text-align:right; font-weight:600; }
+  .totals .total-row td { background:#1a1a1a; color:#fff; font-size:16px; font-weight:bold; padding:10px 12px; border-radius:4px; }
+  .totals .total-row td:last-child { color:#e30613; }
+  .payment-box { background:#fff8e1; border:1px solid #f59e0b; border-radius:8px; padding:20px 24px; margin-top:24px; }
+  .payment-box h3 { margin:0 0 12px; font-size:14px; color:#92400e; }
+  .payment-box table { border-collapse:collapse; }
+  .payment-box td { padding:4px 0; font-size:13px; }
+  .payment-box td:first-child { color:#666; width:160px; }
+  .payment-box td:last-child { font-weight:600; }
+  .payment-target { font-size:15px; color:#e30613; font-weight:bold; margin-top:8px; }
+  .footer-bar { background:#f5f5f5; padding:18px 32px; text-align:center; font-size:12px; color:#999; border-top:1px solid #e8e8e8; }
+  .footer-bar a { color:#e30613; text-decoration:none; }
+  @media (max-width:600px) {
+    .parties { display:block; }
+    .party { display:block; width:100%; padding:0 0 16px 0 !important; border:none !important; border-bottom:1px solid #e8e8e8 !important; margin-bottom:16px; }
+    .invoice-title { flex-direction:column; gap:4px; }
+    .totals { width:100%; }
+    .body { padding:20px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-brand"><span>XADO</span> Baltic</div>
+    <div class="header-sub">{{ seller.website }} &nbsp;|&nbsp; {{ seller.email }} &nbsp;|&nbsp; {{ seller.phone }}</div>
+  </div>
+
+  <!-- Invoice title bar -->
+  <div class="invoice-title">
+    <div>&#128196;&nbsp; RĒĶINS Nr. {{ order.invoice_number }}</div>
+    <div class="inv-date">Datums: {{ order.invoice_date|date:"d.m.Y" }}</div>
+  </div>
+
+  <div class="body">
+
+    <!-- Parties -->
+    <div class="parties">
+      <div class="party">
+        <div class="party-title">Pārdevējs</div>
+        <div class="party-name">{{ seller.name }}</div>
+        <p>Reģ. Nr.: {{ seller.reg_nr }}</p>
+        <p>PVN Nr.: {{ seller.vat_nr }}</p>
+        <p>{{ seller.address }}, {{ seller.city }}, {{ seller.postal_code }}</p>
+        <p>{{ seller.country }}</p>
+        <p>{{ seller.email }}</p>
+        <p>{{ seller.phone }}</p>
+      </div>
+      <div class="party">
+        <div class="party-title">Pircējs</div>
+        <div class="party-name">{{ order.full_name }}</div>
+        {% if order.company %}<p>{{ order.company }}</p>{% endif %}
+        {% if order.vat_nr %}<p>PVN Nr.: {{ order.vat_nr }}</p>{% endif %}
+        <p>{{ order.address_line1 }}{% if order.address_line2 %}, {{ order.address_line2 }}{% endif %}</p>
+        <p>{{ order.city }}, {{ order.postal_code }}</p>
+        <p>{{ order.country }}</p>
+        <p>{{ order.email }}</p>
+        <p>{{ order.phone }}</p>
+      </div>
+    </div>
+
+    <!-- Pasūtījuma info -->
+    <p style="color:#666;font-size:13px;margin-bottom:16px">
+      Pasūtījums Nr.: <strong>{{ order.number }}</strong> &nbsp;|&nbsp;
+      Datums: <strong>{{ order.created_at|date:"d.m.Y" }}</strong> &nbsp;|&nbsp;
+      Maksājums: <strong>{% if order.payment_method == 'bank' %}Bankas pārskaitījums{% else %}Kredītkarte{% endif %}</strong>
+    </p>
+
+    <!-- Items table -->
+    <table class="items">
+      <thead>
+        <tr>
+          <th style="width:30px">Nr.</th>
+          <th>Prece</th>
+          <th>SKU</th>
+          <th class="num">Daudzums</th>
+          <th class="num">Cena bez PVN</th>
+          <th class="num">PVN 21%</th>
+          <th class="num">Kopā ar PVN</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>
+            {{ item.product_name }}
+            {% if item.volume_label %}<br><span style="color:#888;font-size:12px">{{ item.volume_label }}</span>{% endif %}
+          </td>
+          <td style="color:#888">{{ item.sku }}</td>
+          <td class="num">{{ item.quantity }}</td>
+          <td class="num">{{ item.price_without_vat }} €</td>
+          <td class="num">{{ item.line_vat }} €</td>
+          <td class="num"><strong>{{ item.line_total }} €</strong></td>
+        </tr>
+        {% endfor %}
+        {% if order.shipping_cost %}
+        <tr class="shipping">
+          <td></td>
+          <td>Piegāde</td>
+          <td></td>
+          <td class="num">1</td>
+          <td class="num">{{ order.shipping_without_vat }} €</td>
+          <td class="num">{{ order.shipping_vat }} €</td>
+          <td class="num">{{ order.shipping_cost }} €</td>
+        </tr>
+        {% endif %}
+      </tbody>
+    </table>
+
+    <!-- Totals -->
+    <div class="totals">
+      <table>
+        <tr>
+          <td>Summa bez PVN:</td>
+          <td>{{ order.subtotal }} €</td>
+        </tr>
+        <tr>
+          <td>PVN 21%:</td>
+          <td>{{ order.vat_amount }} €</td>
+        </tr>
+        {% if order.shipping_cost %}
+        <tr>
+          <td>Piegāde:</td>
+          <td>{{ order.shipping_cost }} €</td>
+        </tr>
+        {% endif %}
+        <tr class="total-row">
+          <td>KOPĀ APMAKSAI:</td>
+          <td>{{ order.total }} €</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Bank transfer instructions -->
+    {% if order.payment_method == 'bank' %}
+    <div class="payment-box">
+      <h3>&#127974;&nbsp; Bankas pārskaitījuma rekvizīti</h3>
+      <table>
+        <tr><td>Saņēmējs:</td><td>{{ seller.name }}</td></tr>
+        <tr><td>Banka:</td><td>{{ seller.bank }}</td></tr>
+        <tr><td>IBAN:</td><td>{{ seller.iban }}</td></tr>
+        <tr><td>SWIFT/BIC:</td><td>{{ seller.swift }}</td></tr>
+        <tr><td>Summa:</td><td><strong>{{ order.total }} EUR</strong></td></tr>
+      </table>
+      <p style="margin:12px 0 4px;font-size:13px;color:#92400e">Maksājuma mērķis (obligāti norādīt!):</p>
+      <div class="payment-target">{{ order.invoice_number }}</div>
+    </div>
+    {% endif %}
+
+    {% if order.notes %}
+    <div style="margin-top:20px;padding:14px 16px;background:#f9f9f9;border-radius:6px;font-size:13px">
+      <strong>Piezīmes:</strong> {{ order.notes }}
+    </div>
+    {% endif %}
+
+    <p style="margin-top:28px;font-size:13px;color:#666;line-height:1.6">
+      Paldies par Jūsu pasūtījumu! Jautājumu gadījumā sazinieties ar mums:<br>
+      <a href="mailto:{{ seller.email }}" style="color:#e30613">{{ seller.email }}</a> &nbsp;|&nbsp; {{ seller.phone }}
+    </p>
+
+  </div>
+
+  <div class="footer-bar">
+    {{ seller.name }} &nbsp;|&nbsp; {{ seller.address }}, {{ seller.city }} &nbsp;|&nbsp;
+    Reģ. Nr.: {{ seller.reg_nr }} &nbsp;|&nbsp; PVN Nr.: {{ seller.vat_nr }}<br>
+    <a href="https://{{ seller.website }}">{{ seller.website }}</a>
+  </div>
+
+</div>
+</body>
+</html>

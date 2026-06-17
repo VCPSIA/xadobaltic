@@ -1,0 +1,368 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Reģistrācija" %} — XADO Baltic{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-7">
+
+            <div class="text-center mb-4">
+                <h1 class="fw-bold">{% trans "Izveidot kontu" %}</h1>
+                <p class="text-muted">{% trans "Jau ir konts?" %} <a href="{% url 'login' %}" class="text-danger fw-semibold">{% trans "Ienākt" %}</a></p>
+            </div>
+
+            <!-- Sociālā reģistrācija -->
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <p class="text-center text-muted small mb-3">{% trans "Ātrā reģistrācija ar" %}</p>
+                    <div class="d-flex gap-3">
+                        <a href="{% url 'google_login' %}" class="btn btn-outline-secondary flex-fill d-flex align-items-center justify-content-center gap-2">
+                            <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                            Google
+                        </a>
+                        <a href="{% url 'facebook_login' %}" class="btn flex-fill d-flex align-items-center justify-content-center gap-2" style="background:#1877F2;color:#fff">
+                            <i class="bi bi-facebook fs-5"></i> Facebook
+                        </a>
+                    </div>
+                    <div class="d-flex align-items-center mt-3">
+                        <hr class="flex-grow-1"><span class="px-3 text-muted small">{% trans "vai ar e-pastu" %}</span><hr class="flex-grow-1">
+                    </div>
+                </div>
+            </div>
+
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+            {% endif %}
+
+            <form method="post" novalidate id="regForm">
+                {% csrf_token %}
+
+                <!-- ===== KLIENTA TIPS ===== -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header bg-dark text-white fw-bold">
+                        <i class="bi bi-person-badge"></i> {% trans "Klienta tips" %}
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <label class="type-card {% if form.customer_type.value == 'private' or not form.customer_type.value %}selected{% endif %}" id="typePrivate">
+                                    <input type="radio" name="customer_type" value="private"
+                                           {% if form.customer_type.value == 'private' or not form.customer_type.value %}checked{% endif %}
+                                           class="d-none" onchange="toggleCustomerType()">
+                                    <i class="bi bi-person-fill fs-2 d-block mb-2 text-danger"></i>
+                                    <span class="fw-bold d-block">{% trans "Privāts pircējs" %}</span>
+                                    <span class="text-muted small">{% trans "Fiziska persona" %}</span>
+                                </label>
+                            </div>
+                            <div class="col-6">
+                                <label class="type-card {% if form.customer_type.value == 'company' %}selected{% endif %}" id="typeCompany">
+                                    <input type="radio" name="customer_type" value="company"
+                                           {% if form.customer_type.value == 'company' %}checked{% endif %}
+                                           class="d-none" onchange="toggleCustomerType()">
+                                    <i class="bi bi-building fs-2 d-block mb-2 text-danger"></i>
+                                    <span class="fw-bold d-block">{% trans "Uzņēmums" %}</span>
+                                    <span class="text-muted small">{% trans "Juridiska persona" %}</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== PERSONĪGIE DATI ===== -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header bg-dark text-white fw-bold">
+                        <i class="bi bi-person"></i> {% trans "Personas dati" %}
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                {% include 'accounts/_field.html' with field=form.first_name required=True %}
+                            </div>
+                            <div class="col-md-6">
+                                {% include 'accounts/_field.html' with field=form.last_name required=True %}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">{{ form.email.label }} <span class="text-danger">*</span></label>
+                                <input type="email" name="email" value="{{ form.email.value|default:'' }}"
+                                       class="form-control {% if form.email.errors %}is-invalid{% endif %}"
+                                       required placeholder="jusu@epasts.lv">
+                                {% if form.email.errors %}<div class="invalid-feedback">{{ form.email.errors|join:', ' }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">{{ form.email_confirm.label }} <span class="text-danger">*</span></label>
+                                <input type="email" name="email_confirm" value="{{ form.email_confirm.value|default:'' }}"
+                                       class="form-control {% if form.email_confirm.errors %}is-invalid{% endif %}"
+                                       required placeholder="atkārtojiet e-pastu">
+                                {% if form.email_confirm.errors %}<div class="invalid-feedback">{{ form.email_confirm.errors|join:', ' }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">{{ form.phone.label }} <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                    <input type="tel" name="phone" value="{{ form.phone.value|default:'' }}"
+                                           class="form-control {% if form.phone.errors %}is-invalid{% endif %}"
+                                           required placeholder="+371 20 000 000">
+                                </div>
+                                {% if form.phone.errors %}<div class="text-danger small mt-1">{{ form.phone.errors|join:', ' }}</div>{% endif %}
+                                <div class="form-text text-muted">{{ form.phone.help_text }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== UZŅĒMUMA DATI (tikai firma) ===== -->
+                <div class="card border-0 shadow-sm mb-4" id="companySection" style="display:none">
+                    <div class="card-header bg-danger text-white fw-bold">
+                        <i class="bi bi-building"></i> {% trans "Uzņēmuma dati" %}
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">{{ form.company_name.label }} <span class="text-danger">*</span></label>
+                                <input type="text" name="company_name" value="{{ form.company_name.value|default:'' }}"
+                                       class="form-control {% if form.company_name.errors %}is-invalid{% endif %}"
+                                       placeholder="SIA Nosaukums">
+                                {% if form.company_name.errors %}<div class="invalid-feedback">{{ form.company_name.errors|join:', ' }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">{{ form.reg_nr.label }} <span class="text-danger">*</span></label>
+                                <input type="text" name="reg_nr" value="{{ form.reg_nr.value|default:'' }}"
+                                       class="form-control {% if form.reg_nr.errors %}is-invalid{% endif %}"
+                                       placeholder="40000000000">
+                                {% if form.reg_nr.errors %}<div class="invalid-feedback">{{ form.reg_nr.errors|join:', ' }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">{{ form.vat_nr.label }}</label>
+                                <input type="text" name="vat_nr" value="{{ form.vat_nr.value|default:'' }}"
+                                       class="form-control"
+                                       placeholder="LV40000000000">
+                                <div class="form-text text-muted">{% trans "Neobligāts — ja uzņēmums nav PVN maksātājs" %}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== JURIDISKĀ ADRESE ===== -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header bg-dark text-white fw-bold">
+                        <i class="bi bi-geo-alt"></i>
+                        <span id="legalAddrTitle">{% trans "Adrese" %}</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">{% trans "Iela, māja, dzīvoklis" %} <span class="text-danger">*</span></label>
+                                <input type="text" name="legal_address" value="{{ form.legal_address.value|default:'' }}"
+                                       class="form-control {% if form.legal_address.errors %}is-invalid{% endif %}"
+                                       required placeholder="Brīvības iela 1-5">
+                                {% if form.legal_address.errors %}<div class="invalid-feedback">{{ form.legal_address.errors|join:', ' }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-5">
+                                <label class="form-label fw-semibold">{% trans "Pilsēta / novads" %} <span class="text-danger">*</span></label>
+                                <input type="text" name="legal_city" value="{{ form.legal_city.value|default:'' }}"
+                                       class="form-control {% if form.legal_city.errors %}is-invalid{% endif %}"
+                                       required placeholder="Rīga">
+                                {% if form.legal_city.errors %}<div class="invalid-feedback">{{ form.legal_city.errors|join:', ' }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label fw-semibold">{% trans "Pasta indekss" %} <span class="text-danger">*</span></label>
+                                <input type="text" name="legal_postal_code" value="{{ form.legal_postal_code.value|default:'' }}"
+                                       class="form-control {% if form.legal_postal_code.errors %}is-invalid{% endif %}"
+                                       required placeholder="LV-1001">
+                                {% if form.legal_postal_code.errors %}<div class="invalid-feedback">{{ form.legal_postal_code.errors|join:', ' }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold">{% trans "Valsts" %} <span class="text-danger">*</span></label>
+                                <select name="legal_country" class="form-select" required>
+                                    {% for val, label in form.fields.legal_country.choices %}
+                                    <option value="{{ val }}" {% if form.legal_country.value == val or val == 'LV' and not form.legal_country.value %}selected{% endif %}>{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== FAKTISKĀ ADRESE ===== -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header bg-dark text-white fw-bold d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-house"></i> {% trans "Faktiskā / piegādes adrese" %}</span>
+                        <div class="form-check form-switch mb-0">
+                            <input class="form-check-input" type="checkbox" id="deliverySameCheck" name="delivery_same"
+                                   {% if form.delivery_same.value != False %}checked{% endif %}
+                                   onchange="toggleDelivery()">
+                            <label class="form-check-label text-white small" for="deliverySameCheck">{% trans "Sakrīt ar iepriekšējo" %}</label>
+                        </div>
+                    </div>
+                    <div id="deliverySection" style="display:none">
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">{% trans "Iela, māja, dzīvoklis" %} <span class="text-danger">*</span></label>
+                                    <input type="text" name="delivery_address" value="{{ form.delivery_address.value|default:'' }}"
+                                           class="form-control {% if form.delivery_address.errors %}is-invalid{% endif %}"
+                                           placeholder="Brīvības iela 1-5">
+                                    {% if form.delivery_address.errors %}<div class="invalid-feedback">{{ form.delivery_address.errors|join:', ' }}</div>{% endif %}
+                                </div>
+                                <div class="col-md-5">
+                                    <label class="form-label fw-semibold">{% trans "Pilsēta / novads" %} <span class="text-danger">*</span></label>
+                                    <input type="text" name="delivery_city" value="{{ form.delivery_city.value|default:'' }}"
+                                           class="form-control {% if form.delivery_city.errors %}is-invalid{% endif %}"
+                                           placeholder="Rīga">
+                                    {% if form.delivery_city.errors %}<div class="invalid-feedback">{{ form.delivery_city.errors|join:', ' }}</div>{% endif %}
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">{% trans "Pasta indekss" %} <span class="text-danger">*</span></label>
+                                    <input type="text" name="delivery_postal_code" value="{{ form.delivery_postal_code.value|default:'' }}"
+                                           class="form-control {% if form.delivery_postal_code.errors %}is-invalid{% endif %}"
+                                           placeholder="LV-1001">
+                                    {% if form.delivery_postal_code.errors %}<div class="invalid-feedback">{{ form.delivery_postal_code.errors|join:', ' }}</div>{% endif %}
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">{% trans "Valsts" %}</label>
+                                    <select name="delivery_country" class="form-select">
+                                        {% for val, label in form.fields.delivery_country.choices %}
+                                        <option value="{{ val }}" {% if form.delivery_country.value == val or val == 'LV' and not form.delivery_country.value %}selected{% endif %}>{{ label }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body py-2" id="deliverySameMsg">
+                        <p class="text-muted small mb-0"><i class="bi bi-check-circle text-success"></i> {% trans "Piegāde tiks veikta uz juridisko adresi." %}</p>
+                    </div>
+                </div>
+
+                <!-- ===== PAROLE ===== -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header bg-dark text-white fw-bold">
+                        <i class="bi bi-lock"></i> {% trans "Parole" %}
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">{{ form.password1.label }} <span class="text-danger">*</span></label>
+                                <input type="password" name="password1"
+                                       class="form-control {% if form.password1.errors %}is-invalid{% endif %}"
+                                       required minlength="8" id="pwd1">
+                                {% if form.password1.errors %}<div class="invalid-feedback">{{ form.password1.errors|join:', ' }}</div>{% endif %}
+                                <div class="form-text text-muted">{{ form.password1.help_text }}</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">{{ form.password2.label }} <span class="text-danger">*</span></label>
+                                <input type="password" name="password2"
+                                       class="form-control {% if form.password2.errors %}is-invalid{% endif %}"
+                                       required id="pwd2">
+                                {% if form.password2.errors %}<div class="invalid-feedback">{{ form.password2.errors|join:', ' }}</div>{% endif %}
+                                <div id="pwdMatch" class="form-text"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== PIEKRIŠANA ===== -->
+                <div class="mb-4">
+                    <div class="form-check">
+                        <input type="checkbox" name="newsletter" class="form-check-input" id="newsletter"
+                               {% if form.newsletter.value != False %}checked{% endif %}>
+                        <label class="form-check-label" for="newsletter">
+                            {% trans "Vēlos saņemt jaunumus un īpašos piedāvājumus" %}
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-danger btn-lg w-100 py-3 fw-bold">
+                    <i class="bi bi-person-check"></i> {% trans "Reģistrēties" %}
+                </button>
+
+                <p class="text-center text-muted small mt-3">
+                    {% trans "Reģistrējoties, Jūs piekrītat mūsu" %}
+                    <a href="#" class="text-danger">{% trans "lietošanas noteikumiem" %}</a>
+                    {% trans "un" %}
+                    <a href="#" class="text-danger">{% trans "privātuma politikai" %}</a>.
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Klienta tipa pārslēgšana
+function toggleCustomerType() {
+    const isCompany = document.querySelector('input[name="customer_type"]:checked').value === 'company';
+    document.getElementById('companySection').style.display = isCompany ? 'block' : 'none';
+    document.getElementById('legalAddrTitle').textContent = isCompany
+        ? '{% trans "Juridiskā adrese" %}'
+        : '{% trans "Adrese" %}';
+    // company lauki required tikai firmām
+    ['company_name', 'reg_nr'].forEach(name => {
+        const el = document.querySelector(`[name="${name}"]`);
+        if (el) el.required = isCompany;
+    });
+    // Kartes izcēlums
+    document.getElementById('typePrivate').classList.toggle('selected', !isCompany);
+    document.getElementById('typeCompany').classList.toggle('selected', isCompany);
+}
+
+// Faktiskā adrese
+function toggleDelivery() {
+    const same = document.getElementById('deliverySameCheck').checked;
+    document.getElementById('deliverySection').style.display = same ? 'none' : 'block';
+    document.getElementById('deliverySameMsg').style.display = same ? 'block' : 'none';
+    ['delivery_address', 'delivery_city', 'delivery_postal_code'].forEach(name => {
+        const el = document.querySelector(`[name="${name}"]`);
+        if (el) el.required = !same;
+    });
+}
+
+// E-pasta apstiprinājums — live check
+const emailEl = document.querySelector('[name="email"]');
+const emailConfirmEl = document.querySelector('[name="email_confirm"]');
+function checkEmail() {
+    const match = emailEl.value && emailConfirmEl.value && emailEl.value.toLowerCase() === emailConfirmEl.value.toLowerCase();
+    emailConfirmEl.classList.toggle('is-valid', match && emailConfirmEl.value.length > 0);
+    emailConfirmEl.classList.toggle('is-invalid', !match && emailConfirmEl.value.length > 0);
+}
+if (emailEl && emailConfirmEl) {
+    emailEl.addEventListener('input', checkEmail);
+    emailConfirmEl.addEventListener('input', checkEmail);
+}
+
+// Paroles apstiprinājums — live check
+const pwd1 = document.getElementById('pwd1');
+const pwd2 = document.getElementById('pwd2');
+const pwdMatch = document.getElementById('pwdMatch');
+function checkPwd() {
+    if (!pwd2.value) { pwdMatch.textContent = ''; return; }
+    const ok = pwd1.value === pwd2.value;
+    pwd2.classList.toggle('is-valid', ok);
+    pwd2.classList.toggle('is-invalid', !ok);
+    pwdMatch.textContent = ok ? '{% trans "Paroles sakrīt" %}' : '{% trans "Paroles nesakrīt" %}';
+    pwdMatch.className = ok ? 'form-text text-success' : 'form-text text-danger';
+}
+if (pwd1 && pwd2) {
+    pwd1.addEventListener('input', checkPwd);
+    pwd2.addEventListener('input', checkPwd);
+}
+
+// Inicializācija
+document.addEventListener('DOMContentLoaded', () => {
+    toggleCustomerType();
+    toggleDelivery();
+});
+
+// Klienta tipa kartes klikšķis
+document.querySelectorAll('.type-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const radio = this.querySelector('input[type="radio"]');
+        radio.checked = true;
+        toggleCustomerType();
+    });
+});
+</script>
+{% endblock %}

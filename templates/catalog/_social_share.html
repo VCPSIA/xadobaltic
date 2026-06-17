@@ -1,0 +1,26 @@
+{% load i18n %}
+{% with url=SITE_URL|add:request.path title=product.name_lv %}
+<div class="d-flex align-items-center gap-2 flex-wrap mt-3">
+    <span class="text-muted small">Dalīties:</span>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ url|urlencode }}"
+       target="_blank" rel="noopener" class="soc-btn soc-fb" title="Facebook">
+        <i class="bi bi-facebook"></i>
+    </a>
+    <a href="https://wa.me/?text={{ title|urlencode }}%20{{ url|urlencode }}"
+       target="_blank" rel="noopener" class="soc-btn soc-wa" title="WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+    <a href="https://t.me/share/url?url={{ url|urlencode }}&text={{ title|urlencode }}"
+       target="_blank" rel="noopener" class="soc-btn soc-tg" title="Telegram">
+        <i class="bi bi-telegram"></i>
+    </a>
+    <a href="https://twitter.com/intent/tweet?url={{ url|urlencode }}&text={{ title|urlencode }}"
+       target="_blank" rel="noopener" class="soc-btn soc-x" title="X / Twitter">
+        <i class="bi bi-twitter-x"></i>
+    </a>
+    <a href="mailto:?subject={{ title|urlencode }}&body={{ url|urlencode }}"
+       class="soc-btn soc-mail" title="E-pasts">
+        <i class="bi bi-envelope"></i>
+    </a>
+</div>
+{% endwith %}

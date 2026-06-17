@@ -1,0 +1,13 @@
+.field-sku input,
+.field-barcode input,
+.field-price input,
+.field-price_old input,
+.field-stock input {
+    width: 80px;
+}
+
+.field-name_ru input,
+.field-name_en input,
+.field-name_de input {
+    width: 120px;
+}

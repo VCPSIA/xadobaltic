@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% if LANGUAGE_CODE == 'ru' and category.name_ru %}{{ category.name_ru }}
+{% elif LANGUAGE_CODE == 'en' and category.name_en %}{{ category.name_en }}
+{% elif LANGUAGE_CODE == 'de' and category.name_de %}{{ category.name_de }}
+{% else %}{{ category.name_lv }}{% endif %} — XADO Baltic
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">{% trans "Sākums" %}</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'catalog' %}">{% trans "Katalogs" %}</a></li>
+            {% if category.parent %}
+            <li class="breadcrumb-item"><a href="{% url 'category_detail' category.parent.slug %}">{{ category.parent.name_lv }}</a></li>
+            {% endif %}
+            <li class="breadcrumb-item active">{{ category.name_lv }}</li>
+        </ol>
+    </nav>
+
+    <h1 class="section-title mb-4">
+        {% if LANGUAGE_CODE == 'ru' and category.name_ru %}{{ category.name_ru }}
+        {% elif LANGUAGE_CODE == 'en' and category.name_en %}{{ category.name_en }}
+        {% elif LANGUAGE_CODE == 'de' and category.name_de %}{{ category.name_de }}
+        {% else %}{{ category.name_lv }}{% endif %}
+    </h1>
+
+    <!-- Apakškategorijas -->
+    {% if subcategories %}
+    <div class="row g-3 mb-5">
+        {% for sub in subcategories %}
+        <div class="col-6 col-md-3 col-lg-2">
+            <a href="{% url 'category_detail' sub.slug %}" class="sub-cat-card text-decoration-none text-center d-block py-3 px-2 rounded border">
+                <i class="bi {{ sub.icon|default:'bi-box' }} text-danger fs-3 d-block mb-1"></i>
+                <span class="small fw-semibold">
+                    {% if LANGUAGE_CODE == 'ru' and sub.name_ru %}{{ sub.name_ru }}
+                    {% elif LANGUAGE_CODE == 'en' and sub.name_en %}{{ sub.name_en }}
+                    {% elif LANGUAGE_CODE == 'de' and sub.name_de %}{{ sub.name_de }}
+                    {% else %}{{ sub.name_lv }}{% endif %}
+                </span>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Filtri -->
+    {% if brands %}
+    <div class="mb-4 d-flex flex-wrap gap-2 align-items-center">
+        <span class="text-muted small">{% trans "Zīmols:" %}</span>
+        <a href="{% url 'category_detail' category.slug %}" class="btn btn-sm {% if not selected_brand %}btn-danger{% else %}btn-outline-secondary{% endif %}">{% trans "Visi" %}</a>
+        {% for brand in brands %}
+        <a href="?brand={{ brand.slug }}" class="btn btn-sm {% if selected_brand == brand.slug %}btn-danger{% else %}btn-outline-secondary{% endif %}">{{ brand.name }}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Produkti -->
+    <div class="row g-3">
+        {% for product in products %}
+        {% include 'catalog/product_card.html' %}
+        {% empty %}
+        <div class="col-12">
+            <div class="alert alert-light">{% trans "Šajā kategorijā produkti nav atrasti." %}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

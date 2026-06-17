@@ -1,0 +1,9 @@
+{% load i18n %}
+<label class="form-label fw-semibold">{{ field.label }}{% if required %} <span class="text-danger">*</span>{% endif %}</label>
+<input type="{{ field.field.widget.input_type|default:'text' }}"
+       name="{{ field.html_name }}"
+       value="{{ field.value|default:'' }}"
+       class="form-control {% if field.errors %}is-invalid{% endif %}"
+       {% if required %}required{% endif %}
+       {% if field.field.help_text %}placeholder="{{ field.field.help_text }}"{% endif %}>
+{% if field.errors %}<div class="invalid-feedback">{{ field.errors|join:', ' }}</div>{% endif %}

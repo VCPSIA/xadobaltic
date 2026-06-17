@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{{ brand.name }} — XADO Baltic{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'index' %}">{% trans "Sākums" %}</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'brand_list' %}">{% trans "Zīmoli" %}</a></li>
+            <li class="breadcrumb-item active">{{ brand.name }}</li>
+        </ol>
+    </nav>
+    <div class="d-flex align-items-center gap-4 mb-5">
+        {% if brand.logo %}
+        <img src="{{ brand.logo.url }}" alt="{{ brand.name }}" style="height:80px">
+        {% endif %}
+        <h1 class="section-title mb-0">{{ brand.name }}</h1>
+    </div>
+    {% with desc=LANGUAGE_CODE %}
+    {% if desc == 'ru' and brand.description_ru %}<p class="lead mb-5">{{ brand.description_ru }}</p>
+    {% elif desc == 'en' and brand.description_en %}<p class="lead mb-5">{{ brand.description_en }}</p>
+    {% elif desc == 'de' and brand.description_de %}<p class="lead mb-5">{{ brand.description_de }}</p>
+    {% elif brand.description_lv %}<p class="lead mb-5">{{ brand.description_lv }}</p>{% endif %}
+    {% endwith %}
+    <div class="row g-3">
+        {% for product in products %}
+        {% include 'catalog/product_card.html' %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

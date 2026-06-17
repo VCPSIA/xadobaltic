@@ -1,0 +1,29 @@
+=== XADO Import — trūkstošie dati ===
+
+
+── VT1: Vieglās automašīnas (jau importētas: 139 markas) ──
+  xado.ua atgrieza 139 markas
+  (izlaistas 139 jau importētas markas)
+  +0 markas, +0 modeļi, +0 mods, +0 saderības
+
+── VT4: Motocikli un cita mototehnika ──
+  xado.ua atgrieza 159 markas
+  [  0%] Adiva: +2 modeļi, +3 saderības
+  [  1%] Adly: +20 modeļi, +27 saderības
+  [ 31%] Fantic Motor: +26 modeļi, +27 saderības
+  [ 32%] FB Mondial: +30 modeļi, +27 saderības
+  [ 32%] Gas Gas: +47 modeļi, +27 saderības
+  [ 50%] Kuba: +54 modeļi, +27 saderības
+  [ 51%] Kymco: +117 modeļi, +39 saderības
+  [ 52%] Lambretta: +120 modeļi, +39 saderības
+  [ 52%] Lance: +125 modeļi, +39 saderības
+  [ 53%] Laverda: +133 modeļi, +39 saderības
+  [ 85%] TGB: +147 modeļi, +81 saderības
+  [ 86%] TM Racing: +153 modeļi, +81 saderības
+  +153 markas, +153 modeļi, +226 mods, +81 saderības
+
+── VT5: Lauksaimniecības tehnika ──
+  xado.ua atgrieza 0 markas
+  +0 markas, +0 modeļi, +0 mods, +0 saderības
+
+=== Pabeigts ===

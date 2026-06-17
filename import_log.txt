@@ -1,0 +1,37 @@
+C:\Users\USER\xadobaltic\xado_ua_import.py:3: SyntaxWarning: invalid escape sequence '\S'
+  Run: venv\Scripts\python.exe xado_ua_import.py
+=== XADO UA Import sākts ===
+
+
+── Vieglais auto (xado id=1) ──
+  Markas: 0
+
+── Vieglie kravas (xado id=2) ──
+  Markas: 61
+  [  1%] Asia: 2 modeļi, 3 mods kopā, 23 saderības
+  [  3%] Avia (Daewoo): 1 modeļi, 21 mods kopā, 80 saderības
+  [  4%] Bedford: 3 modeļi, 34 mods kopā, 203 saderības
+  [  6%] BMC: 2 modeļi, 41 mods kopā, 224 saderības
+  [  8%] Bremach: 4 modeļi, 45 mods kopā, 231 saderības
+  [ 86%] Sterling: 1 modeļi, 46 mods kopā, 242 saderības
+  [ 88%] Subaru (EU): 2 modeļi, 50 mods kopā, 262 saderības
+  [ 90%] Suzuki: 2 modeļi, 54 mods kopā, 302 saderības
+  [ 91%] Toyota (EU): 14 modeļi, 101 mods kopā, 610 saderības
+
+── Smagais kravas/Autob. (xado id=3) ──
+  Markas: 0
+
+── Motocikls (xado id=4) ──
+  Markas: 0
+
+── Lauksaimn. tehnika (xado id=5) ──
+  Markas: 0
+
+=== Importēts ===
+  Jaunas markas:        18
+  Jauni modeļi:         27
+  Jaunas modifikācijas: 101
+  Saderības ieraksti:   610
+  Nesaskaņoti produkti: 494
+
+=== VT1 reimport sakts ===

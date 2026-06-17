@@ -1,0 +1,10 @@
+=== VT1 refill: Vieglās automašīnas ===
+
+Markas xado.ua: 139
+
+[ 70%] Opel: +3 mods, +31 sader. kopā
+
+=== Pabeigts ===
+  Jaunas modifikacijas: 3
+  Jaunas saderibas:     33
+  API kludas:           0

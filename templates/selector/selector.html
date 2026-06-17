@@ -1,0 +1,330 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block title %}{% trans "Atlasīt eļļu pēc automašīnas" %} — XADO Baltic{% endblock %}
+
+{% block content %}
+<div class="selector-hero bg-dark text-white py-5">
+    <div class="container text-center">
+        <h1 class="display-5 fw-bold"><i class="bi bi-search text-danger"></i> {% trans "Atlasīt eļļu pēc automašīnas" %}</h1>
+        <p class="lead text-secondary">{% trans "Izvēlieties savu automašīnu un mēs ieteiksmim piemērotākos XADO produktus" %}</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="selector-box shadow rounded p-4 p-md-5 mb-5 bg-white">
+
+        <!-- 1. solis: Kategorija -->
+        <div class="mb-5" id="step0">
+            <label class="form-label fw-semibold fs-5 mb-3"><span class="badge bg-danger me-2">1</span>{% trans "Kategorija" %}</label>
+            <div class="row g-3" id="vtGrid">
+                {% for cat in lm_categories %}
+                <div class="col-6 col-md-3">
+                    <button type="button" class="vt-btn w-100 h-100 text-center p-3"
+                            onclick="selectCategory({{ cat.id }}, this)">
+                        <i class="bi {{ cat.icon }} fs-2 d-block mb-2 text-danger"></i>
+                        <span class="fw-semibold" style="font-size:.85rem;line-height:1.3">{{ cat.name }}</span>
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- 2. solis: Marka -->
+        <div class="mb-4 d-none" id="step1">
+            <label class="form-label fw-semibold fs-5"><span class="badge bg-danger me-2">2</span>{% trans "Auto marka" %}</label>
+            <div class="mb-2">
+                <input type="text" id="brandSearch" class="form-control form-control-sm w-auto d-inline-block"
+                       placeholder="{% trans 'Meklēt...' %}" oninput="filterBrands(this.value)" style="min-width:200px">
+            </div>
+            <div id="brandGrid" class="d-flex flex-wrap gap-2"></div>
+        </div>
+
+        <!-- 3. solis: Modelis -->
+        <div class="mb-4 d-none" id="step2">
+            <label class="form-label fw-semibold fs-5"><span class="badge bg-danger me-2">3</span>{% trans "Modelis" %}</label>
+            <div id="modelGrid" class="d-flex flex-wrap gap-2"></div>
+        </div>
+
+        <!-- 4. solis: Modifikācija -->
+        <div class="mb-4 d-none" id="step3">
+            <label class="form-label fw-semibold fs-5"><span class="badge bg-danger me-2">4</span>{% trans "Dzinējs / modifikācija" %}</label>
+            <div id="modGrid" class="d-flex flex-wrap gap-2"></div>
+        </div>
+
+        <!-- Loader -->
+        <div id="selectorLoader" class="text-center d-none py-3">
+            <div class="spinner-border text-danger" role="status"></div>
+        </div>
+    </div>
+
+    <!-- Rezultāti -->
+    <div id="resultsSection" class="d-none">
+        <div id="carSpecInfo" class="card border-0 shadow-sm mb-4 d-none">
+            <div class="card-body py-3">
+                <div class="d-flex flex-wrap gap-3 align-items-start">
+                    <div id="viscBlock" class="d-none">
+                        <span class="text-muted small">{% trans "Viskozitāte" %}:</span><br>
+                        <span id="viscosityBadge" class="fw-semibold"></span>
+                    </div>
+                    <div id="specBlock" class="d-none flex-grow-1">
+                        <span class="text-muted small">{% trans "Ražotāja pielaides" %}:</span><br>
+                        <span id="specBadges"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="section-title mb-4">{% trans "Ieteicamie XADO produkti" %}</h2>
+        <div id="productsGrid" class="row g-3"></div>
+        <div id="noResults" class="d-none">
+            <div class="alert alert-warning">
+                <i class="bi bi-exclamation-triangle"></i>
+                {% trans "Šai modifikācijai specifiski produkti nav atrasti. Sazinieties ar mums konsultācijai." %}
+                {% if site_settings.phone %}
+                <br><a href="tel:{{ site_settings.phone }}" class="fw-bold">{{ site_settings.phone }}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.vt-btn {
+    border: 2px solid #e8e8e8;
+    border-radius: 12px;
+    background: #fff;
+    cursor: pointer;
+    transition: all .15s;
+    min-height: 100px;
+}
+.vt-btn:hover { border-color: var(--xado-red); background: #fff5f5; }
+.vt-btn.active { border-color: var(--xado-red); background: var(--xado-red); color: #fff; }
+.vt-btn.active i { color: #fff !important; }
+.sel-btn {
+    padding: 8px 18px;
+    border: 2px solid #e8e8e8;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all .15s;
+    font-size: .95rem;
+}
+.sel-btn:hover { border-color: var(--xado-red); color: var(--xado-red); }
+.sel-btn.active { border-color: var(--xado-red); background: var(--xado-red); color: #fff; }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const BRANDS_URL  = "{% url 'api_brands' %}";
+const MODELS_URL  = "{% url 'api_models' %}";
+const MODS_URL    = "{% url 'api_modifications' %}";
+const PRODS_URL   = "{% url 'api_products' %}";
+
+let allBrands = [];
+let selectedCat = null, selectedBrand = null, selectedModel = null, selectedMod = null;
+
+function setLoading(on) {
+    document.getElementById('selectorLoader').classList.toggle('d-none', !on);
+}
+
+function makeBtn(label, onClick) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'sel-btn';
+    btn.textContent = label;
+    btn.addEventListener('click', onClick);
+    return btn;
+}
+
+// Kategorija
+function selectCategory(catId, el) {
+    selectedCat = catId;
+    selectedBrand = null; selectedModel = null; selectedMod = null;
+    document.querySelectorAll('.vt-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    ['step1','step2','step3'].forEach(s => document.getElementById(s).classList.add('d-none'));
+    document.getElementById('resultsSection').classList.add('d-none');
+    document.getElementById('brandSearch').value = '';
+    loadBrands(catId);
+}
+
+// Markas
+function loadBrands(catId) {
+    setLoading(true);
+    fetch(BRANDS_URL + '?lm_cat=' + catId)
+        .then(r => r.json())
+        .then(data => {
+            allBrands = data;
+            renderBrands(data);
+            document.getElementById('step1').classList.remove('d-none');
+            setLoading(false);
+        });
+}
+
+function renderBrands(brands) {
+    const grid = document.getElementById('brandGrid');
+    grid.innerHTML = '';
+    if (brands.length === 0) {
+        grid.innerHTML = '<span class="text-muted">Nav pieejamu marku</span>';
+        return;
+    }
+    brands.forEach(b => {
+        const btn = makeBtn(b.name, (e) => selectBrand(b.id, b.name, e.target));
+        if (selectedBrand === b.id) btn.classList.add('active');
+        grid.appendChild(btn);
+    });
+}
+
+function filterBrands(query) {
+    const q = query.toLowerCase().trim();
+    const filtered = q ? allBrands.filter(b => b.name.toLowerCase().includes(q)) : allBrands;
+    renderBrands(filtered);
+}
+
+function selectBrand(id, name, el) {
+    selectedBrand = id;
+    selectedModel = null; selectedMod = null;
+    document.querySelectorAll('#brandGrid .sel-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    ['step2','step3'].forEach(s => document.getElementById(s).classList.add('d-none'));
+    document.getElementById('resultsSection').classList.add('d-none');
+    loadModels(id);
+}
+
+// Modeļi
+function loadModels(brandId) {
+    setLoading(true);
+    fetch(MODELS_URL + '?brand=' + brandId + '&lm_cat=' + selectedCat)
+        .then(r => r.json())
+        .then(data => {
+            const grid = document.getElementById('modelGrid');
+            grid.innerHTML = '';
+            data.forEach(m => {
+                const years = m.year_from ? ' (' + m.year_from + '-' + (m.year_to || '') + ')' : '';
+                const label = m.name + years;
+                grid.appendChild(makeBtn(label, (e) => selectModel(m.id, e.target)));
+            });
+            document.getElementById('step2').classList.remove('d-none');
+            setLoading(false);
+        });
+}
+
+function selectModel(id, el) {
+    selectedModel = id;
+    selectedMod = null;
+    document.querySelectorAll('#modelGrid .sel-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('step3').classList.add('d-none');
+    document.getElementById('resultsSection').classList.add('d-none');
+    loadMods(id);
+}
+
+// Modifikācijas
+function loadMods(modelId) {
+    setLoading(true);
+    fetch(MODS_URL + '?model=' + modelId)
+        .then(r => r.json())
+        .then(data => {
+            const grid = document.getElementById('modGrid');
+            grid.innerHTML = '';
+            data.forEach(m => {
+                const label = m.name;
+                const btn = makeBtn(label, (e) => selectMod(m.id, e.target));
+                grid.appendChild(btn);
+            });
+            document.getElementById('step3').classList.remove('d-none');
+            setLoading(false);
+        });
+}
+
+function selectMod(id, el) {
+    selectedMod = id;
+    document.querySelectorAll('#modGrid .sel-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    loadProducts(id);
+}
+
+// Produkti
+function loadProducts(modId) {
+    const resultsSection = document.getElementById('resultsSection');
+    const grid = document.getElementById('productsGrid');
+    const noResults = document.getElementById('noResults');
+    const carSpecInfo = document.getElementById('carSpecInfo');
+    setLoading(true);
+    fetch(PRODS_URL + '?modification=' + modId)
+        .then(r => r.json())
+        .then(data => {
+            resultsSection.classList.remove('d-none');
+            grid.innerHTML = '';
+            noResults.classList.add('d-none');
+            carSpecInfo.classList.add('d-none');
+
+            const viscBlock = document.getElementById('viscBlock');
+            const specBlock = document.getElementById('specBlock');
+            viscBlock.classList.add('d-none');
+            specBlock.classList.add('d-none');
+
+            if (data.viscosity || data.oil_spec) {
+                carSpecInfo.classList.remove('d-none');
+                if (data.viscosity) {
+                    document.getElementById('viscosityBadge').textContent = data.viscosity;
+                    viscBlock.classList.remove('d-none');
+                }
+                if (data.oil_spec) {
+                    const tokens = data.oil_spec.split(',');
+                    const specContainer = document.getElementById('specBadges');
+                    specContainer.innerHTML = tokens.map(t =>
+                        `<span class="badge bg-secondary me-1 mb-1">${t.trim()}</span>`
+                    ).join('');
+                    specBlock.classList.remove('d-none');
+                }
+            }
+
+            if (data.products.length === 0) {
+                noResults.classList.remove('d-none');
+            } else {
+                data.products.forEach(p => {
+                    const discount = p.price_old && p.price ?
+                        `<span class="text-muted text-decoration-line-through ms-2 small">${p.price_old} €</span>` : '';
+                    const matchBadge = p.match === 'spec'
+                        ? `<span class="badge bg-success mb-1"><i class="bi bi-check2-circle"></i> OEM atbilstība</span>`
+                        : (p.match === 'viscosity' ? `<span class="badge bg-info text-dark mb-1">${p.viscosity}</span>` : '');
+                    grid.innerHTML += `
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="product-card h-100">
+                            <a href="/catalog/product/${p.slug}/" class="product-card-img-link">
+                                ${p.image ? `<img src="${p.image}" alt="${p.name}" class="product-card-img">` :
+                                    '<div class="product-card-no-img"><i class="bi bi-image text-muted fs-1"></i></div>'}
+                            </a>
+                            <div class="product-card-body">
+                                ${p.brand ? `<div class="product-brand text-muted small">${p.brand}</div>` : ''}
+                                <h6 class="product-name mt-1"><a href="/catalog/product/${p.slug}/" class="text-dark text-decoration-none">${p.name}</a></h6>
+                                <div>${matchBadge}</div>
+                                <div class="product-price mt-2">
+                                    ${p.price ? `<span class="fw-bold text-danger fs-5">${parseFloat(p.price).toFixed(2)} €</span>${discount}` : ''}
+                                </div>
+                                ${p.note ? `<p class="text-success small mt-1"><i class="bi bi-check-circle"></i> ${p.note}</p>` : ''}
+                            </div>
+                        </div>
+                    </div>`;
+                });
+            }
+            setLoading(false);
+            resultsSection.scrollIntoView({behavior: 'smooth'});
+        });
+}
+
+// Ja URL satur ?modification=<id> — uzreiz rāda produktus
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const modId = params.get('modification');
+    if (modId) {
+        loadProducts(modId);
+    }
+});
+</script>
+{% endblock %}

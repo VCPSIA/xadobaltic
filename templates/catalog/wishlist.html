@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}Vēlmju saraksts — XADO Baltic{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="section-title mb-4"><i class="bi bi-heart-fill text-danger me-2"></i>Vēlmju saraksts</h1>
+
+    {% if products %}
+    <div class="row g-4">
+        {% for product in products %}
+        {% include 'catalog/product_card.html' %}
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-5">
+        <i class="bi bi-heart text-muted" style="font-size:4rem"></i>
+        <p class="text-muted mt-3 fs-5">Vēlmju saraksts ir tukšs.</p>
+        <a href="{% url 'catalog' %}" class="btn btn-danger mt-2">Skatīt katalogs</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

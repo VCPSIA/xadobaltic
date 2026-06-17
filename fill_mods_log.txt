@@ -1,0 +1,105 @@
+=== Papildina trukstosas modifikacijas ===
+
+
+--- VT1: Vieglās automašīnas (139 markas) ---
+  Acura (USA / CAN): 19 modeli bez modifikacijam
+    + MDX, YD2: 2 modifikacijas
+    + MDX, YD3: 8 modifikacijas
+    + MDX, YD4 (2021 - ): 2 modifikacijas
+    + NSX(2016 - ): 2 modifikacijas
+    + RDX, TB1/2: 4 modifikacijas
+    + RDX, TB3/4: 4 modifikacijas
+    + RDX, TC1/2 (2018 - ): 3 modifikacijas
+    + RL, KA9, KB1, KB2: 5 modifikacijas
+    + RLX: 4 modifikacijas
+    + RSX, DC5: 6 modifikacijas
+    + SLX, DJ5: 2 modifikacijas
+    + TL, UA4, UA5: 6 modifikacijas
+  Aston Martin: 10 modeli bez modifikacijam
+  Audi (EU): 47 modeli bez modifikacijam
+  Audi (USA): 9 modeli bez modifikacijam
+  Austin: 2 modeli bez modifikacijam
+  Bentley: 1 modeli bez modifikacijam
+  BMW (EU): 4 modeli bez modifikacijam
+  BMW (USA): 3 modeli bez modifikacijam
+  Buick (USA / CAN): 6 modeli bez modifikacijam
+  Cadillac (EU): 5 modeli bez modifikacijam
+  Cadillac (USA / CAN): 8 modeli bez modifikacijam
+  Chevrolet (EU) (Daewoo): 6 modeli bez modifikacijam
+  Chevrolet (USA / CAN): 14 modeli bez modifikacijam
+  Chrysler (EU): 4 modeli bez modifikacijam
+  Chrysler (USA / CAN): 7 modeli bez modifikacijam
+  Citroën: 2 modeli bez modifikacijam
+  Daihatsu: 1 modeli bez modifikacijam
+  Dodge (USA / CAN): 19 modeli bez modifikacijam
+  DS: 3 modeli bez modifikacijam
+  Ferrari: 1 modeli bez modifikacijam
+  Ford (EU): 42 modeli bez modifikacijam
+  GMC (USA / CAN): 10 modeli bez modifikacijam
+  Honda (USA / CAN): 2 modeli bez modifikacijam
+  Hyundai (EU): 41 modeli bez modifikacijam
+  Hyundai (USA): 36 modeli bez modifikacijam
+  Infiniti (EU): 1 modeli bez modifikacijam
+  Infiniti (USA): 1 modeli bez modifikacijam
+  Jaguar: 5 modeli bez modifikacijam
+  Kia (EU): 40 modeli bez modifikacijam
+  Kia (USA / CAN): 41 modeli bez modifikacijam
+  Lamborghini: 1 modeli bez modifikacijam
+  Lancia: 13 modeli bez modifikacijam
+  Land Rover (EU): 14 modeli bez modifikacijam
+  Land Rover (USA): 2 modeli bez modifikacijam
+  Lincoln: 8 modeli bez modifikacijam
+  Lotus: 3 modeli bez modifikacijam
+  Mazda (EU): 32 modeli bez modifikacijam
+  Mazda (USA / CAN): 27 modeli bez modifikacijam
+  Mercedes-Benz (EU): 56 modeli bez modifikacijam
+  Mercedes-Benz (USA / CAN): 41 modeli bez modifikacijam
+  Mercury: 5 modeli bez modifikacijam
+  MINI (USA): 5 modeli bez modifikacijam
+  Mitsubishi (EU): 6 modeli bez modifikacijam
+  Nissan (EU): 41 modeli bez modifikacijam
+    + Bluebird: 5 modifikacijas
+    + Cherry: 5 modifikacijas
+    + Cube, Z12: 3 modifikacijas
+    + E-NV200 Evalia, ME0 (2018 - ): 1 modifikacijas
+    + Evalia, M20: 7 modifikacijas
+    + GT-R, R35 (2008 - ): 5 modifikacijas
+    + Juke, F15: 13 modifikacijas
+    + Juke, F16 (2019 - ): 2 modifikacijas
+    + Laurel: 3 modifikacijas
+    + Leaf, ZE0: 3 modifikacijas
+    + Leaf, ZE1 (2017 - ): 3 modifikacijas
+  Nissan (USA / CAN): 10 modeli bez modifikacijam
+  Opel: 52 modeli bez modifikacijam
+  Peugeot: 37 modeli bez modifikacijam
+  Pontiac (USA / CAN): 4 modeli bez modifikacijam
+  Porsche: 3 modeli bez modifikacijam
+  Renault: 18 modeli bez modifikacijam
+  Rolls-Royce: 1 modeli bez modifikacijam
+  Rover: 1 modeli bez modifikacijam
+  Samsung: 1 modeli bez modifikacijam
+  Scion (USA / CAN): 7 modeli bez modifikacijam
+  Seat: 5 modeli bez modifikacijam
+  Skoda: 2 modeli bez modifikacijam
+  Subaru (USA / CAN): 1 modeli bez modifikacijam
+  Suzuki: 20 modeli bez modifikacijam
+  Tata: 2 modeli bez modifikacijam
+  Tesla (USA): 1 modeli bez modifikacijam
+  Toyota (EU): 66 modeli bez modifikacijam
+  Vauxhall: 8 modeli bez modifikacijam
+  Volkswagen (VW) (EU): 2 modeli bez modifikacijam
+    + Jetta, 162: 11 modifikacijas
+    + Jetta, 163: 13 modifikacijas
+  Volkswagen (VW) (USA / CAN): 10 modeli bez modifikacijam
+    + CC, 358: 6 modifikacijas
+    + Cabrio: 1 modifikacijas
+    + Cabriolet: 2 modifikacijas
+    + Golf R, BQ1: 2 modifikacijas
+    + Golf SportWagen, Alltrack, BX6: 5 modifikacijas
+    + Golf SportWagen, BX5: 2 modifikacijas
+    + Golf VI, 5K1: 8 modifikacijas
+
+=== Pabeigts ===
+  Laboti modeli:        32
+  Jaunas modifikacijas: 148
+  Jaunas saderibas:     699

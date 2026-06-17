@@ -1,0 +1,29 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %}
+
+{% block submit_buttons_bottom %}
+{{ block.super }}
+{% if original %}
+<div class="submit-row" style="margin-top:0;background:#f8f9fa;border-top:2px solid #e30613;padding:12px 14px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+    <a href="{% url 'admin:order_send_invoice' original.pk %}"
+       class="button"
+       style="background:#1a6634;color:#fff;padding:8px 20px;border-radius:4px;font-weight:bold;text-decoration:none;font-size:14px"
+       onclick="return confirm('Izrakstīt un nosūtīt rēķinu uz: {{ original.email }}?')">
+        &#128196; Izrakstīt rēķinu un nosūtīt
+    </a>
+    {% if original.invoice_sent %}
+    <span style="color:#1a6634;font-weight:600;font-size:13px">
+        &#10003; Rēķins {{ original.invoice_number }} nosūtīts
+        {% if original.invoice_sent_at %}{{ original.invoice_sent_at|date:"d.m.Y H:i" }}{% endif %}
+        uz {{ original.email }}
+    </span>
+    {% elif original.invoice_number %}
+    <span style="color:#e67e22;font-size:13px">
+        &#128196; Rēķins {{ original.invoice_number }} — vēl nav nosūtīts
+    </span>
+    {% else %}
+    <span style="color:#999;font-size:13px">Rēķins vēl nav izrakstīts</span>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}

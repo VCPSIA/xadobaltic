@@ -1,0 +1,237 @@
+{% load i18n static lang_tags %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}XADO Baltic{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}XADO eļļas un autoķīmija Baltijas reģionam{% endblock %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex gap-3 align-items-center">
+                {% if site_settings.phone %}
+                <a href="tel:{{ site_settings.phone }}" class="top-bar-link">
+                    <i class="bi bi-telephone"></i> {{ site_settings.phone }}
+                </a>
+                {% endif %}
+                {% if site_settings.email %}
+                <a href="mailto:{{ site_settings.email }}" class="top-bar-link d-none d-md-inline">
+                    <i class="bi bi-envelope"></i> {{ site_settings.email }}
+                </a>
+                {% endif %}
+            </div>
+            <!-- Valodu izvēle -->
+            <div class="d-flex align-items-center gap-2">
+                {% get_available_languages as languages %}
+                {% get_current_language as current_lang %}
+                <div class="lang-switcher d-flex gap-1">
+                    {% for lang_code, lang_name in languages %}
+                    <form action="{% url 'set_language' %}" method="post" style="display:inline;margin:0">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{% lang_url lang_code %}">
+                        <button type="submit" name="language" value="{{ lang_code }}"
+                            class="lang-btn {% if lang_code == current_lang %}active{% endif %}">
+                            {% if lang_code == 'lv' %}LV{% elif lang_code == 'ru' %}RU{% elif lang_code == 'en' %}EN{% elif lang_code == 'de' %}DE{% else %}{{ lang_code }}{% endif %}
+                        </button>
+                    </form>
+                    {% endfor %}
+                </div>
+                {% if site_settings.facebook %}
+                <a href="{{ site_settings.facebook }}" class="top-bar-link ms-2" target="_blank"><i class="bi bi-facebook"></i></a>
+                {% endif %}
+                {% if site_settings.instagram %}
+                <a href="{{ site_settings.instagram }}" class="top-bar-link" target="_blank"><i class="bi bi-instagram"></i></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <img src="{% static 'img/xado_balts_2.png' %}" alt="XADO Baltic" style="height:38px;width:auto">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold text-danger" href="{% url 'selector' %}">
+                        <i class="bi bi-search"></i> {% trans "Atlasīt pēc auto" %}
+                    </a>
+                </li>
+            </ul>
+            <!-- Meklēšana -->
+            <form class="d-flex me-2" action="{% url 'product_search' %}" method="get">
+                <div class="input-group">
+                    <input class="form-control" type="search" name="q" placeholder="{% trans 'Meklēt...' %}"
+                           value="{{ request.GET.q|default:'' }}" style="min-width:170px">
+                    <button class="btn btn-danger" type="submit"><i class="bi bi-search"></i></button>
+                </div>
+            </form>
+            <!-- Vēlmju saraksts -->
+            <a href="{% url 'wishlist' %}" class="btn btn-outline-danger position-relative me-1" title="Vēlmju saraksts">
+                <i class="bi bi-heart"></i>
+                {% if user.is_authenticated %}{% with wc=user.wishlist.count %}{% if wc > 0 %}
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="wishlistBadge">{{ wc }}</span>
+                {% endif %}{% endwith %}{% endif %}
+            </a>
+            <!-- Salīdzināšana -->
+            <a href="{% url 'compare' %}" class="btn btn-outline-secondary position-relative me-1" title="Salīdzināt">
+                <i class="bi bi-bar-chart-line"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary d-none" id="compareBadge"></span>
+            </a>
+            <!-- Grozs -->
+            <a href="{% url 'cart_detail' %}" class="btn btn-outline-danger position-relative me-2">
+                <i class="bi bi-cart3"></i>
+                {% if cart|length > 0 %}
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartBadge">
+                    {{ cart|length }}
+                </span>
+                {% endif %}
+            </a>
+            <!-- Lietotājs -->
+            {% if user.is_authenticated %}
+            <div class="dropdown">
+                <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                    <i class="bi bi-person-circle"></i> {{ user.first_name|default:user.username }}
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="{% url 'profile' %}"><i class="bi bi-person me-2"></i>{% trans "Profils" %}</a></li>
+                    <li><a class="dropdown-item" href="{% url 'order_history' %}"><i class="bi bi-bag-check me-2"></i>{% trans "Mani pasūtījumi" %}</a></li>
+                    {% if user.is_staff %}<li><a class="dropdown-item text-danger" href="{% url 'admin:index' %}"><i class="bi bi-gear me-2"></i>{% trans "Admin" %}</a></li>{% endif %}
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="bi bi-box-arrow-right me-2"></i>{% trans "Iziet" %}</a></li>
+                </ul>
+            </div>
+            {% else %}
+            <a href="{% url 'login' %}" class="btn btn-outline-dark me-1"><i class="bi bi-box-arrow-in-right"></i> {% trans "Ienākt" %}</a>
+            <a href="{% url 'register' %}" class="btn btn-danger d-none d-lg-inline-block">{% trans "Reģistrēties" %}</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<!-- MAIN -->
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<!-- FOOTER -->
+<footer class="footer mt-auto py-3">
+    <div class="container">
+        <!-- 1. rinda: uzņēmuma info -->
+        <div class="row g-2 mb-2">
+            <div class="col-12">
+                <p class="text-muted small mb-2">{% trans "Oficiālais XADO produktu izplatītājs Baltijas reģionā." %}</p>
+                <div class="d-flex gap-2">
+                    {% if site_settings.facebook %}
+                    <a href="{{ site_settings.facebook }}" class="btn btn-outline-secondary btn-sm" target="_blank"><i class="bi bi-facebook"></i></a>
+                    {% endif %}
+                    {% if site_settings.instagram %}
+                    <a href="{{ site_settings.instagram }}" class="btn btn-outline-secondary btn-sm" target="_blank"><i class="bi bi-instagram"></i></a>
+                    {% endif %}
+                    {% if site_settings.youtube %}
+                    <a href="{{ site_settings.youtube }}" class="btn btn-outline-secondary btn-sm" target="_blank"><i class="bi bi-youtube"></i></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <hr class="mb-2">
+        <!-- 2. rinda: Katalogs | Zīmoli | Informācija | Kontakti -->
+        <div class="row g-2">
+            <div class="col-lg-3 col-md-6">
+                <h6 class="fw-bold mb-3">{% trans "Katalogs" %}</h6>
+                <div style="columns:2;column-gap:12px">
+                    <ul class="list-unstyled mb-0">
+                        {% for cat in main_categories %}
+                        <li class="mb-1">
+                            <a href="{% url 'category_detail' cat.slug %}" class="footer-link">
+                                {% if LANGUAGE_CODE == 'ru' and cat.name_ru %}{{ cat.name_ru }}
+                                {% elif LANGUAGE_CODE == 'en' and cat.name_en %}{{ cat.name_en }}
+                                {% elif LANGUAGE_CODE == 'de' and cat.name_de %}{{ cat.name_de }}
+                                {% else %}{{ cat.name_lv }}{% endif %}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h6 class="fw-bold mb-3"><a href="{% url 'brand_list' %}" style="color:#fff;text-decoration:none">{% trans "Zīmoli" %}</a></h6>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h6 class="fw-bold mb-3">{% trans "Informācija" %}</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-1"><a href="{% url 'selector' %}" class="footer-link">{% trans "Atlasīt eļļu pēc auto" %}</a></li>
+                    <li class="mb-1"><a href="{% url 'contact' %}" class="footer-link">{% trans "Kontakti" %}</a></li>
+                    <li class="mb-1"><a href="{% url 'page_detail' 'delivery' %}" class="footer-link">{% trans "Piegāde un apmaksa" %}</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h6 class="fw-bold mb-3">{% trans "Kontakti" %}</h6>
+                {% if site_settings.phone %}
+                <p class="mb-1"><i class="bi bi-telephone text-danger"></i> <a href="tel:{{ site_settings.phone }}" class="footer-link">{{ site_settings.phone }}</a></p>
+                {% endif %}
+                {% if site_settings.email %}
+                <p class="mb-1"><i class="bi bi-envelope text-danger"></i> <a href="mailto:{{ site_settings.email }}" class="footer-link">{{ site_settings.email }}</a></p>
+                {% endif %}
+                {% if site_settings.address_lv %}
+                <p class="mb-0 text-muted small mt-2"><i class="bi bi-geo-alt text-danger"></i>
+                {% if LANGUAGE_CODE == 'ru' and site_settings.address_ru %}{{ site_settings.address_ru }}
+                {% elif LANGUAGE_CODE == 'en' and site_settings.address_en %}{{ site_settings.address_en }}
+                {% elif LANGUAGE_CODE == 'de' and site_settings.address_de %}{{ site_settings.address_de }}
+                {% else %}{{ site_settings.address_lv }}{% endif %}</p>
+                {% endif %}
+            </div>
+        </div>
+        <hr class="mt-4">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <p class="mb-0 text-muted small">© 2025 XADO Baltic. {% trans "Visas tiesības aizsargātas." %}</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% block extra_js %}{% endblock %}
+<script>
+// Globāls wishlist/compare AJAX (product_card pogas)
+function xadoToggle(url, btn, dataKey) {
+    fetch(url, {
+        method: 'POST',
+        headers: { 'X-CSRFToken': document.cookie.match(/csrftoken=([^;]+)/)?.[1] || '', 'X-Requested-With': 'XMLHttpRequest' }
+    }).then(r => r.json()).then(data => {
+        if (data.error === 'max') { alert('Var pievienot ne vairāk kā 4 produktus salīdzināšanai.'); return; }
+        const active = data.in_wishlist !== undefined ? data.in_wishlist : data.in_compare;
+        btn.classList.toggle('active', active);
+        if (data.count !== undefined) {
+            const badgeId = dataKey === 'wishlist' ? 'wishlistBadge' : 'compareBadge';
+            let badge = document.getElementById(badgeId);
+            if (badge) { badge.textContent = data.count > 0 ? data.count : ''; badge.classList.toggle('d-none', data.count === 0); }
+        }
+    }).catch(() => {});
+}
+document.addEventListener('click', function(e) {
+    const wBtn = e.target.closest('.wishlist-btn');
+    const cBtn = e.target.closest('.compare-btn');
+    if (wBtn && wBtn.dataset.url) { e.preventDefault(); xadoToggle(wBtn.dataset.url, wBtn, 'wishlist'); }
+    if (cBtn && cBtn.dataset.url) { e.preventDefault(); xadoToggle(cBtn.dataset.url, cBtn, 'compare'); }
+});
+</script>
+</body>
+</html>

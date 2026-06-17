@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{{ title }} — XADO Baltic{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1 class="section-title mb-5">{{ title }}</h1>
+    <div class="content-body">{{ content|linebreaks }}</div>
+</div>
+{% endblock %}

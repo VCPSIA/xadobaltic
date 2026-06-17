@@ -1,0 +1,21 @@
+Gaidu kameer process 14488 beidzas...
+Galvenais imports beidzies. Saku VT1 importu...
+=== XADO UA VT1 (Vieglais auto) import sākts ===
+
+-- Vieglais auto (xado id=1) --
+  Markas: 139
+  [  0%] Abarth: 6 modeli, 0 mods kopa, 0 saderibas
+  [  1%] Acura (USA / CAN): 24 modeli, 0 mods kopa, 0 saderibas
+  [ 27%] Fiat (USA): 4 modeli, 14 mods kopa, 28 saderibas
+  [ 28%] Fisker: 1 modeli, 15 mods kopa, 33 saderibas
+  [ 28%] Ford (EU): 49 modeli, 136 mods kopa, 85 saderibas
+  [ 52%] Lincoln: 20 modeli, 184 mods kopa, 104 saderibas
+  [ 87%] Suzuki: 27 modeli, 234 mods kopa, 484 saderibas
+
+=== VT1 importets ===
+  Jaunas markas:        0
+  Jauni modeli:         99
+  Jaunas modifikacijas: 234
+  Saderibas ieraksti:   484
+  Nesaskanoti produkti: 994
+VT1 imports beidzies. Skatiet: C:\Users\USER\xadobaltic\import_vt1_log.txt

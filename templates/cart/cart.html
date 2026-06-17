@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Grozs" %} — XADO Baltic{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="section-title mb-5"><i class="bi bi-cart3 text-danger"></i> {% trans "Mans grozs" %}</h1>
+
+    {% if cart.is_empty %}
+    <div class="text-center py-5">
+        <i class="bi bi-cart-x text-muted" style="font-size:5rem"></i>
+        <h4 class="mt-3 text-muted">{% trans "Grozs ir tukšs" %}</h4>
+        <a href="{% url 'catalog' %}" class="btn btn-danger mt-3 px-5">{% trans "Doties uz katalogu" %}</a>
+    </div>
+    {% else %}
+    <div class="row g-4">
+        <!-- Groza pozīcijas -->
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-0">
+                    <table class="table table-hover mb-0 align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width:80px"></th>
+                                <th>{% trans "Produkts" %}</th>
+                                <th class="text-center" style="width:130px">{% trans "Daudzums" %}</th>
+                                <th class="text-end" style="width:120px">{% trans "Cena" %}</th>
+                                <th class="text-end" style="width:130px">{% trans "Kopā" %}</th>
+                                <th style="width:50px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in cart %}
+                            <tr>
+                                <td class="ps-3">
+                                    {% if item.product.image %}
+                                    <img src="{{ item.product.image.url }}" style="width:65px;height:65px;object-fit:contain;border-radius:8px" alt="">
+                                    {% else %}
+                                    <div class="bg-light d-flex align-items-center justify-content-center rounded" style="width:65px;height:65px">
+                                        <i class="bi bi-image text-muted fs-3"></i>
+                                    </div>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <a href="{% url 'product_detail' item.product.slug %}" class="fw-semibold text-dark text-decoration-none">
+                                        {% if LANGUAGE_CODE == 'ru' and item.product.name_ru %}{{ item.product.name_ru }}
+                                        {% elif LANGUAGE_CODE == 'en' and item.product.name_en %}{{ item.product.name_en }}
+                                        {% else %}{{ item.product.name_lv }}{% endif %}
+                                    </a>
+                                    <div class="text-muted small">
+                                        {% if item.product.brand %}{{ item.product.brand.name }} | {% endif %}
+                                        {{ item.volume.label }}
+                                        {% if item.volume.sku %}<span class="ms-1">| {% trans "Art." %}: {{ item.volume.sku }}</span>{% endif %}
+                                    </div>
+                                    <div class="text-muted small">{% trans "Bez PVN:" %} {{ item.price_no_vat }} €</div>
+                                </td>
+                                <td class="text-center">
+                                    <form method="post" action="{% url 'cart_update' item.product.id %}" class="d-flex align-items-center justify-content-center gap-1">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="volume_id" value="{{ item.volume.id }}">
+                                        <button type="submit" name="quantity" value="{{ item.quantity|add:'-1' }}" class="btn btn-sm btn-outline-secondary px-2">−</button>
+                                        <span class="px-2 fw-bold">{{ item.quantity }}</span>
+                                        <button type="submit" name="quantity" value="{{ item.quantity|add:'1' }}" class="btn btn-sm btn-outline-secondary px-2">+</button>
+                                    </form>
+                                </td>
+                                <td class="text-end">
+                                    <div class="fw-semibold">{{ item.price }} €</div>
+                                    {% if item.volume.price_old %}
+                                    <div class="text-muted text-decoration-line-through small">{{ item.volume.price_old }} €</div>
+                                    {% endif %}
+                                </td>
+                                <td class="text-end fw-bold text-danger">{{ item.line_total }} €</td>
+                                <td class="pe-3 text-center">
+                                    <form method="post" action="{% url 'cart_remove' item.product.id %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="volume_id" value="{{ item.volume.id }}">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="{% trans 'Noņemt' %}">
+                                            <i class="bi bi-trash3"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="mt-3">
+                <a href="{% url 'catalog' %}" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> {% trans "Turpināt iepirkties" %}
+                </a>
+            </div>
+        </div>
+
+        <!-- Kopsavilkums -->
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-dark text-white fw-bold">
+                    {% trans "Kopsavilkums" %}
+                </div>
+                <div class="card-body">
+                    <table class="table table-borderless mb-0">
+                        <tr>
+                            <td class="text-muted">{% trans "Summa bez PVN" %}</td>
+                            <td class="text-end fw-semibold">{{ cart.total_without_vat }} €</td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">{% trans "PVN 21%" %}</td>
+                            <td class="text-end fw-semibold">{{ cart.total_vat }} €</td>
+                        </tr>
+                        <tr class="border-top">
+                            <td class="fw-bold fs-5">{% trans "Kopā ar PVN" %}</td>
+                            <td class="text-end fw-bold fs-5 text-danger">{{ cart.total_with_vat }} €</td>
+                        </tr>
+                    </table>
+                    <div class="alert alert-light border mt-3 small">
+                        <i class="bi bi-truck text-success"></i>
+                        {% trans "Bezmaksas piegāde no 50,00 €" %}
+                    </div>
+                    <a href="{% url 'checkout' %}" class="btn btn-danger btn-lg w-100 mt-2">
+                        <i class="bi bi-bag-check"></i> {% trans "Noformēt pasūtījumu" %}
+                    </a>
+                    {% if not user.is_authenticated %}
+                    <p class="text-center text-muted small mt-3">
+                        <a href="{% url 'login' %}?next={% url 'checkout' %}">{% trans "Ienākt" %}</a>
+                        {% trans "vai turpināt kā viesis" %}
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

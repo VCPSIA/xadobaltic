@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Mans profils" %} — XADO Baltic{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row g-4">
+        <!-- Sānu izvēlne -->
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body text-center py-4">
+                    <div class="avatar-circle mx-auto mb-3">
+                        <i class="bi bi-person-circle" style="font-size:4rem;color:#e30613"></i>
+                    </div>
+                    <h6 class="fw-bold">{{ user.get_full_name|default:user.username }}</h6>
+                    <p class="text-muted small mb-1">{{ user.email }}</p>
+                    {% if user.profile.is_company %}
+                    <span class="badge bg-danger">{% trans "Uzņēmums" %}</span>
+                    {% else %}
+                    <span class="badge bg-secondary">{% trans "Privāts pircējs" %}</span>
+                    {% endif %}
+                </div>
+                <div class="list-group list-group-flush">
+                    <a href="{% url 'profile' %}" class="list-group-item list-group-item-action active bg-danger border-0">
+                        <i class="bi bi-person me-2"></i>{% trans "Profils" %}
+                    </a>
+                    <a href="{% url 'order_history' %}" class="list-group-item list-group-item-action">
+                        <i class="bi bi-bag-check me-2"></i>{% trans "Mani pasūtījumi" %}
+                    </a>
+                    <a href="{% url 'logout' %}" class="list-group-item list-group-item-action text-danger">
+                        <i class="bi bi-box-arrow-right me-2"></i>{% trans "Iziet" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profila forma -->
+        <div class="col-md-9">
+            {% if messages %}{% for msg in messages %}<div class="alert alert-success">{{ msg }}</div>{% endfor %}{% endif %}
+
+            <form method="post">
+                {% csrf_token %}
+
+                <!-- Klienta tips -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header bg-dark text-white fw-bold">{% trans "Klienta tips" %}</div>
+                    <div class="card-body">
+                        <div class="d-flex gap-3">
+                            <div class="form-check">
+                                <input type="radio" name="customer_type" value="private" class="form-check-input" id="typePrivate"
+                                       {% if form.instance.customer_type == 'private' %}checked{% endif %}
+                                       onchange="toggleCompany()">
+                                <label class="form-check-label" for="typePrivate">
+                                    <i class="bi bi-person me-1"></i> {% trans "Privāts pircējs" %}
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="customer_type" value="company" class="form-check-input" id="typeCompany"
+                                       {% if form.instance.customer_type == 'company' %}checked{% endif %}
+                                       onchange="toggleCompany()">
+                                <label class="form-check-label" for="typeCompany">
+                                    <i class="bi bi-building me-1"></i> {% trans "Uzņēmums" %}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personīgie dati -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header bg-dark text-white fw-bold">{% trans "Kontaktdati" %}</div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">{% trans "Vārds" %}</label>
+                                <input type="text" name="first_name" class="form-control" value="{{ form.first_name.value|default:'' }}">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">{% trans "Uzvārds" %}</label>
+                                <input type="text" name="last_name" class="form-control" value="{{ form.last_name.value|default:'' }}">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">{% trans "E-pasts" %} *</label>
+                                <input type="email" name="email" class="form-control" value="{{ form.email.value|default:'' }}" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">{% trans "Tālrunis" %} *</label>
+                                <input type="tel" name="phone" class="form-control {% if form.phone.errors %}is-invalid{% endif %}"
+                                       value="{{ form.fields.phone.initial|default:'' }}{{ form.instance.phone }}" required>
+                                {% if form.phone.errors %}<div class="invalid-feedback">{{ form.phone.errors|join:', ' }}</div>{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Uzņēmuma dati -->
+                <div class="card border-0 shadow-sm mb-4" id="companySection">
+                    <div class="card-header bg-danger text-white fw-bold">{% trans "Uzņēmuma dati" %}</div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">{% trans "Uzņēmuma nosaukums" %} *</label>
+                                <input type="text" name="company_name" class="form-control {% if form.company_name.errors %}is-invalid{% endif %}"
+                                       value="{{ form.instance.company_name }}">
+                                {% if form.company_name.errors %}<div class="invalid-feedback">{{ form.company_name.errors|join:', ' }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">{% trans "Reģistrācijas Nr." %} *</label>
+                                <input type="text" name="reg_nr" class="form-control {% if form.reg_nr.errors %}is-invalid{% endif %}"
+                                       value="{{ form.instance.reg_nr }}">
+                                {% if form.reg_nr.errors %}<div class="invalid-feedback">{{ form.reg_nr.errors|join:', ' }}</div>{% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">{% trans "PVN reģ. Nr." %}</label>
+                                <input type="text" name="vat_nr" class="form-control" value="{{ form.instance.vat_nr }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Juridiskā adrese -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header bg-dark text-white fw-bold" id="legalAddrTitle">{% trans "Juridiskā adrese" %}</div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">{% trans "Iela, māja" %} *</label>
+                                <input type="text" name="legal_address" class="form-control" value="{{ form.instance.legal_address }}" required>
+                            </div>
+                            <div class="col-md-5">
+                                <label class="form-label fw-semibold">{% trans "Pilsēta" %} *</label>
+                                <input type="text" name="legal_city" class="form-control" value="{{ form.instance.legal_city }}" required>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label fw-semibold">{% trans "Pasta indekss" %} *</label>
+                                <input type="text" name="legal_postal_code" class="form-control" value="{{ form.instance.legal_postal_code }}" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold">{% trans "Valsts" %}</label>
+                                <select name="legal_country" class="form-select">
+                                    {% for val, label in form.fields.legal_country.choices %}
+                                    <option value="{{ val }}" {% if form.instance.legal_country == val %}selected{% endif %}>{{ label }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faktiskā adrese -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header bg-dark text-white fw-bold d-flex justify-content-between align-items-center">
+                        <span>{% trans "Faktiskā / piegādes adrese" %}</span>
+                        <div class="form-check form-switch mb-0">
+                            <input class="form-check-input" type="checkbox" id="deliverySameCheck" name="delivery_same"
+                                   {% if form.instance.delivery_same %}checked{% endif %}
+                                   onchange="toggleDelivery()">
+                            <label class="form-check-label text-white small" for="deliverySameCheck">{% trans "Sakrīt ar juridisko" %}</label>
+                        </div>
+                    </div>
+                    <div id="deliverySection" {% if form.instance.delivery_same %}style="display:none"{% endif %}>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">{% trans "Iela, māja" %}</label>
+                                    <input type="text" name="delivery_address" class="form-control" value="{{ form.instance.delivery_address }}">
+                                </div>
+                                <div class="col-md-5">
+                                    <label class="form-label fw-semibold">{% trans "Pilsēta" %}</label>
+                                    <input type="text" name="delivery_city" class="form-control" value="{{ form.instance.delivery_city }}">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">{% trans "Pasta indekss" %}</label>
+                                    <input type="text" name="delivery_postal_code" class="form-control" value="{{ form.instance.delivery_postal_code }}">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">{% trans "Valsts" %}</label>
+                                    <select name="delivery_country" class="form-select">
+                                        {% for val, label in form.fields.delivery_country.choices %}
+                                        <option value="{{ val }}" {% if form.instance.delivery_country == val %}selected{% endif %}>{{ label }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preferences -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input type="checkbox" name="newsletter" class="form-check-input" id="newsletter"
+                                   {% if form.instance.newsletter %}checked{% endif %}>
+                            <label class="form-check-label" for="newsletter">{% trans "Saņemt jaunumu e-pastus" %}</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-danger px-5 py-2 fw-bold">{% trans "Saglabāt izmaiņas" %}</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function toggleCompany() {
+    const isCompany = document.querySelector('input[name="customer_type"]:checked')?.value === 'company';
+    const sec = document.getElementById('companySection');
+    if (sec) sec.style.display = isCompany ? 'block' : 'none';
+}
+function toggleDelivery() {
+    const same = document.getElementById('deliverySameCheck').checked;
+    document.getElementById('deliverySection').style.display = same ? 'none' : 'block';
+}
+document.addEventListener('DOMContentLoaded', () => { toggleCompany(); });
+</script>
+{% endblock %}

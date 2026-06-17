@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}Salīdzināšana — XADO Baltic{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="section-title mb-0"><i class="bi bi-bar-chart-line text-danger me-2"></i>Salīdzināšana</h1>
+        {% if products %}
+        <a href="{% url 'compare_clear' %}" class="btn btn-outline-secondary btn-sm">
+            <i class="bi bi-x-lg me-1"></i>Notīrīt
+        </a>
+        {% endif %}
+    </div>
+
+    {% if products %}
+    <div class="table-responsive">
+        <table class="table table-bordered align-middle compare-table">
+            <!-- Attēli un nosaukumi -->
+            <thead class="table-light">
+                <tr>
+                    <th style="width:160px">Parametrs</th>
+                    {% for p in products %}
+                    <th class="text-center">
+                        <div class="position-relative">
+                            <a href="{% url 'compare_toggle' p.pk %}" class="btn btn-sm btn-outline-danger position-absolute top-0 end-0" title="Noņemt">
+                                <i class="bi bi-x"></i>
+                            </a>
+                            {% if p.image %}
+                            <img src="{{ p.image.url }}" class="img-fluid mb-2" style="max-height:120px;object-fit:contain">
+                            {% endif %}
+                            <div class="fw-semibold small">
+                                <a href="{% url 'product_detail' p.slug %}" class="text-dark text-decoration-none">
+                                    {{ p.name_lv|truncatechars:50 }}
+                                </a>
+                            </div>
+                            {% if p.brand %}<div class="text-danger small">{{ p.brand.name }}</div>{% endif %}
+                        </div>
+                    </th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Cena -->
+                <tr>
+                    <td class="fw-semibold text-muted">Cena</td>
+                    {% for p in products %}
+                    <td class="text-center fw-bold text-danger">
+                        {% if p.price %}{{ p.price }} €{% else %}—{% endif %}
+                    </td>
+                    {% endfor %}
+                </tr>
+                <!-- Tilpumi -->
+                <tr>
+                    <td class="fw-semibold text-muted">Tilpumi</td>
+                    {% for p in products %}
+                    <td class="text-center">
+                        {% for v in p.volumes.all %}{% if v.is_active and v.in_stock %}
+                        <span class="badge bg-light text-dark border me-1">{{ v.get_label_display }}</span>
+                        {% endif %}{% endfor %}
+                    </td>
+                    {% endfor %}
+                </tr>
+                <!-- Viskozitāte -->
+                <tr>
+                    <td class="fw-semibold text-muted">Viskozitāte</td>
+                    {% for p in products %}
+                    <td class="text-center">{{ p.viscosity|default:"—" }}</td>
+                    {% endfor %}
+                </tr>
+                <!-- Kategorija -->
+                <tr>
+                    <td class="fw-semibold text-muted">Kategorija</td>
+                    {% for p in products %}
+                    <td class="text-center">{{ p.category|default:"—" }}</td>
+                    {% endfor %}
+                </tr>
+                <!-- Zīmols -->
+                <tr>
+                    <td class="fw-semibold text-muted">Zīmols</td>
+                    {% for p in products %}
+                    <td class="text-center">{{ p.brand|default:"—" }}</td>
+                    {% endfor %}
+                </tr>
+                <!-- Dinamiskās specifikācijas -->
+                {% for spec_name in spec_names %}
+                <tr>
+                    <td class="fw-semibold text-muted">{{ spec_name }}</td>
+                    {% for p in products %}
+                    <td class="text-center">
+                        {% for s in p.specifications.all %}
+                        {% if s.name_lv == spec_name %}{{ s.value }}{% endif %}
+                        {% endfor %}
+                        &nbsp;
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+                <!-- Poga -->
+                <tr>
+                    <td></td>
+                    {% for p in products %}
+                    <td class="text-center">
+                        <a href="{% url 'product_detail' p.slug %}" class="btn btn-danger btn-sm w-100">
+                            Skatīt
+                        </a>
+                    </td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="text-center py-5">
+        <i class="bi bi-bar-chart-line text-muted" style="font-size:4rem"></i>
+        <p class="text-muted mt-3 fs-5">Nav pievienots neviens produkts salīdzināšanai.</p>
+        <a href="{% url 'catalog' %}" class="btn btn-danger mt-2">Skatīt katalogs</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

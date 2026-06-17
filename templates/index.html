@@ -1,0 +1,1016 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block title %}XADO Baltic — {% trans "Eļļas un autoķīmija Baltijā" %}{% endblock %}
+
+{% block extra_css %}
+<style>
+/* ===== HERO ===== */
+.hero-section {
+    min-height: 580px;
+    background: linear-gradient(135deg, #0d0d0d 0%, #1a0000 50%, #2a0000 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("{% static 'img/xado_balts_2.png' %}") no-repeat right center / 520px auto;
+    opacity: .06;
+}
+.hero-badge {
+    display: inline-block;
+    background: #e30613;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+}
+.hero-title {
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: #fff;
+    letter-spacing: -1px;
+}
+.hero-title span { color: #e30613; }
+.hero-sub {
+    font-size: 1.1rem;
+    color: #aaa;
+    margin: 18px 0 32px;
+    max-width: 520px;
+    line-height: 1.6;
+}
+.hero-cta-primary {
+    background: #e30613;
+    border: none;
+    color: #fff;
+    padding: 14px 36px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all .2s;
+}
+.hero-cta-primary:hover { background: #c0000f; color: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(227,6,19,.4); }
+.hero-cta-secondary {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,.25);
+    color: #fff;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all .2s;
+}
+.hero-cta-secondary:hover { border-color: #e30613; color: #e30613; }
+.hero-stats { border-top: 1px solid rgba(255,255,255,.1); margin-top: 48px; padding-top: 32px; }
+.hero-stat-num { font-size: 2rem; font-weight: 900; color: #fff; }
+.hero-stat-num span { color: #e30613; }
+.hero-stat-label { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+.hero-img-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero-img-glow {
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    background: radial-gradient(circle, rgba(227,6,19,.35) 0%, transparent 70%);
+    border-radius: 50%;
+}
+.hero-product-img {
+    position: relative;
+    z-index: 2;
+    max-height: 420px;
+    filter: drop-shadow(0 20px 60px rgba(0,0,0,.8));
+    animation: heroFloat 4s ease-in-out infinite;
+}
+@keyframes heroFloat {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* ===== SELECTOR BAR ===== */
+.selector-bar {
+    background: #e30613;
+    padding: 18px 0;
+}
+.selector-bar select {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.selector-bar .btn-search {
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    padding: 10px 28px;
+    border-radius: 5px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background .2s;
+}
+.selector-bar .btn-search:hover { background: #000; }
+
+/* ===== BRANDS STRIP ===== */
+.brands-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.brand-pill {
+    flex: 1 1 0;
+    padding: 16px 20px;
+    border-right: 1px solid #ebebeb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s;
+    text-decoration: none;
+}
+.brand-pill:last-child { border-right: none; }
+.brand-pill:hover { background: #fff5f5; }
+.brand-pill img { height: 44px; width: auto; object-fit: contain; filter: grayscale(40%); transition: filter .2s; }
+.brand-pill:hover img { filter: none; }
+.brand-pill-text { font-size: 13px; font-weight: 700; color: #333; letter-spacing: .5px; }
+
+/* ===== SECTION HEADERS ===== */
+.sec-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #e30613;
+    margin-bottom: 6px;
+}
+.sec-title {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 800;
+    color: #1a1a1a;
+    letter-spacing: -.5px;
+}
+
+/* ===== PRODUCT CARDS (new style) ===== */
+.pcard {
+    background: #fff;
+    border: 1px solid #ebebeb;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all .25s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.pcard:hover { box-shadow: 0 12px 36px rgba(0,0,0,.11); transform: translateY(-4px); border-color: #e30613; }
+.pcard-img-wrap {
+    position: relative;
+    background: #f8f8f8;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}
+.pcard-img { max-height: 160px; max-width: 100%; object-fit: contain; }
+.pcard-no-img { height: 160px; display: flex; align-items: center; justify-content: center; }
+.pcard-badges { position: absolute; top: 10px; left: 10px; display: flex; flex-direction: column; gap: 4px; }
+.pcard-body { padding: 16px; flex: 1; display: flex; flex-direction: column; }
+.pcard-brand { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #e30613; margin-bottom: 4px; }
+.pcard-name { font-size: 14px; font-weight: 600; color: #1a1a1a; line-height: 1.4; flex: 1; }
+.pcard-name a { color: inherit; text-decoration: none; }
+.pcard-name a:hover { color: #e30613; }
+.pcard-footer { margin-top: 14px; padding-top: 12px; border-top: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.pcard-price { font-size: 1.2rem; font-weight: 800; color: #e30613; }
+.pcard-price-old { font-size: 12px; text-decoration: line-through; color: #aaa; }
+.btn-add-cart {
+    background: #e30613;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s;
+    white-space: nowrap;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.btn-add-cart:hover { background: #c0000f; color: #fff; }
+
+/* ===== CATEGORY TILES ===== */
+.cat-tile {
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    text-decoration: none;
+    background: #f5f5f5;
+    transition: transform .25s, box-shadow .25s;
+}
+.cat-tile:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.13); }
+.cat-tile-inner {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+.cat-tile i { font-size: 2.2rem; color: #e30613; }
+.cat-tile-name { font-size: 13px; font-weight: 700; color: #1a1a1a; text-align: center; }
+
+/* ===== WHY SECTION ===== */
+.why-card {
+    padding: 32px 24px;
+    border-radius: 14px;
+    background: #fff;
+    border: 1px solid #ebebeb;
+    transition: all .25s;
+    height: 100%;
+}
+.why-card:hover { border-color: #e30613; box-shadow: 0 8px 28px rgba(227,6,19,.1); }
+.why-icon {
+    width: 64px;
+    height: 64px;
+    background: #fff0f0;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.why-icon i { font-size: 1.7rem; color: #e30613; }
+.why-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.why-text { font-size: 13px; color: #777; line-height: 1.6; }
+
+/* ===== KATEGORIJU NAVIGĀCIJAS JOSLA ===== */
+.cat-nav-bar {
+    background: #e30613;
+    position: relative;
+    z-index: 200;
+}
+.cat-nav-tabs {
+    display: flex;
+    align-items: stretch;
+}
+.cat-nav-tab {
+    flex: 1;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,.85);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .4px;
+    padding: 13px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-right: 1px solid rgba(255,255,255,.35);
+    transition: background .2s, color .2s;
+    position: relative;
+}
+.cat-nav-tab:last-child { border-right: none; }
+.cat-nav-tab i.tab-icon { font-size: 1.1rem; }
+.cat-nav-tab .tab-arrow {
+    font-size: .75rem;
+    margin-left: 4px;
+    transition: transform .25s;
+    opacity: .7;
+}
+.cat-nav-tab:hover { background: rgba(0,0,0,.15); color: #fff; }
+.cat-nav-tab.open  { background: rgba(0,0,0,.2);  color: #fff; }
+.cat-nav-tab.open .tab-arrow { transform: rotate(180deg); opacity: 1; }
+.cat-nav-tab.open::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%; transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #e30613;
+}
+
+/* ===== NOLAIŽAMAIS PANELIS ===== */
+.cat-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: #fff;
+    border-top: 3px solid #c0000f;
+    box-shadow: 0 12px 40px rgba(0,0,0,.25);
+    z-index: 190;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s cubic-bezier(.4,0,.2,1);
+}
+.cat-dropdown.open { max-height: 520px; }
+.cat-dropdown-inner { padding: 20px 0 24px; }
+.cat-dd-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto auto;
+    gap: 12px 20px;
+}
+.cat-dd-item { display: flex; flex-direction: column; gap: 4px; }
+.cat-dd-img {
+    width: 100%;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    display: block;
+}
+.cat-dd-icon-placeholder {
+    width: 100%;
+    height: 72px;
+    border-radius: 8px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+    color: #c0000f;
+    font-size: 1.8rem;
+}
+.cat-dd-cat {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-decoration: none;
+    display: block;
+    line-height: 1.3;
+    transition: color .15s;
+}
+.cat-dd-cat:hover { color: #e30613; }
+.cat-dd-subcats { display: flex; flex-direction: column; gap: 1px; padding-left: 0; }
+.cat-dd-sublink {
+    font-size: 11px;
+    color: #777;
+    text-decoration: none;
+    display: block;
+    line-height: 1.6;
+    transition: color .15s;
+}
+.cat-dd-sublink:hover { color: #e30613; }
+@media (max-width: 991px) {
+    .cat-dd-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 767px) {
+    .cat-nav-tab { font-size: 11px; padding: 11px 8px; gap: 5px; }
+    .cat-nav-tab .tab-label { display: none; }
+    .cat-nav-tab i.tab-icon { font-size: 1.3rem; }
+    .cat-dropdown.open { max-height: 600px; overflow-y: auto; }
+    .cat-dd-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ===== BANNER TEXT OVERLAY ===== */
+.banner-text-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    padding: 40px 60px;
+    z-index: 10;
+}
+.banner-text-overlay h2 { margin: 0 0 12px; line-height: 1.1; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.7); }
+@media (max-width: 767px) {
+    .banner-text-overlay { padding: 20px; }
+    .banner-text-overlay h2 { font-size: 1.6rem !important; }
+}
+
+/* ===== CTA BANNER ===== */
+.cta-banner {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a0000 50%, #e30613 100%);
+    border-radius: 20px;
+    padding: 52px 48px;
+    position: relative;
+    overflow: hidden;
+}
+.cta-banner::before {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 300px; height: 300px;
+    background: rgba(255,255,255,.04);
+    border-radius: 50%;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- ===== KATEGORIJU NAVIGĀCIJAS JOSLA ===== -->
+{% if nav_vts %}
+<div class="cat-nav-bar" id="catNavBar">
+    <div class="container-fluid px-0">
+        <div class="cat-nav-tabs">
+            {% for vt in nav_vts %}
+            <button class="cat-nav-tab" data-vt-id="{{ vt.id }}" data-vt-icon="{{ vt.icon }}" data-vt-name="{{ vt.name }}" data-vt-slug="{{ vt.slug }}">
+                <i class="bi {{ vt.icon }} tab-icon"></i>
+                <span class="tab-label">{{ vt.name }}</span>
+                <i class="bi bi-chevron-down tab-arrow"></i>
+            </button>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Nolaižamais panelis -->
+    <div class="cat-dropdown" id="catDropdown">
+        <div class="container cat-dropdown-inner">
+            {% for vt in nav_vts %}
+            <div class="cat-dd-content" data-slug="{{ vt.slug }}" style="display:none">
+                <div>
+                    <div class="cat-dd-grid">
+                        {% for sc in vt.subcats %}
+                        <div class="cat-dd-item">
+                            {% if sc.image %}
+                            <a href="{% url 'nav_category_detail' sc.pk %}"><img src="{{ sc.image.url }}" class="cat-dd-img" alt="{{ sc.name_lv }}"></a>
+                            {% else %}
+                            <a href="{% url 'nav_category_detail' sc.pk %}" class="cat-dd-icon-placeholder"><i class="bi {{ sc.icon }}"></i></a>
+                            {% endif %}
+                            <a href="{% url 'nav_category_detail' sc.pk %}" class="cat-dd-cat">
+                                {% if LANGUAGE_CODE == 'ru' and sc.name_ru %}{{ sc.name_ru }}{% elif LANGUAGE_CODE == 'en' and sc.name_en %}{{ sc.name_en }}{% elif LANGUAGE_CODE == 'de' and sc.name_de %}{{ sc.name_de }}{% else %}{{ sc.name_lv }}{% endif %}
+                            </a>
+                            {% with has_ch=sc.children.all %}{% if has_ch %}
+                            <div class="cat-dd-subcats">
+                                {% for ch in has_ch %}
+                                <a href="{% url 'nav_subcategory_products' ch.pk %}" class="cat-dd-sublink">
+                                    {% if LANGUAGE_CODE == 'ru' and ch.name_ru %}{{ ch.name_ru }}{% elif LANGUAGE_CODE == 'en' and ch.name_en %}{{ ch.name_en }}{% elif LANGUAGE_CODE == 'de' and ch.name_de %}{{ ch.name_de }}{% else %}{{ ch.name_lv }}{% endif %}
+                                </a>
+                                {% endfor %}
+                            </div>
+                            {% endif %}{% endwith %}
+                        </div>
+                        {% empty %}
+                        <span style="color:#aaa;font-size:13px">{% trans "Drīzumā..." %}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- ===== HERO ===== -->
+{% if banners %}
+<div id="heroBanners" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        {% for b in banners %}<button type="button" data-bs-target="#heroBanners" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></button>{% endfor %}
+    </div>
+    <div class="carousel-inner">
+        {% for banner in banners %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}" data-bs-interval="{{ banner.slide_duration|default:5000 }}" data-effect="{{ banner.transition_effect|default:'slide' }}">
+            {% if banner.image %}
+            <img src="{{ banner.image.url }}" class="d-block w-100" style="max-height:580px;object-fit:cover;opacity:{{ banner.image_opacity|stringformat:'g' }}" alt="">
+            <div class="banner-text-overlay" style="
+                justify-content:{% if banner.text_align == 'right' %}flex-end{% elif banner.text_align == 'center' %}center{% else %}flex-start{% endif %};
+                align-items:{% if banner.text_valign == 'top' %}flex-start{% elif banner.text_valign == 'middle' %}center{% else %}flex-end{% endif %};
+                text-align:{{ banner.text_align|default:'left' }};
+            ">
+                <div style="font-family:{{ banner.font_family|default:'Inter, sans-serif' }}">
+                    <h2 style="font-size:{{ banner.font_size|default:48 }}px;font-weight:900;color:{{ banner.title_color|default:'#ffffff' }}">{% if LANGUAGE_CODE == 'ru' and banner.title_ru %}{{ banner.title_ru }}{% elif LANGUAGE_CODE == 'en' and banner.title_en %}{{ banner.title_en }}{% elif LANGUAGE_CODE == 'de' and banner.title_de %}{{ banner.title_de }}{% else %}{{ banner.title_lv }}{% endif %}</h2>
+                    {% with sub=banner.subtitle_lv %}{% if LANGUAGE_CODE == 'ru' and banner.subtitle_ru %}{% with sub=banner.subtitle_ru %}{% if sub %}<p style="color:{{ banner.subtitle_color|default:'#cccccc' }};font-size:1rem;margin:0 0 16px;line-height:1.5;text-shadow:0 1px 4px rgba(0,0,0,.6)">{{ sub }}</p>{% endif %}{% endwith %}{% elif LANGUAGE_CODE == 'en' and banner.subtitle_en %}{% with sub=banner.subtitle_en %}{% if sub %}<p style="color:{{ banner.subtitle_color|default:'#cccccc' }};font-size:1rem;margin:0 0 16px;line-height:1.5;text-shadow:0 1px 4px rgba(0,0,0,.6)">{{ sub }}</p>{% endif %}{% endwith %}{% elif LANGUAGE_CODE == 'de' and banner.subtitle_de %}{% with sub=banner.subtitle_de %}{% if sub %}<p style="color:{{ banner.subtitle_color|default:'#cccccc' }};font-size:1rem;margin:0 0 16px;line-height:1.5;text-shadow:0 1px 4px rgba(0,0,0,.6)">{{ sub }}</p>{% endif %}{% endwith %}{% else %}{% if sub %}<p style="color:{{ banner.subtitle_color|default:'#cccccc' }};font-size:1rem;margin:0 0 16px;line-height:1.5;text-shadow:0 1px 4px rgba(0,0,0,.6)">{{ sub }}</p>{% endif %}{% endif %}{% endwith %}
+                    {% if banner.button_url %}<a href="{{ banner.button_url }}" class="hero-cta-primary" style="background:{{ banner.button_bg_color|default:'#e30613' }}">{% if LANGUAGE_CODE == 'ru' and banner.button_text_ru %}{{ banner.button_text_ru }}{% elif LANGUAGE_CODE == 'en' and banner.button_text_en %}{{ banner.button_text_en }}{% elif LANGUAGE_CODE == 'de' and banner.button_text_de %}{{ banner.button_text_de }}{% else %}{{ banner.button_text_lv }}{% endif %}</a>{% endif %}
+                </div>
+            </div>
+            {% else %}
+            <div class="hero-section"><div class="container"><div class="row align-items-center"><div class="col-lg-6">
+                <span class="hero-badge">{% trans "Oficiālais izplatītājs" %}</span>
+                <h1 class="hero-title">{% if LANGUAGE_CODE == 'ru' and banner.title_ru %}{{ banner.title_ru }}{% elif LANGUAGE_CODE == 'en' and banner.title_en %}{{ banner.title_en }}{% elif LANGUAGE_CODE == 'de' and banner.title_de %}{{ banner.title_de }}{% else %}{{ banner.title_lv }}{% endif %}</h1>
+                <p class="hero-sub">{% if LANGUAGE_CODE == 'ru' and banner.subtitle_ru %}{{ banner.subtitle_ru }}{% elif LANGUAGE_CODE == 'en' and banner.subtitle_en %}{{ banner.subtitle_en }}{% elif LANGUAGE_CODE == 'de' and banner.subtitle_de %}{{ banner.subtitle_de }}{% else %}{{ banner.subtitle_lv }}{% endif %}</p>
+            </div></div></div></div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroBanners" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroBanners" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+</div>
+{% else %}
+<section class="hero-section">
+    <div class="container position-relative" style="z-index:2">
+        <div class="row align-items-center gy-5">
+            <div class="col-lg-6">
+                <span class="hero-badge"><i class="bi bi-patch-check-fill me-1"></i> {% trans "Oficiālais XADO izplatītājs" %}</span>
+                <h1 class="hero-title">{% trans "Tehnoloģija,<br>kas aizsargā<br>" %}<span>{% trans "Jūsu motoru" %}</span></h1>
+                <p class="hero-sub">{% trans "XADO eļļas un autoķīmija ar revitalizācijas tehnoloģiju. Pagariniet motora mūžu un samaziniet degvielas patēriņu." %}</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="{% url 'catalog' %}" class="hero-cta-primary"><i class="bi bi-grid3x3-gap"></i> {% trans "Skatīt katalogs" %}</a>
+                    <a href="{% url 'selector' %}" class="hero-cta-secondary"><i class="bi bi-search"></i> {% trans "Atlasīt pēc auto" %}</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="row g-4">
+                        <div class="col-4">
+                            <div class="hero-stat-num">30<span>+</span></div>
+                            <div class="hero-stat-label">{% trans "Gadi tirgū" %}</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="hero-stat-num">100<span>+</span></div>
+                            <div class="hero-stat-label">{% trans "Valstis" %}</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="hero-stat-num">8<span>+</span></div>
+                            <div class="hero-stat-label">{% trans "Zīmoli" %}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 d-none d-lg-flex justify-content-center">
+                <div class="hero-img-wrap">
+                    <div class="hero-img-glow"></div>
+                    <img src="{% static 'img/brands/xado-atomic-oil.png' %}" alt="XADO Atomic Oil" class="hero-product-img">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- ===== OIL SELECTOR BAR ===== -->
+<div class="selector-bar">
+    <div class="container">
+        <div class="d-flex align-items-center gap-2 flex-wrap flex-md-nowrap">
+            <span class="text-white fw-bold text-nowrap"><i class="bi bi-search me-1"></i>{% trans "Atlasīt pēc auto:" %}</span>
+            <select class="form-select" id="homeVT" onchange="homeSelectVT()">
+                <option value="">{% trans "Kategorija" %}</option>
+                {% for vt in vehicle_types %}
+                <option value="{{ vt.id }}">{{ vt.name_lv }}</option>
+                {% endfor %}
+            </select>
+            <select class="form-select" id="homeBrand" disabled onchange="homeLoadModels()">
+                <option value="">{% trans "Marka" %}</option>
+            </select>
+            <select class="form-select" id="homeModel" disabled onchange="homeLoadMods()">
+                <option value="">{% trans "Modelis" %}</option>
+            </select>
+            <select class="form-select" id="homeMod" disabled>
+                <option value="">{% trans "Modifikācija" %}</option>
+            </select>
+            <button class="btn-search text-nowrap" onclick="homeSearch()">
+                <i class="bi bi-search me-1"></i> {% trans "Meklēt" %}
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ===== ZĪMOLI ===== -->
+{% if brands %}
+<div class="border-bottom" style="background:#fff">
+    <div class="container-fluid px-0">
+        <div class="brands-row">
+            {% for brand in brands %}
+            {% if brand.logo %}
+            <a href="{% url 'brand_detail' brand.slug %}" class="brand-pill" title="{{ brand.name }}">
+                <img src="{{ brand.logo.url }}" alt="{{ brand.name }}">
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- ===== KATEGORIJAS ===== -->
+{% if top_categories %}
+<section class="py-5" style="background:#f9f9f9">
+    <div class="container">
+        <div class="text-center mb-4">
+            <div class="sec-label">{% trans "Produktu katalogs" %}</div>
+            <h2 class="sec-title">{% trans "Kategorijas" %}</h2>
+        </div>
+        <div class="row g-3 justify-content-center">
+            {% for cat in top_categories %}
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a href="{% url 'category_detail' cat.slug %}" class="cat-tile">
+                    <div class="cat-tile-inner">
+                        {% if cat.image %}
+                        <img src="{{ cat.image.url }}" style="height:60px;object-fit:contain" alt="{{ cat.name_lv }}">
+                        {% else %}
+                        <i class="bi {{ cat.icon|default:'bi-box' }}"></i>
+                        {% endif %}
+                        <div class="cat-tile-name">
+                            {% if LANGUAGE_CODE == 'ru' and cat.name_ru %}{{ cat.name_ru }}
+                            {% elif LANGUAGE_CODE == 'en' and cat.name_en %}{{ cat.name_en }}
+                            {% elif LANGUAGE_CODE == 'de' and cat.name_de %}{{ cat.name_de }}
+                            {% else %}{{ cat.name_lv }}{% endif %}
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a href="{% url 'catalog' %}" class="cat-tile">
+                    <div class="cat-tile-inner" style="background:#fff0f0">
+                        <i class="bi bi-grid3x3-gap" style="color:#e30613"></i>
+                        <div class="cat-tile-name" style="color:#e30613">{% trans "Viss katalogs" %}</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- ===== IZCELTIE PRODUKTI ===== -->
+{% if featured_products %}
+<section class="py-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <div class="sec-label">{% trans "Bestselleri" %}</div>
+                <h2 class="sec-title mb-0">{% trans "Populārākie produkti" %}</h2>
+            </div>
+            <a href="{% url 'catalog' %}" class="btn btn-outline-danger btn-sm">{% trans "Skatīt visus" %} <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="row g-3">
+            {% for product in featured_products %}
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="pcard">
+                    <div class="pcard-img-wrap">
+                        <div class="pcard-badges">
+                            {% if product.is_new %}<span class="badge bg-success">NEW</span>{% endif %}
+                            {% if product.is_sale %}<span class="badge bg-danger">SALE</span>{% endif %}
+                        </div>
+                        {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name_lv }}" class="pcard-img">
+                        {% else %}
+                        <div class="pcard-no-img"><i class="bi bi-image text-muted fs-1"></i></div>
+                        {% endif %}
+                    </div>
+                    <div class="pcard-body">
+                        {% if product.brand %}<div class="pcard-brand">{{ product.brand.name }}</div>{% endif %}
+                        <div class="pcard-name">
+                            <a href="{% url 'product_detail' product.slug %}">
+                                {% if LANGUAGE_CODE == 'ru' and product.name_ru %}{{ product.name_ru }}
+                                {% elif LANGUAGE_CODE == 'en' and product.name_en %}{{ product.name_en }}
+                                {% elif LANGUAGE_CODE == 'de' and product.name_de %}{{ product.name_de }}
+                                {% else %}{{ product.name_lv }}{% endif %}
+                            </a>
+                        </div>
+                        {% if product.viscosity %}<span class="badge bg-light text-dark border mt-2" style="font-size:11px">{{ product.viscosity }}</span>{% endif %}
+                        <div class="pcard-footer">
+                            <div>
+                                {% with vol=product.default_volume %}
+                                {% if vol %}
+                                <div class="pcard-price">{{ vol.price }} €</div>
+                                {% if vol.price_old %}<div class="pcard-price-old">{{ vol.price_old }} €</div>{% endif %}
+                                {% elif product.price %}
+                                <div class="pcard-price">{{ product.price }} €</div>
+                                {% endif %}
+                                {% endwith %}
+                            </div>
+                            <a href="{% url 'product_detail' product.slug %}" class="btn-add-cart">
+                                <i class="bi bi-cart-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- ===== DIVIDERS: ATOMIC OIL BANNER ===== -->
+<section style="background:#1a1a1a;padding:0">
+    <div class="container-fluid px-0">
+        <div class="row g-0 align-items-center">
+            <div class="col-md-5" style="background:#e30613;min-height:220px;display:flex;align-items:center;justify-content:center;padding:40px">
+                <img src="{% static 'img/brands/xado-atomic-oil.png' %}" alt="XADO Atomic Oil" style="max-height:140px;max-width:100%;filter:brightness(0) invert(1)">
+            </div>
+            <div class="col-md-7" style="padding:40px 48px">
+                <div class="text-white">
+                    <h3 class="fw-bold mb-2" style="font-size:1.5rem">{% trans "XADO Atomic Oil" %}</h3>
+                    <p style="color:#aaa;font-size:14px;line-height:1.7;margin-bottom:24px">{% trans "Motoreļļas ar revitalizācijas tehnoloģiju, kas ne tikai smērē, bet arī atjauno nolietotas virsmas. Patentēta tehnoloģija no XADO." %}</p>
+                    <a href="{% url 'brand_detail' 'xado-atomic-oil' %}" class="hero-cta-primary" style="font-size:13px;padding:10px 24px">{% trans "Uzzināt vairāk" %} <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== JAUNUMI ===== -->
+{% if new_products %}
+<section class="py-5" style="background:#f9f9f9">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <div class="sec-label">{% trans "Tikko pievienots" %}</div>
+                <h2 class="sec-title mb-0">{% trans "Jaunumi" %}</h2>
+            </div>
+            <a href="{% url 'catalog' %}?new=1" class="btn btn-outline-danger btn-sm">{% trans "Visi jaunumi" %} <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="row g-3">
+            {% for product in new_products %}
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="pcard">
+                    <div class="pcard-img-wrap">
+                        <span class="badge bg-success" style="position:absolute;top:10px;left:10px">NEW</span>
+                        {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name_lv }}" class="pcard-img">
+                        {% else %}
+                        <div class="pcard-no-img"><i class="bi bi-image text-muted fs-1"></i></div>
+                        {% endif %}
+                    </div>
+                    <div class="pcard-body">
+                        {% if product.brand %}<div class="pcard-brand">{{ product.brand.name }}</div>{% endif %}
+                        <div class="pcard-name">
+                            <a href="{% url 'product_detail' product.slug %}">
+                                {% if LANGUAGE_CODE == 'ru' and product.name_ru %}{{ product.name_ru }}
+                                {% elif LANGUAGE_CODE == 'en' and product.name_en %}{{ product.name_en }}
+                                {% elif LANGUAGE_CODE == 'de' and product.name_de %}{{ product.name_de }}
+                                {% else %}{{ product.name_lv }}{% endif %}
+                            </a>
+                        </div>
+                        <div class="pcard-footer">
+                            <div>
+                                {% with vol=product.default_volume %}
+                                {% if vol %}<div class="pcard-price">{{ vol.price }} €</div>
+                                {% elif product.price %}<div class="pcard-price">{{ product.price }} €</div>{% endif %}
+                                {% endwith %}
+                            </div>
+                            <a href="{% url 'product_detail' product.slug %}" class="btn-add-cart"><i class="bi bi-cart-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- ===== KĀPĒC MĒS ===== -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="sec-label">{% trans "Mūsu priekšrocības" %}</div>
+            <h2 class="sec-title">{% trans "Kāpēc izvēlēties XADO Baltic?" %}</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="why-card">
+                    <div class="why-icon"><i class="bi bi-patch-check-fill"></i></div>
+                    <div class="why-title">{% trans "Oriģinālie produkti" %}</div>
+                    <div class="why-text">{% trans "100% oriģinālā XADO produkcija tieši no ražotāja. Garantija katram produktam." %}</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="why-card">
+                    <div class="why-icon"><i class="bi bi-truck"></i></div>
+                    <div class="why-title">{% trans "Ātra piegāde" %}</div>
+                    <div class="why-text">{% trans "Piegāde visā Baltijā 1–3 dienās. Bezmaksas piegāde pasūtījumiem virs 50 €." %}</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="why-card">
+                    <div class="why-icon"><i class="bi bi-headset"></i></div>
+                    <div class="why-title">{% trans "Tehniskā konsultācija" %}</div>
+                    <div class="why-text">{% trans "Mūsu speciālisti palīdzēs izvēlēties piemērotāko produktu Jūsu automašīnai." %}</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="why-card">
+                    <div class="why-icon"><i class="bi bi-award"></i></div>
+                    <div class="why-title">{% trans "30+ gadi tirgū" %}</div>
+                    <div class="why-text">{% trans "XADO ir starptautiski atzīts zīmols, kas darbojas vairāk nekā 100 valstīs visā pasaulē." %}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="py-5" style="background:#f9f9f9">
+    <div class="container">
+        <div class="cta-banner">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-8">
+                    <div class="sec-label" style="color:rgba(255,255,255,.6)">{% trans "Sāciet jau šodien" %}</div>
+                    <h2 class="fw-bold text-white mb-2" style="font-size:1.8rem">{% trans "Nezini kādu eļļu izvēlēties?" %}</h2>
+                    <p style="color:rgba(255,255,255,.65);font-size:14px;margin:0">{% trans "Izmantojiet mūsu eļļu atlasītāju — ievadiet automašīnas marku un modeli, un mēs ieteiksmim piemērotāko produktu." %}</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="{% url 'selector' %}" class="hero-cta-primary" style="font-size:15px;padding:14px 32px">
+                        <i class="bi bi-search"></i> {% trans "Atlasīt eļļu" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const API_BRANDS = "{% url 'api_brands' %}";
+const API_MODELS = "{% url 'api_models' %}";
+const API_MODS   = "{% url 'api_modifications' %}";
+const SELECTOR_URL = "{% url 'selector' %}";
+
+function homeSelectVT() {
+    const vtId = document.getElementById('homeVT').value;
+    const brandSel = document.getElementById('homeBrand');
+    brandSel.innerHTML = '<option value="">{% trans "Marka" %}</option>';
+    brandSel.disabled = true;
+    document.getElementById('homeModel').innerHTML = '<option value="">{% trans "Modelis" %}</option>';
+    document.getElementById('homeModel').disabled = true;
+    document.getElementById('homeMod').innerHTML = '<option value="">{% trans "Modifikācija" %}</option>';
+    document.getElementById('homeMod').disabled = true;
+    if (!vtId) return;
+    fetch(API_BRANDS + '?vehicle_type=' + vtId).then(r => r.json()).then(data => {
+        data.forEach(b => brandSel.innerHTML += `<option value="${b.id}">${b.name}</option>`);
+        brandSel.disabled = false;
+    });
+}
+
+function homeLoadModels() {
+    const brandId = document.getElementById('homeBrand').value;
+    const sel = document.getElementById('homeModel');
+    sel.innerHTML = '<option value="">{% trans "Modelis" %}</option>';
+    sel.disabled = true;
+    document.getElementById('homeMod').innerHTML = '<option value="">{% trans "Modifikācija" %}</option>';
+    document.getElementById('homeMod').disabled = true;
+    if (!brandId) return;
+    fetch(API_MODELS + '?brand=' + brandId).then(r => r.json()).then(data => {
+        data.forEach(m => sel.innerHTML += `<option value="${m.id}">${m.name}</option>`);
+        sel.disabled = data.length === 0;
+    });
+}
+
+function homeLoadMods() {
+    const modelId = document.getElementById('homeModel').value;
+    const sel = document.getElementById('homeMod');
+    sel.innerHTML = '<option value="">{% trans "Modifikācija" %}</option>';
+    sel.disabled = true;
+    if (!modelId) return;
+    fetch(API_MODS + '?model=' + modelId).then(r => r.json()).then(data => {
+        data.forEach(m => sel.innerHTML += `<option value="${m.id}">${m.name}</option>`);
+        sel.disabled = data.length === 0;
+    });
+}
+
+function homeSearch() {
+    const modId = document.getElementById('homeMod').value;
+    window.location.href = modId ? SELECTOR_URL + '?modification=' + modId : SELECTOR_URL;
+}
+</script>
+
+<script>
+/* ===== KATEGORIJU NAVIGĀCIJAS JOSLA ===== */
+(function () {
+    const tabs = document.querySelectorAll('.cat-nav-tab');
+    const dropdown = document.getElementById('catDropdown');
+    if (!tabs.length || !dropdown) return;
+    let openSlug = null;
+
+    const contents = dropdown.querySelectorAll('.cat-dd-content');
+
+    tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            const slug = tab.dataset.vtSlug;
+            if (openSlug === slug) {
+                closeDropdown();
+                return;
+            }
+            openSlug = slug;
+            tabs.forEach(function (t) { t.classList.remove('open'); });
+            tab.classList.add('open');
+            contents.forEach(function (c) {
+                c.style.display = c.dataset.slug === slug ? '' : 'none';
+            });
+            dropdown.classList.add('open');
+        });
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('#catNavBar')) closeDropdown();
+    });
+
+    function closeDropdown() {
+        openSlug = null;
+        dropdown.classList.remove('open');
+        tabs.forEach(function (t) { t.classList.remove('open'); });
+    }
+})();
+</script>
+
+<script>
+(function () {
+    const el = document.getElementById('heroBanners');
+    if (!el) return;
+
+    /* --- CSS animācijas --- */
+    const s = document.createElement('style');
+    s.textContent = `
+        #heroBanners.no-bs-tr .carousel-item{transition:none!important;transform:none!important;opacity:1!important}
+        @keyframes bFadeIn  {from{opacity:0}to{opacity:1}}
+        @keyframes bZoomIn  {from{transform:scale(.82);opacity:0}to{transform:scale(1);opacity:1}}
+        @keyframes bZoomOut {from{transform:scale(1.18);opacity:0}to{transform:scale(1);opacity:1}}
+    `;
+    document.head.appendChild(s);
+
+    const ANIMS = {
+        'fade':     'bFadeIn .65s ease forwards',
+        'zoom-in':  'bZoomIn .6s ease forwards',
+        'zoom-out': 'bZoomOut .6s ease forwards',
+    };
+
+    let savedEffect = null, savedPrevSrc = null;
+
+    /* Pirms Bootstrap mainīšanas — saglabā efektu un pašreizējo bildi */
+    el.addEventListener('slide.bs.carousel', function (e) {
+        const effect = (e.relatedTarget.dataset.effect) || 'slide';
+        if (effect === 'slide') return;
+        savedEffect = effect;
+        if (effect === 'mosaic') {
+            const img = el.querySelector('.carousel-item.active img');
+            savedPrevSrc = img ? img.src : null;
+        }
+        el.classList.add('no-bs-tr'); /* Bootstrap pārslēdz momentāni, bez animācijas */
+    });
+
+    /* Pēc Bootstrap mainīšanas — ieslēdz mūsu animāciju */
+    el.addEventListener('slid.bs.carousel', function () {
+        el.classList.remove('no-bs-tr');
+        const effect = savedEffect;
+        savedEffect = null;
+        if (!effect || effect === 'slide') return;
+
+        const active = el.querySelector('.carousel-item.active');
+
+        if (effect === 'mosaic') {
+            doMosaic(active, savedPrevSrc);
+            savedPrevSrc = null;
+        } else {
+            active.style.animation = ANIMS[effect] || '';
+            active.addEventListener('animationend', () => { active.style.animation = ''; }, { once: true });
+        }
+    });
+
+    /* Mozaīka: vecā bilde sadalās kvadrātiņos un pazūd, atklājot jauno */
+    function doMosaic(activeSlide, prevSrc) {
+        if (!prevSrc) return;
+        const C = 7, R = 5;
+        const overlay = document.createElement('div');
+        overlay.style.cssText =
+            'position:absolute;inset:0;z-index:50;overflow:hidden;pointer-events:none;' +
+            'display:grid;grid-template-columns:repeat(' + C + ',1fr);grid-template-rows:repeat(' + R + ',1fr)';
+
+        const tiles = [];
+        for (let r = 0; r < R; r++) {
+            for (let c = 0; c < C; c++) {
+                const t = document.createElement('div');
+                const bx = (c / (C - 1) * 100).toFixed(1) + '%';
+                const by = (r / (R - 1) * 100).toFixed(1) + '%';
+                t.style.cssText =
+                    "background:url('" + prevSrc + "') no-repeat " + bx + ' ' + by + ';' +
+                    'background-size:' + (C * 100) + '% ' + (R * 100) + '%;' +
+                    'transition:opacity .28s ease';
+                overlay.appendChild(t);
+                tiles.push(t);
+            }
+        }
+
+        activeSlide.appendChild(overlay);
+        overlay.offsetHeight; /* reflow */
+
+        /* Izdzēš flīzes nejaušā secībā */
+        const shuffled = tiles.slice().sort(() => Math.random() - 0.5);
+        shuffled.forEach(function (t, i) {
+            setTimeout(function () { t.style.opacity = '0'; }, i * 22);
+        });
+        setTimeout(function () { overlay.remove(); }, shuffled.length * 22 + 380);
+    }
+})();
+</script>
+{% endblock %}

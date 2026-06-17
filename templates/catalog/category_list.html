@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Katalogs" %} — XADO Baltic{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+
+    {% if categories %}
+    <h2 class="section-title mb-4">{% trans "Kategorijas" %}</h2>
+    <div class="row g-4 mb-5">
+        {% for cat in categories %}
+        <div class="col-6 col-md-4 col-lg-3">
+            <a href="{% url 'category_detail' cat.slug %}" class="category-card-big text-decoration-none">
+                {% if cat.image %}
+                <img src="{{ cat.image.url }}" alt="{{ cat.name_lv }}" class="category-big-img">
+                {% else %}
+                <div class="category-big-placeholder">
+                    <i class="bi {{ cat.icon|default:'bi-box' }} fs-1 text-danger"></i>
+                </div>
+                {% endif %}
+                <div class="category-big-name">
+                    {% if LANGUAGE_CODE == 'ru' and cat.name_ru %}{{ cat.name_ru }}
+                    {% elif LANGUAGE_CODE == 'en' and cat.name_en %}{{ cat.name_en }}
+                    {% elif LANGUAGE_CODE == 'de' and cat.name_de %}{{ cat.name_de }}
+                    {% else %}{{ cat.name_lv }}{% endif %}
+                </div>
+                {% if cat.children.exists %}
+                <div class="category-big-sub text-muted small">
+                    {{ cat.children.count }} {% trans "apakškategorijas" %}
+                </div>
+                {% endif %}
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <h1 class="section-title mb-4">{% trans "Visi produkti" %}</h1>
+
+    <!-- Zīmolu filtrs -->
+    {% if brands %}
+    <div class="d-flex flex-wrap gap-2 mb-4">
+        <a href="{% url 'catalog' %}" class="btn btn-sm {% if not selected_brand %}btn-danger{% else %}btn-outline-secondary{% endif %}">
+            Visi
+        </a>
+        {% for b in brands %}
+        <a href="?brand={{ b.slug }}" class="btn btn-sm {% if selected_brand == b.slug %}btn-danger{% else %}btn-outline-secondary{% endif %}">
+            {{ b.name }}
+        </a>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Meklēšana -->
+    <form method="get" class="mb-4 d-flex gap-2" style="max-width:400px">
+        {% if selected_brand %}<input type="hidden" name="brand" value="{{ selected_brand }}">{% endif %}
+        <input type="text" name="q" value="{{ q }}" class="form-control" placeholder="Meklēt produktu...">
+        <button type="submit" class="btn btn-danger">
+            <i class="bi bi-search"></i>
+        </button>
+    </form>
+
+    <div class="row g-4">
+        {% for product in all_products %}
+        <div class="col-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm border-0 product-card">
+                <a href="{% url 'product_detail' product.slug %}">
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name_lv }}" class="card-img-top p-2" style="height:180px;object-fit:contain">
+                    {% else %}
+                    <div class="bg-light d-flex align-items-center justify-content-center" style="height:180px">
+                        <i class="bi bi-droplet fs-1 text-muted"></i>
+                    </div>
+                    {% endif %}
+                </a>
+                <div class="card-body d-flex flex-column">
+                    {% if product.brand %}
+                    <div class="small text-danger fw-semibold mb-1">{{ product.brand.name }}</div>
+                    {% endif %}
+                    <a href="{% url 'product_detail' product.slug %}" class="text-decoration-none text-dark">
+                        <h6 class="card-title mb-2" style="font-size:.9rem;line-height:1.3">
+                            {% if LANGUAGE_CODE == 'ru' and product.name_ru %}{{ product.name_ru }}
+                            {% elif LANGUAGE_CODE == 'en' and product.name_en %}{{ product.name_en }}
+                            {% else %}{{ product.name_lv }}{% endif %}
+                        </h6>
+                    </a>
+                    <div class="mt-auto">
+                        {% if product.price %}
+                        <div class="fw-bold text-danger">€ {{ product.price }}</div>
+                        {% endif %}
+                        <a href="{% url 'product_detail' product.slug %}" class="btn btn-outline-danger btn-sm mt-2 w-100">
+                            Skatīt
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p class="text-muted">Produkti nav atrasti.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

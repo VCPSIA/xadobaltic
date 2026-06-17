@@ -1,0 +1,2 @@
+C:\Users\USER\xadobaltic\xado_import_missing.py:7: SyntaxWarning: invalid escape sequence '\S'
+  Run: venv\Scripts\python.exe xado_import_missing.py

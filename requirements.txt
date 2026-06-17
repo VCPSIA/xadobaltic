@@ -1,0 +1,4 @@
+Django==5.2
+django-modeltranslation==0.20.3
+Pillow==12.2.0
+gunicorn==26.0.0

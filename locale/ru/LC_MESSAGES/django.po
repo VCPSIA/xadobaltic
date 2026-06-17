@@ -1,0 +1,674 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: XADO Baltic 1.0\n"
+"Report-Msgid-Bugs-To: info@xadobaltic.lv\n"
+"POT-Creation-Date: 2026-06-13 22:55\n"
+"PO-Revision-Date: 2026-06-13 22:55\n"
+"Last-Translator: Auto\n"
+"Language-Team: ru\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Katalogs"
+msgstr "Каталог"
+
+msgid "Viss katalogs"
+msgstr "Весь каталог"
+
+msgid "Atlasīt pēc auto"
+msgstr "Подбор по авто"
+
+msgid "Atlasīt eļļu"
+msgstr "Подобрать масло"
+
+msgid "Atlasīt eļļu pēc auto"
+msgstr "Подбор масла по авто"
+
+msgid "Atlasīt eļļu pēc auto:"
+msgstr "Подбор масла по авто:"
+
+msgid "Atlasīt eļļu pēc automašīnas"
+msgstr "Подбор масла по автомобилю"
+
+msgid "Zīmoli"
+msgstr "Бренды"
+
+msgid "Kontakti"
+msgstr "Контакты"
+
+msgid "Meklēt..."
+msgstr "Поиск..."
+
+msgid "Meklēt"
+msgstr "Поиск"
+
+msgid "Profils"
+msgstr "Профиль"
+
+msgid "Mani pasūtījumi"
+msgstr "Мои заказы"
+
+msgid "Admin"
+msgstr "Администратор"
+
+msgid "Iziet"
+msgstr "Выйти"
+
+msgid "Ienākt"
+msgstr "Войти"
+
+msgid "Reģistrēties"
+msgstr "Зарегистрироваться"
+
+msgid "Oficiālais XADO produktu izplatītājs Baltijas reģionā."
+msgstr "Официальный дистрибьютор продукции XADO в странах Балтии."
+
+msgid "Informācija"
+msgstr "Информация"
+
+msgid "Mūsu zīmoli"
+msgstr "Наши бренды"
+
+msgid "Piegāde un apmaksa"
+msgstr "Доставка и оплата"
+
+msgid "Visas tiesības aizsargātas."
+msgstr "Все права защищены."
+
+msgid "Grozs"
+msgstr "Корзина"
+
+msgid "Mans grozs"
+msgstr "Моя корзина"
+
+msgid "Grozs ir tukšs"
+msgstr "Корзина пуста"
+
+msgid "Pievienot grozam"
+msgstr "Добавить в корзину"
+
+msgid "Pievienots!"
+msgstr "Добавлено!"
+
+msgid "Noformēt pasūtījumu"
+msgstr "Оформить заказ"
+
+msgid "Turpināt iepirkties"
+msgstr "Продолжить покупки"
+
+msgid "Sākt iepirkties"
+msgstr "Начать покупки"
+
+msgid "Doties uz katalogu"
+msgstr "Перейти в каталог"
+
+msgid "Pasūtījums"
+msgstr "Заказ"
+
+msgid "Pasūtījuma noformēšana"
+msgstr "Оформление заказа"
+
+msgid "Pasūtījuma informācija"
+msgstr "Информация о заказе"
+
+msgid "Pasūtījums apstiprināts"
+msgstr "Заказ подтверждён"
+
+msgid "Pasūtījums apstiprināts!"
+msgstr "Заказ подтверждён!"
+
+msgid "Jūsu pasūtījums"
+msgstr "Ваш заказ"
+
+msgid "Pasūtītās preces"
+msgstr "Заказанные товары"
+
+msgid "Pasūtījumu vēl nav."
+msgstr "Заказов пока нет."
+
+msgid "Apstiprinājums nosūtīts uz e-pastu."
+msgstr "Подтверждение отправлено на e-mail."
+
+msgid "Apstiprināt pasūtījumu"
+msgstr "Подтвердить заказ"
+
+msgid "Paldies par jūsu pasūtījumu. Mēs ar jums sazināsimies drīzumā."
+msgstr "Спасибо за ваш заказ. Мы свяжемся с вами в ближайшее время."
+
+msgid "Reģistrācija"
+msgstr "Регистрация"
+
+msgid "Izveidot kontu"
+msgstr "Создать аккаунт"
+
+msgid "Jau ir konts?"
+msgstr "Уже есть аккаунт?"
+
+msgid "Nav konta?"
+msgstr "Нет аккаунта?"
+
+msgid "Parole"
+msgstr "Пароль"
+
+msgid "Paroles nesakrīt"
+msgstr "Пароли не совпадают"
+
+msgid "Paroles sakrīt"
+msgstr "Пароли совпадают"
+
+msgid "Sakrīt ar iepriekšējo"
+msgstr "Совпадает с предыдущим"
+
+msgid "Reģistrējoties, Jūs piekrītat mūsu"
+msgstr "Регистрируясь, вы соглашаетесь с нашими"
+
+msgid "lietošanas noteikumiem"
+msgstr "условиями использования"
+
+msgid "privātuma politikai"
+msgstr "политикой конфиденциальности"
+
+msgid "un"
+msgstr "и"
+
+msgid "vai turpināt kā viesis"
+msgstr "или продолжить как гость"
+
+msgid "Mans profils"
+msgstr "Мой профиль"
+
+msgid "Saglabt izmaiņas"
+msgstr "Сохранить изменения"
+
+msgid "Personas dati"
+msgstr "Личные данные"
+
+msgid "Vārds"
+msgstr "Имя"
+
+msgid "Uzvārds"
+msgstr "Фамилия"
+
+msgid "E-pasts"
+msgstr "E-mail"
+
+msgid "E-pasts vai tālrunis"
+msgstr "E-mail или телефон"
+
+msgid "E-pasts:"
+msgstr "E-mail:"
+
+msgid "Tālrunis"
+msgstr "Телефон"
+
+msgid "Adrese"
+msgstr "Адрес"
+
+msgid "Iela, māja"
+msgstr "Улица, дом"
+
+msgid "Iela, māja, dzīvoklis"
+msgstr "Улица, дом, квартира"
+
+msgid "Pilsēta"
+msgstr "Город"
+
+msgid "Pilsēta / novads"
+msgstr "Город / район"
+
+msgid "Pasta indekss"
+msgstr "Почтовый индекс"
+
+msgid "Valsts"
+msgstr "Страна"
+
+msgid "Valstis"
+msgstr "Страны"
+
+msgid "Produkts"
+msgstr "Товар"
+
+msgid "Produktu katalogs"
+msgstr "Каталог товаров"
+
+msgid "Kategorijas"
+msgstr "Категории"
+
+msgid "Cena"
+msgstr "Цена"
+
+msgid "Daudzums"
+msgstr "Количество"
+
+msgid "Art."
+msgstr "Арт."
+
+msgid "Skatīt"
+msgstr "Смотреть"
+
+msgid "Skatīt katalogs"
+msgstr "Смотреть каталог"
+
+msgid "Skatīt visus"
+msgstr "Смотреть все"
+
+msgid "Saistītie produkti"
+msgstr "Похожие товары"
+
+msgid "Populārākie produkti"
+msgstr "Популярные товары"
+
+msgid "Ieteicamie produkti"
+msgstr "Рекомендуемые товары"
+
+msgid "Jaunumi"
+msgstr "Новинки"
+
+msgid "Visi jaunumi"
+msgstr "Все новинки"
+
+msgid "Visi produkti"
+msgstr "Все товары"
+
+msgid "Visi"
+msgstr "Все"
+
+msgid "Bestselleri"
+msgstr "Бестселлеры"
+
+msgid "Izvēlieties tilpumu:"
+msgstr "Выберите объём:"
+
+msgid "KOPĀ"
+msgstr "ИТОГО"
+
+msgid "KOPĀ:"
+msgstr "ИТОГО:"
+
+msgid "Kopā"
+msgstr "Итого"
+
+msgid "Kopā ar PVN"
+msgstr "Итого с НДС"
+
+msgid "Kopā:"
+msgstr "Итого:"
+
+msgid "Summa bez PVN"
+msgstr "Сумма без НДС"
+
+msgid "Summa:"
+msgstr "Сумма:"
+
+msgid "Bez PVN"
+msgstr "Без НДС"
+
+msgid "Bez PVN:"
+msgstr "Без НДС:"
+
+msgid "PVN 21%"
+msgstr "НДС 21%"
+
+msgid "PVN 21%:"
+msgstr "НДС 21%:"
+
+msgid "Piegāde"
+msgstr "Доставка"
+
+msgid "Piegāde:"
+msgstr "Доставка:"
+
+msgid "Bezmaksas"
+msgstr "Бесплатно"
+
+msgid "Bezmaksas piegāde no 50,00 €"
+msgstr "Бесплатная доставка от 50,00 €"
+
+msgid ""
+"Piegāde visā Baltijā 1–3 dienās. Bezmaksas piegāde pasūtījumiem virs 50 €."
+msgstr ""
+"Доставка по всей Балтии 1–3 дня. Бесплатная доставка при заказе от 50 €."
+
+msgid "Piegādes adrese"
+msgstr "Адрес доставки"
+
+msgid "Faktiskā / piegādes adrese"
+msgstr "Фактический / адрес доставки"
+
+msgid "Piegāde tiks veikta uz juridisko adresi."
+msgstr "Доставка будет осуществлена по юридическому адресу."
+
+msgid "Sakrīt ar juridisko"
+msgstr "Совпадает с юридическим"
+
+msgid "Maksājuma veids"
+msgstr "Способ оплаты"
+
+msgid "Maksājums"
+msgstr "Оплата"
+
+msgid "Maksājums:"
+msgstr "Оплата:"
+
+msgid "Maksājuma mērķis:"
+msgstr "Назначение платежа:"
+
+msgid "Kredītkarte"
+msgstr "Кредитная карта"
+
+msgid "Bankas pārskaitījums"
+msgstr "Банковский перевод"
+
+msgid "Bankas pārskaitījuma dati"
+msgstr "Банковские реквизиты"
+
+msgid "Banka:"
+msgstr "Банк:"
+
+msgid "Maksājums veiksmīgi saņemts!"
+msgstr "Оплата успешно получена!"
+
+msgid "Pasūtījums tiks apstrādāts pēc maksājuma saņemšanas."
+msgstr "Заказ будет обработан после получения оплаты."
+
+msgid ""
+"Lūdzu maksājuma mērķī norādiet pasūtījuma numuru. Pasūtījums tiks apstrādāts"
+" pēc maksājuma saņemšanas."
+msgstr ""
+"Пожалуйста, укажите номер заказа в назначении платежа. Заказ будет обработан"
+" после получения оплаты."
+
+msgid "Droša karte apmaksa tiešsaistē."
+msgstr "Безопасная оплата картой онлайн."
+
+msgid "Droša pasūtīšana"
+msgstr "Безопасный заказ"
+
+msgid "Klienta tips"
+msgstr "Тип клиента"
+
+msgid "Privāts pircējs"
+msgstr "Частное лицо"
+
+msgid "Fiziska persona"
+msgstr "Физическое лицо"
+
+msgid "Juridiska persona"
+msgstr "Юридическое лицо"
+
+msgid "Uzņēmums"
+msgstr "Компания"
+
+msgid "Uzņēmuma nosaukums"
+msgstr "Название компании"
+
+msgid "Uzņēmuma dati"
+msgstr "Данные компании"
+
+msgid "Reģistrācijas Nr."
+msgstr "Рег. №"
+
+msgid "PVN reģ. Nr."
+msgstr "Рег. № НДС"
+
+msgid "Neobligāts — ja uzņēmums nav PVN maksātājs"
+msgstr "Необязательно — если компания не является плательщиком НДС"
+
+msgid "Juridiskā adrese"
+msgstr "Юридический адрес"
+
+msgid "Kontaktdati"
+msgstr "Контактные данные"
+
+msgid "Kontaktinformācija"
+msgstr "Контактная информация"
+
+msgid "Sazināties ar mums pasūtīšanai."
+msgstr "Свяжитесь с нами для заказа."
+
+msgid "Nosūtīt"
+msgstr "Отправить"
+
+msgid "Nosūtīt ziņojumu"
+msgstr "Отправить сообщение"
+
+msgid "Ziņojums"
+msgstr "Сообщение"
+
+msgid "Jautājumi:"
+msgstr "Вопросы:"
+
+msgid "Jūsu jautājums vai pieprasījums"
+msgstr "Ваш вопрос или запрос"
+
+msgid "Ātra piegāde"
+msgstr "Быстрая доставка"
+
+msgid "Oriģinālais XADO izplatītājs"
+msgstr "Официальный дистрибьютор XADO"
+
+msgid "Oriģinālais XADO produktu izplatītājs Baltijas reģionā"
+msgstr "Официальный дистрибьютор продукции XADO в странах Балтии"
+
+msgid "Oriģinālie produkti"
+msgstr "Оригинальные товары"
+
+msgid "Oficiālais izplatītājs"
+msgstr "Официальный дистрибьютор"
+
+msgid "Oficiālais XADO izplatītājs"
+msgstr "Официальный дистрибьютор XADO"
+
+msgid ""
+"100% oriģinālā XADO produkcija tieši no ražotāja. Garantija katram "
+"produktam."
+msgstr ""
+"100% оригинальная продукция XADO напрямую от производителя. Гарантия на "
+"каждый товар."
+
+msgid "Tehnoloģija,<br>kas aizsargā<br>"
+msgstr "Технология,<br>которая защищает<br>"
+
+msgid "Tehniskā konsultācija"
+msgstr "Техническая консультация"
+
+msgid "30+ gadi tirgū"
+msgstr "30+ лет на рынке"
+
+msgid "Gadi tirgū"
+msgstr "Лет на рынке"
+
+msgid "Kāpēc izvēlēties XADO Baltic?"
+msgstr "Почему выбирают XADO Baltic?"
+
+msgid "Mūsu priekšrocības"
+msgstr "Наши преимущества"
+
+msgid "Sāciet jau šodien"
+msgstr "Начните сегодня"
+
+msgid "Uzzināt vairāk"
+msgstr "Узнать больше"
+
+msgid "Sākumlapa"
+msgstr "Главная страница"
+
+msgid "Sākums"
+msgstr "Начало"
+
+msgid "Atpakaļ"
+msgstr "Назад"
+
+msgid "Noņemt"
+msgstr "Удалить"
+
+msgid "Tikko pievienots"
+msgstr "Только что добавлено"
+
+msgid "Marka"
+msgstr "Марка"
+
+msgid "Modelis"
+msgstr "Модель"
+
+msgid "Modifikācija"
+msgstr "Модификация"
+
+msgid "Auto marka"
+msgstr "Марка автомобиля"
+
+msgid "Dzinējs"
+msgstr "Двигатель"
+
+msgid "Jūsu motoru"
+msgstr "Ваш двигатель"
+
+msgid "Ražošanas gads"
+msgstr "Год выпуска"
+
+msgid "Transportlīdzekļa tips"
+msgstr "Тип транспортного средства"
+
+msgid "Tips"
+msgstr "Тип"
+
+msgid "Kopsavilkums"
+msgstr "Сводка"
+
+msgid "Klients:"
+msgstr "Клиент:"
+
+msgid "Saņēmējs:"
+msgstr "Получатель:"
+
+msgid "Numurs:"
+msgstr "Номер:"
+
+msgid "Datums:"
+msgstr "Дата:"
+
+msgid "Zīmols:"
+msgstr "Бренд:"
+
+msgid "Meklēts:"
+msgstr "Поиск:"
+
+msgid "Meklēšana"
+msgstr "Поиск"
+
+msgid "Meklēšanas rezultāti"
+msgstr "Результаты поиска"
+
+msgid "produkti"
+msgstr "товары"
+
+msgid "rezultāti"
+msgstr "результаты"
+
+msgid "apakškategorijas"
+msgstr "подкатегории"
+
+msgid "Nekas netika atrasts. Mēģiniet citu meklēšanas frāzi."
+msgstr "Ничего не найдено. Попробуйте другой поисковый запрос."
+
+msgid "Nezini kādu eļļu izvēlēties?"
+msgstr "Не знаете, какое масло выбрать?"
+
+msgid ""
+"Izmantojiet mūsu eļļu atlasītāju — ievadiet automašīnas marku un modeli, un "
+"mēs ieteiksmim piemērotāko produktu."
+msgstr ""
+"Воспользуйтесь нашим подборщиком масел — введите марку и модель автомобиля, "
+"и мы порекомендуем подходящий продукт."
+
+msgid ""
+"Izvēlieties savu automašīnu un mēs ieteiksmim piemērotākos XADO produktus"
+msgstr "Выберите свой автомобиль, и мы порекомендуем подходящие продукты XADO"
+
+msgid ""
+"Mūsu speciālisti palīdzēs izvēlēties piemērotāko produktu Jūsu automašīnai."
+msgstr ""
+"Наши специалисты помогут выбрать подходящий продукт для вашего автомобиля."
+
+msgid ""
+"Šai modifikācijai specifiski produkti nav atrasti. Sazinieties ar mums "
+"konsultācijai."
+msgstr ""
+"Для данной модификации специфические продукты не найдены. Свяжитесь с нами "
+"для консультации."
+
+msgid "Šajā kategorijā produkti nav atrasti."
+msgstr "В данной категории товары не найдены."
+
+msgid ""
+"XADO eļļas un autoķīmija ar revitalizācijas tehnoloģiju. Pagariniet motora "
+"mūžu un samaziniet degvielas patēriņu."
+msgstr ""
+"Масла и автохимия XADO с технологией ревитализации. Продлите ресурс "
+"двигателя и снизьте расход топлива."
+
+msgid "Eļļas un autoķīmija Baltijā"
+msgstr "Масла и автохимия в Балтии"
+
+msgid ""
+"Motoreļļas ar revitalizācijas tehnoloģiju, kas ne tikai smaržo, bet arī "
+"atjauno nolietotas virsmas. Patentēta tehnoloģija no XADO."
+msgstr ""
+"Моторные масла с технологией ревитализации, которые не только смазывают, но "
+"и восстанавливают изношенные поверхности. Запатентованная технология XADO."
+
+msgid ""
+"XADO ir starptautiski atzīts zīmols, kas darbojas vairāk nekā 100 valstīs "
+"visā pasaulē."
+msgstr ""
+"XADO — международно признанный бренд, работающий более чем в 100 странах "
+"мира."
+
+msgid "XADO Atomic Oil"
+msgstr "XADO Atomic Oil"
+
+msgid "Saņemt jaunumu e-pastus"
+msgstr "Получать новостные письма"
+
+msgid "Vēlos saņemt jaunumus un īpašos piedāvājumus"
+msgstr "Хочу получать новости и специальные предложения"
+
+msgid "Pieteikties"
+msgstr "Подписаться"
+
+msgid "Apraksts"
+msgstr "Описание"
+
+msgid "Specifikācijas"
+msgstr "Характеристики"
+
+msgid "Tehniskā informācija"
+msgstr "Техническая информация"
+
+msgid "Prasības"
+msgstr "Требования"
+
+msgid "Pielietojumi"
+msgstr "Применения"
+
+msgid "Atsauksmes"
+msgstr "Отзывы"
+
+msgid "Vēl nav atsauksmju. Esiet pirmais!"
+msgstr "Отзывов пока нет. Будьте первым!"
+
+msgid "Rakstīt atsauksmi"
+msgstr "Написать отзыв"
+
+msgid "Vērtējums"
+msgstr "Оценка"
+
+msgid "Atsauksme"
+msgstr "Отзыв"
+
+msgid "Nosūtīt atsauksmi"
+msgstr "Отправить отзыв"

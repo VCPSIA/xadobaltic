@@ -1,0 +1,130 @@
+{% extends "admin/change_form.html" %}
+
+{% block extrahead %}
+{{ block.super }}
+<style>
+fieldset.lang-fs-ru,
+fieldset.lang-fs-en,
+fieldset.lang-fs-de { display: none !important; }
+
+#_xlbar {
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 2px solid #ccc;
+    margin: 20px 0 0;
+}
+#_xlbar span {
+    padding: 7px 22px;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    background: #f5f5f5;
+    margin-right: 4px;
+    font-weight: 700;
+    font-size: 14px;
+}
+#_xlbar span.on {
+    background: #fff;
+    color: #e30613;
+    border-color: #e30613;
+    border-bottom-color: #fff;
+    margin-bottom: -2px;
+}
+#_xlbar button {
+    margin-left: auto;
+    margin-bottom: 4px;
+    padding: 5px 16px;
+    background: #e30613;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+{{ block.super }}
+<script id="packaging-templates-data" type="application/json">{{ packaging_templates_json }}</script>
+{% endblock %}
+
+{% block footer %}
+{{ block.super }}
+<script>
+(function () {
+    var langs = ['lv', 'ru', 'en', 'de'];
+    var fs = {};
+    langs.forEach(function (l) {
+        fs[l] = document.querySelector('fieldset.lang-fs-' + l);
+    });
+    if (!fs.lv) { return; }
+
+    /* --- Tab josla --- */
+    var bar = document.createElement('div');
+    bar.id = '_xlbar';
+
+    langs.forEach(function (l) {
+        if (!fs[l]) return;
+        var tab = document.createElement('span');
+        tab.textContent = l.toUpperCase();
+        if (l === 'lv') tab.className = 'on';
+        tab.onclick = function () {
+            langs.forEach(function (ll) {
+                if (fs[ll]) fs[ll].style.display = (ll === l) ? '' : 'none';
+            });
+            bar.querySelectorAll('span').forEach(function (s) { s.className = ''; });
+            tab.className = 'on';
+        };
+        bar.appendChild(tab);
+    });
+
+    var tBtn = document.createElement('button');
+    tBtn.type = 'button';
+    tBtn.textContent = 'Tulkot automātiski';
+    bar.appendChild(tBtn);
+
+    fs.lv.parentNode.insertBefore(bar, fs.lv);
+
+    /* --- Tulkošana --- */
+    tBtn.onclick = function () {
+        var tasks = [];
+        document.querySelectorAll('[id$="_lv"]').forEach(function (el) {
+            if (!el.value.trim()) return;
+            var base = el.id.replace(/^id_/, '').replace(/_lv$/, '');
+            ['ru', 'en', 'de'].forEach(function (l) {
+                var t = document.getElementById('id_' + base + '_' + l);
+                if (t && !t.value.trim()) tasks.push({ src: el.value, lang: l, target: t });
+            });
+        });
+        if (!tasks.length) { alert('Aizpildiet LV laukus!'); return; }
+        tBtn.disabled = true;
+        var i = 0;
+        var csrf = (document.querySelector('[name=csrfmiddlewaretoken]') || {}).value || '';
+        var m = window.location.pathname.match(/^((?:\/\w{2})?\/admin\/catalog\/product\/)/);
+        var url = (m ? m[1] : '/admin/catalog/product/') + 'translate/';
+        function next() {
+            if (i >= tasks.length) {
+                tBtn.disabled = false;
+                tBtn.textContent = '✓ Tulkots!';
+                setTimeout(function () { tBtn.textContent = 'Tulkot automātiski'; }, 2500);
+                return;
+            }
+            var t = tasks[i++];
+            tBtn.textContent = 'Tulko... ' + Math.round(i / tasks.length * 100) + '%';
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.setRequestHeader('X-CSRFToken', csrf);
+            xhr.onloadend = function () {
+                try { var d = JSON.parse(xhr.responseText); if (d.result) t.target.value = d.result; } catch (e) {}
+                next();
+            };
+            xhr.send('text=' + encodeURIComponent(t.src) + '&target=' + t.lang);
+        }
+        next();
+    };
+})();
+</script>
+{% endblock %}

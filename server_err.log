@@ -1,0 +1,634 @@
+Watching for file changes with StatReloader
+[17/Jun/2026 21:44:30] "GET /selector/?modification=30975 HTTP/1.1" 200 27852
+[17/Jun/2026 21:44:31] "GET /static/img/xado_balts_2.png HTTP/1.1" 200 34464
+[17/Jun/2026 21:44:31] "GET /static/css/style.css HTTP/1.1" 200 10200
+[17/Jun/2026 21:44:31] "GET /static/js/main.js HTTP/1.1" 200 463
+Not Found: /favicon.ico
+[17/Jun/2026 21:44:31] "GET /favicon.ico HTTP/1.1" 404 6055
+[17/Jun/2026 21:44:34] "GET /selector/api/brands/?lm_cat=1 HTTP/1.1" 200 3545
+[17/Jun/2026 21:44:37] "GET /selector/api/models/?brand=392&lm_cat=1 HTTP/1.1" 200 5751
+[17/Jun/2026 21:44:38] "GET /selector/api/brands/?lm_cat=2 HTTP/1.1" 200 1646
+[17/Jun/2026 21:44:40] "GET /selector/api/brands/?lm_cat=1 HTTP/1.1" 200 3545
+[17/Jun/2026 21:44:41] "GET /selector/api/models/?brand=392&lm_cat=1 HTTP/1.1" 200 5751
+[17/Jun/2026 21:44:48] "GET /selector/api/modifications/?model=3225 HTTP/1.1" 200 1944
+[17/Jun/2026 21:44:52] "GET /selector/api/products/?modification=30995 HTTP/1.1" 200 61475
+[17/Jun/2026 22:26:35] "GET /selector/api/products/?modification=30992 HTTP/1.1" 200 61475
+[17/Jun/2026 22:26:39] "GET /selector/api/products/?modification=31006 HTTP/1.1" 200 61475
+[17/Jun/2026 22:26:52] "GET /selector/?modification=30975 HTTP/1.1" 200 28140
+[17/Jun/2026 22:26:52] "GET /static/css/style.css HTTP/1.1" 200 10200
+[17/Jun/2026 22:26:52] "GET /static/js/main.js HTTP/1.1" 200 463
+[17/Jun/2026 22:26:52] "GET /static/img/xado_balts_2.png HTTP/1.1" 200 34464
+[17/Jun/2026 22:26:52] "GET /selector/api/products/?modification=30975 HTTP/1.1" 200 61475
+[17/Jun/2026 22:26:53] "GET /media/products/oc_307.jpg HTTP/1.1" 200 75282
+[17/Jun/2026 22:26:53] "GET /media/products/oc_288.jpg HTTP/1.1" 200 73209
+[17/Jun/2026 22:26:53] "GET /media/products/oc_130.jpg HTTP/1.1" 200 111275
+[17/Jun/2026 22:26:53] "GET /media/products/oc_133.jpg HTTP/1.1" 200 160727
+[17/Jun/2026 22:26:53] "GET /media/products/oc_129.jpg HTTP/1.1" 200 160782
+[17/Jun/2026 22:26:53] "GET /media/products/oc_56.jpg HTTP/1.1" 200 156119
+[17/Jun/2026 22:26:53] "GET /media/products/oc_131.jpg HTTP/1.1" 200 117669
+[17/Jun/2026 22:26:53] "GET /media/products/oc_132.jpg HTTP/1.1" 200 84834
+[17/Jun/2026 22:26:53] "GET /media/products/oc_160.jpg HTTP/1.1" 200 76862
+[17/Jun/2026 22:26:53] "GET /media/products/oc_184.jpg HTTP/1.1" 200 78323
+[17/Jun/2026 22:26:53] "GET /media/products/oc_134.jpg HTTP/1.1" 200 164680
+[17/Jun/2026 22:26:53] "GET /media/products/oc_123.jpg HTTP/1.1" 200 135375
+[17/Jun/2026 22:26:53] "GET /media/products/oc_185.jpg HTTP/1.1" 200 78323
+[17/Jun/2026 22:26:53] "GET /media/products/oc_136.jpg HTTP/1.1" 200 133731
+[17/Jun/2026 22:26:53] "GET /media/products/oc_287.jpg HTTP/1.1" 200 79118
+[17/Jun/2026 22:26:53] "GET /media/products/oc_158.jpg HTTP/1.1" 200 108075
+[17/Jun/2026 22:26:53] "GET /media/products/oc_51.jpg HTTP/1.1" 200 124200
+[17/Jun/2026 22:26:53] "GET /media/products/oc_52.jpg HTTP/1.1" 200 169223
+[17/Jun/2026 22:26:53] "GET /media/products/oc_293.jpg HTTP/1.1" 200 72503
+[17/Jun/2026 22:26:53] "GET /media/products/oc_159.jpg HTTP/1.1" 200 168961
+[17/Jun/2026 22:26:53] "GET /media/products/oc_140.jpg HTTP/1.1" 200 81789
+[17/Jun/2026 22:26:53] "GET /media/products/oc_142.jpg HTTP/1.1" 200 161754
+[17/Jun/2026 22:26:53] "GET /media/products/oc_294.jpg HTTP/1.1" 200 72672
+[17/Jun/2026 22:26:53] "GET /media/products/oc_50.jpg HTTP/1.1" 200 59896
+[17/Jun/2026 22:26:53] "GET /media/products/oc_161.jpg HTTP/1.1" 200 104327
+[17/Jun/2026 22:26:53] "GET /media/products/oc_162.jpg HTTP/1.1" 200 159876
+[17/Jun/2026 22:26:53] "GET /media/products/oc_174.jpg HTTP/1.1" 200 104031
+[17/Jun/2026 22:26:53] "GET /media/products/oc_175.jpg HTTP/1.1" 200 163795
+[17/Jun/2026 22:26:53] "GET /media/products/oc_176.jpg HTTP/1.1" 200 112577
+[17/Jun/2026 22:26:53] "GET /media/products/oc_165.jpg HTTP/1.1" 200 4290
+[17/Jun/2026 22:26:53] "GET /media/products/oc_306.jpg HTTP/1.1" 200 126858
+[17/Jun/2026 22:26:53] "GET /media/products/oc_166.jpg HTTP/1.1" 200 174160
+[17/Jun/2026 22:26:53] "GET /media/products/oc_285.jpg HTTP/1.1" 200 79075
+[17/Jun/2026 22:26:53] "GET /media/products/oc_304.jpg HTTP/1.1" 200 70400
+[17/Jun/2026 22:26:53] "GET /media/products/oc_169.jpg HTTP/1.1" 200 76862
+[17/Jun/2026 22:26:53] "GET /media/products/oc_76.jpg HTTP/1.1" 200 177794
+[17/Jun/2026 22:26:53] "GET /media/products/oc_289.jpg HTTP/1.1" 200 73665
+[17/Jun/2026 22:26:53] "GET /media/products/oc_167.jpg HTTP/1.1" 200 168009
+[17/Jun/2026 22:26:53] "GET /media/products/oc_168.jpg HTTP/1.1" 200 62275
+[17/Jun/2026 22:26:53] "GET /media/products/oc_286.jpg HTTP/1.1" 200 78278
+[17/Jun/2026 22:26:53] "GET /media/products/oc_53.jpg HTTP/1.1" 200 170818
+[17/Jun/2026 22:26:53] "GET /media/products/oc_182.jpg HTTP/1.1" 200 167975
+[17/Jun/2026 22:26:53] "GET /media/products/oc_183.jpg HTTP/1.1" 200 161829
+[17/Jun/2026 22:26:53] "GET /media/products/oc_79.jpg HTTP/1.1" 200 169703
+[17/Jun/2026 22:26:53] "GET /media/products/oc_290.jpg HTTP/1.1" 200 74203
+[17/Jun/2026 22:26:53] "GET /media/products/oc_193.jpg HTTP/1.1" 200 176397
+[17/Jun/2026 22:26:53] "GET /media/products/oc_310.png HTTP/1.1" 200 144291
+[17/Jun/2026 22:26:53] "GET /media/products/oc_194.jpg HTTP/1.1" 200 97100
+[17/Jun/2026 22:26:53] "GET /media/products/oc_101.jpg HTTP/1.1" 200 100637
+[17/Jun/2026 22:26:53] "GET /media/products/oc_311.png HTTP/1.1" 200 242470
+[17/Jun/2026 22:26:53] "GET /media/products/oc_179.jpg HTTP/1.1" 200 86140
+[17/Jun/2026 22:26:53] "GET /media/products/oc_180.jpg HTTP/1.1" 200 94257
+[17/Jun/2026 22:26:53] "GET /media/products/oc_178.jpg HTTP/1.1" 200 87762
+[17/Jun/2026 22:26:53] "GET /media/products/oc_100.jpg HTTP/1.1" 200 78208
+[17/Jun/2026 22:26:53] "GET /media/products/oc_191.jpg HTTP/1.1" 200 43084
+[17/Jun/2026 22:26:53] "GET /media/products/oc_299.jpg HTTP/1.1" 200 82668
+[17/Jun/2026 22:26:53] "GET /media/products/oc_266.jpg HTTP/1.1" 200 59890
+[17/Jun/2026 22:26:53] "GET /media/products/oc_97.jpg HTTP/1.1" 200 168370
+[17/Jun/2026 22:26:53] "GET /media/products/oc_212.jpg HTTP/1.1" 200 58977
+[17/Jun/2026 22:26:53] "GET /media/products/oc_211.jpg HTTP/1.1" 200 58977
+[17/Jun/2026 22:26:53] "GET /media/products/oc_251.jpg HTTP/1.1" 200 77641
+[17/Jun/2026 22:26:53] "GET /media/products/oc_192.jpg HTTP/1.1" 200 82278
+[17/Jun/2026 22:26:53] "GET /media/products/oc_303.jpg HTTP/1.1" 200 119903
+[17/Jun/2026 22:26:53] "GET /media/products/oc_92.jpg HTTP/1.1" 200 141105
+[17/Jun/2026 22:26:53] "GET /media/products/oc_66.jpg HTTP/1.1" 200 136019
+[17/Jun/2026 22:26:53] "GET /media/products/oc_124.jpg HTTP/1.1" 200 46924
+[17/Jun/2026 22:26:53] "GET /media/products/oc_274.JPG HTTP/1.1" 200 31438
+[17/Jun/2026 22:26:53] "GET /media/products/oc_262.jpg HTTP/1.1" 200 117938
+[17/Jun/2026 22:26:53] "GET /media/products/oc_177.jpg HTTP/1.1" 200 119400
+[17/Jun/2026 22:26:53] "GET /media/products/oc_248.jpg HTTP/1.1" 200 56874
+[17/Jun/2026 22:26:53] "GET /media/products/oc_210.jpg HTTP/1.1" 200 166291
+[17/Jun/2026 22:26:53] "GET /media/products/oc_99.jpg HTTP/1.1" 200 94425
+[17/Jun/2026 22:26:53] "GET /media/products/oc_197.jpg HTTP/1.1" 200 61218
+[17/Jun/2026 22:26:53] "GET /media/products/oc_155.jpg HTTP/1.1" 200 64094
+[17/Jun/2026 22:26:53] "GET /media/products/oc_199.jpg HTTP/1.1" 200 59679
+[17/Jun/2026 22:26:53] "GET /media/products/oc_218.jpg HTTP/1.1" 200 75962
+[17/Jun/2026 22:26:53] "GET /media/products/oc_224.jpg HTTP/1.1" 200 116317
+[17/Jun/2026 22:26:53] "GET /media/products/oc_143.jpg HTTP/1.1" 200 46451
+[17/Jun/2026 22:26:53] "GET /media/products/oc_204.jpg HTTP/1.1" 200 128358
+[17/Jun/2026 22:26:53] "GET /media/products/oc_203.jpg HTTP/1.1" 200 144795
+[17/Jun/2026 22:26:53] "GET /media/products/oc_207.jpg HTTP/1.1" 200 134692
+[17/Jun/2026 22:26:53] "GET /media/products/oc_152.jpg HTTP/1.1" 200 153403
+[17/Jun/2026 22:26:53] "GET /media/products/oc_206.jpg HTTP/1.1" 200 131679
+[17/Jun/2026 22:26:53] "GET /media/products/oc_153.jpg HTTP/1.1" 200 138411
+[17/Jun/2026 22:26:53] "GET /media/products/oc_205.jpg HTTP/1.1" 200 132056
+[17/Jun/2026 22:26:53] "GET /media/products/oc_216.jpg HTTP/1.1" 200 87860
+[17/Jun/2026 22:26:53] "GET /media/products/oc_208.jpg HTTP/1.1" 200 156808
+[17/Jun/2026 22:26:53] "GET /media/products/oc_156.jpg HTTP/1.1" 200 15861
+[17/Jun/2026 22:26:53] "GET /media/products/oc_255.jpg HTTP/1.1" 200 41943
+[17/Jun/2026 22:26:53] "GET /media/products/oc_239.jpg HTTP/1.1" 200 93037
+[17/Jun/2026 22:26:53] "GET /media/products/oc_198.jpg HTTP/1.1" 200 57680
+[17/Jun/2026 22:26:53] "GET /media/products/oc_83.jpg HTTP/1.1" 200 135679
+[17/Jun/2026 22:26:53] "GET /media/products/oc_85.jpg HTTP/1.1" 200 138357
+[17/Jun/2026 22:26:53] "GET /media/products/oc_82.jpg HTTP/1.1" 200 134900
+[17/Jun/2026 22:26:53] "GET /media/products/oc_84.jpg HTTP/1.1" 200 131485
+[17/Jun/2026 22:26:53] "GET /media/products/oc_80.jpg HTTP/1.1" 200 134296
+[17/Jun/2026 22:26:53] "GET /media/products/oc_295.jpg HTTP/1.1" 200 46198
+[17/Jun/2026 22:26:53] "GET /media/products/oc_258.jpg HTTP/1.1" 200 85723
+[17/Jun/2026 22:26:53] "GET /media/products/oc_86.jpg HTTP/1.1" 200 138734
+[17/Jun/2026 22:26:53] "GET /media/products/oc_276.jpg HTTP/1.1" 200 92600
+[17/Jun/2026 22:26:53] "GET /media/products/oc_261.jpg HTTP/1.1" 200 82764
+[17/Jun/2026 22:26:53] "GET /media/products/oc_257.jpg HTTP/1.1" 200 82767
+[17/Jun/2026 22:26:53] "GET /media/products/oc_148.jpg HTTP/1.1" 200 48573
+[17/Jun/2026 22:26:53] "GET /media/products/oc_220.jpg HTTP/1.1" 200 105310
+[17/Jun/2026 22:26:53] "GET /media/products/oc_87.jpg HTTP/1.1" 200 132671
+[17/Jun/2026 22:26:53] "GET /media/products/oc_222.jpg HTTP/1.1" 200 99170
+[17/Jun/2026 22:26:53] "GET /media/products/oc_244.jpg HTTP/1.1" 200 43465
+[17/Jun/2026 22:26:53] "GET /media/products/oc_223.jpg HTTP/1.1" 200 128172
+[17/Jun/2026 22:26:53] "GET /media/products/oc_296.jpg HTTP/1.1" 200 42436
+[17/Jun/2026 22:26:53] "GET /media/products/oc_259.jpeg HTTP/1.1" 200 137574
+[17/Jun/2026 22:26:53] "GET /media/products/oc_237.jpg HTTP/1.1" 200 192770
+[17/Jun/2026 22:26:53] "GET /media/products/oc_246.jpg HTTP/1.1" 200 122203
+[17/Jun/2026 22:26:53] "GET /media/products/oc_93.jpg HTTP/1.1" 200 91731
+[17/Jun/2026 22:26:53] "GET /media/products/oc_242.jpg HTTP/1.1" 200 42844
+[17/Jun/2026 22:26:53] "GET /media/products/oc_243.jpg HTTP/1.1" 200 55140
+[17/Jun/2026 22:26:53] "GET /media/products/oc_219.jpg HTTP/1.1" 200 103557
+[17/Jun/2026 22:26:53] "GET /media/products/oc_284.jpg HTTP/1.1" 200 71996
+[17/Jun/2026 22:26:53] "GET /media/products/oc_145.jpg HTTP/1.1" 200 51971
+[17/Jun/2026 22:26:53] "GET /media/products/oc_225.jpg HTTP/1.1" 200 147328
+[17/Jun/2026 22:26:53] "GET /media/products/oc_71.jpg HTTP/1.1" 200 156865
+[17/Jun/2026 22:26:53] "GET /media/products/oc_144.jpg HTTP/1.1" 200 42244
+[17/Jun/2026 22:26:53] "GET /media/products/oc_267.jpg HTTP/1.1" 200 30155
+[17/Jun/2026 22:26:53] "GET /media/products/oc_240.jpg HTTP/1.1" 200 50051
+[17/Jun/2026 22:26:53] "GET /media/products/oc_157.jpg HTTP/1.1" 200 89028
+[17/Jun/2026 22:26:53] "GET /media/products/oc_89.jpg HTTP/1.1" 200 51609
+[17/Jun/2026 22:26:53] "GET /media/products/oc_252.jpg HTTP/1.1" 200 107475
+[17/Jun/2026 22:26:53] "GET /media/products/oc_141.jpg HTTP/1.1" 200 40276
+[17/Jun/2026 22:26:53] "GET /media/products/oc_150.jpg HTTP/1.1" 200 42728
+[17/Jun/2026 22:26:53] "GET /media/products/oc_164.jpg HTTP/1.1" 200 80000
+[17/Jun/2026 22:26:53] "GET /media/products/oc_312.png HTTP/1.1" 200 135502
+[17/Jun/2026 22:26:53] "GET /media/products/oc_268.jpg HTTP/1.1" 200 34865
+[17/Jun/2026 22:26:53] "GET /media/products/oc_300.jpg HTTP/1.1" 200 41304
+[17/Jun/2026 22:26:53] "GET /media/products/oc_309.png HTTP/1.1" 200 87805
+[17/Jun/2026 22:26:53] "GET /media/products/oc_200.jpg HTTP/1.1" 200 135011
+[17/Jun/2026 22:26:53] "GET /media/products/oc_265.jpg HTTP/1.1" 200 68534
+[17/Jun/2026 22:26:53] "GET /media/products/oc_264.jpg HTTP/1.1" 200 75422
+[17/Jun/2026 22:26:53] "GET /media/products/oc_69.jpg HTTP/1.1" 200 165804
+[17/Jun/2026 22:26:53] "GET /media/products/oc_63.jpg HTTP/1.1" 200 86948
+[17/Jun/2026 22:26:53] "GET /media/products/oc_65.jpg HTTP/1.1" 200 112692
+[17/Jun/2026 22:26:53] "GET /media/products/oc_263.jpg HTTP/1.1" 200 67650
+[17/Jun/2026 22:26:53] "GET /media/products/oc_245.jpg HTTP/1.1" 200 91185
+[17/Jun/2026 22:26:53] "GET /media/products/oc_120.jpg HTTP/1.1" 200 167298
+[17/Jun/2026 22:26:53] "GET /media/products/oc_122.jpg HTTP/1.1" 200 43964
+[17/Jun/2026 22:26:53] "GET /media/products/oc_253.jpg HTTP/1.1" 200 42070
+[17/Jun/2026 22:26:53] "GET /media/products/oc_233.jpg HTTP/1.1" 200 49753
+[17/Jun/2026 22:26:53] "GET /media/products/oc_236.jpg HTTP/1.1" 200 48732
+[17/Jun/2026 22:26:53] "GET /media/products/oc_231.jpg HTTP/1.1" 200 48361
+[17/Jun/2026 22:26:53] "GET /media/products/oc_230.jpg HTTP/1.1" 200 55387
+[17/Jun/2026 22:26:53] "GET /media/products/oc_235.jpg HTTP/1.1" 200 49327
+[17/Jun/2026 22:26:53] "GET /media/products/oc_234.jpg HTTP/1.1" 200 47383
+[17/Jun/2026 22:26:53] "GET /media/products/oc_227.jpg HTTP/1.1" 200 56090
+[17/Jun/2026 22:26:53] "GET /media/products/oc_229.jpg HTTP/1.1" 200 56951
+[17/Jun/2026 22:26:53] "GET /media/products/oc_232.jpg HTTP/1.1" 200 47855
+[17/Jun/2026 22:26:53] "GET /media/products/oc_228.jpg HTTP/1.1" 200 55826
+[17/Jun/2026 22:26:53] "GET /media/products/oc_70.jpg HTTP/1.1" 200 164270
+[17/Jun/2026 22:26:53] "GET /media/products/oc_146.jpg HTTP/1.1" 200 40316
+[17/Jun/2026 22:26:53] "GET /media/products/oc_126.jpg HTTP/1.1" 200 44655
+[17/Jun/2026 22:26:53] "GET /media/products/oc_121.jpg HTTP/1.1" 200 92927
+[17/Jun/2026 22:26:53] "GET /media/products/oc_260.jpg HTTP/1.1" 200 23561
+[17/Jun/2026 22:26:53] "GET /media/products/oc_256.jpg HTTP/1.1" 200 42671
+[17/Jun/2026 22:26:53] "GET /media/products/oc_195.jpg HTTP/1.1" 200 54294
+[17/Jun/2026 22:26:53] "GET /media/products/Anticarbon.png HTTP/1.1" 200 75073
+[17/Jun/2026 22:26:53] "GET /media/products/oc_313.png HTTP/1.1" 200 87142
+[17/Jun/2026 22:26:53] "GET /media/products/oc_201.jpg HTTP/1.1" 200 91731
+[17/Jun/2026 22:26:53] "GET /media/products/oc_154.jpeg HTTP/1.1" 200 40388
+[17/Jun/2026 22:26:54] "GET /media/products/oc_67.jpg HTTP/1.1" 200 155839
+[17/Jun/2026 22:26:54] "GET /media/products/oc_64.jpg HTTP/1.1" 200 105388
+[17/Jun/2026 22:26:54] "GET /media/products/oc_73.jpg HTTP/1.1" 200 147624
+[17/Jun/2026 22:26:54] "GET /media/products/oc_58.jpg HTTP/1.1" 200 163979
+[17/Jun/2026 22:26:54] "GET /media/products/oc_282.jpg HTTP/1.1" 200 77097
+[17/Jun/2026 22:26:54] "GET /media/products/oc_57.jpg HTTP/1.1" 200 158657
+[17/Jun/2026 22:26:54] "GET /media/products/oc_281.jpg HTTP/1.1" 200 77419
+[17/Jun/2026 22:26:54] "GET /media/products/oc_60.jpg HTTP/1.1" 200 151020
+[17/Jun/2026 22:26:54] "GET /media/products/oc_283.jpg HTTP/1.1" 200 75417
+[17/Jun/2026 22:26:54] "GET /media/products/oc_59.jpg HTTP/1.1" 200 157820
+[17/Jun/2026 22:26:54] "GET /media/products/oc_280.jpg HTTP/1.1" 200 77522
+[17/Jun/2026 22:26:54] "GET /media/products/oc_279.jpg HTTP/1.1" 200 156806
+[17/Jun/2026 22:26:54] "GET /media/products/oc_61.jpg HTTP/1.1" 200 74922
+[17/Jun/2026 22:26:54] "GET /media/products/oc_62.jpg HTTP/1.1" 200 158651
+[17/Jun/2026 22:26:54] "GET /media/products/oc_278.jpg HTTP/1.1" 200 77097
+[17/Jun/2026 22:26:54] "GET /media/products/oc_213.jpg HTTP/1.1" 200 146158
+[17/Jun/2026 22:26:54] "GET /media/products/oc_214.jpg HTTP/1.1" 200 136733
+[17/Jun/2026 22:26:54] "GET /media/products/oc_139.jpg HTTP/1.1" 200 43420
+[17/Jun/2026 22:26:54] "GET /media/products/oc_95.jpg HTTP/1.1" 200 52975
+[17/Jun/2026 22:26:54] "GET /media/products/oc_254.jpg HTTP/1.1" 200 29137
+[17/Jun/2026 22:26:54] "GET /media/products/oc_221.jpg HTTP/1.1" 200 96215
+[17/Jun/2026 22:26:54] "GET /media/products/oc_269.jpg HTTP/1.1" 200 40795
+[17/Jun/2026 22:26:54] "GET /media/products/oc_209.jpg HTTP/1.1" 200 64009
+[17/Jun/2026 22:26:54] "GET /media/products/oc_72.jpg HTTP/1.1" 200 149224
+[17/Jun/2026 22:26:54] "GET /media/products/oc_241.jpg HTTP/1.1" 200 42830
+[17/Jun/2026 22:26:54] "GET /media/products/oc_217.jpg HTTP/1.1" 200 104661
+[17/Jun/2026 22:26:54] "GET /media/products/oc_250.jpg HTTP/1.1" 200 27688
+[17/Jun/2026 22:26:54] "GET /media/products/oc_127.jpg HTTP/1.1" 200 100847
+[17/Jun/2026 22:26:54] "GET /media/products/oc_149.jpg HTTP/1.1" 200 49282
+[17/Jun/2026 22:26:54] "GET /media/products/oc_273.jpg HTTP/1.1" 200 32350
+[17/Jun/2026 22:26:54] "GET /media/products/oc_271.jpg HTTP/1.1" 200 37016
+[17/Jun/2026 22:26:54] "GET /media/products/oc_96.jpg HTTP/1.1" 200 88229
+[17/Jun/2026 22:26:54] "GET /media/products/oc_297.jpg HTTP/1.1" 200 59394
+[17/Jun/2026 22:26:54] "GET /media/products/oc_298.jpg HTTP/1.1" 200 59262
+[17/Jun/2026 22:26:54] "GET /media/products/oc_249.jpg HTTP/1.1" 200 55732
+[17/Jun/2026 22:26:54] "GET /media/products/oc_151.jpg HTTP/1.1" 200 46404
+[17/Jun/2026 22:26:54] "GET /media/products/oc_277.jpg HTTP/1.1" 200 137212
+[17/Jun/2026 22:26:54] "GET /media/products/oc_275.jpg HTTP/1.1" 200 88525
+[17/Jun/2026 22:26:54] "GET /media/products/oc_292.jpg HTTP/1.1" 200 86114
+[17/Jun/2026 22:26:54] "GET /media/products/oc_308.png HTTP/1.1" 200 196056
+Not Found: /favicon.ico
+[17/Jun/2026 22:26:54] "GET /favicon.ico HTTP/1.1" 404 6055
+[17/Jun/2026 22:26:57] "GET /selector/api/brands/?lm_cat=1 HTTP/1.1" 200 3545
+[17/Jun/2026 22:27:02] "GET /selector/api/models/?brand=392&lm_cat=1 HTTP/1.1" 200 5751
+[17/Jun/2026 22:27:08] "GET /selector/api/modifications/?model=3225 HTTP/1.1" 200 1944
+[17/Jun/2026 22:27:11] "GET /selector/api/products/?modification=30995 HTTP/1.1" 200 61475
+C:\Users\USER\xadobaltic\selector\views.py changed, reloading.
+Watching for file changes with StatReloader
+[17/Jun/2026 22:32:28] "GET /selector/?modification=30975 HTTP/1.1" 200 28140
+[17/Jun/2026 22:32:29] "GET /static/js/main.js HTTP/1.1" 200 463
+[17/Jun/2026 22:32:29] "GET /static/css/style.css HTTP/1.1" 200 10200
+[17/Jun/2026 22:32:29] "GET /static/img/xado_balts_2.png HTTP/1.1" 200 34464
+[17/Jun/2026 22:32:29] "GET /selector/api/products/?modification=30975 HTTP/1.1" 200 49
+Not Found: /favicon.ico
+[17/Jun/2026 22:32:29] "GET /favicon.ico HTTP/1.1" 404 6055
+[17/Jun/2026 22:32:31] "GET /selector/api/brands/?lm_cat=1 HTTP/1.1" 200 3545
+[17/Jun/2026 22:32:35] "GET /selector/api/models/?brand=392&lm_cat=1 HTTP/1.1" 200 5751
+[17/Jun/2026 22:32:41] "GET /selector/api/modifications/?model=3225 HTTP/1.1" 200 1944
+[17/Jun/2026 22:32:44] "GET /selector/api/products/?modification=30995 HTTP/1.1" 200 49
+[17/Jun/2026 22:32:50] "GET /selector/api/products/?modification=30996 HTTP/1.1" 200 49
+[17/Jun/2026 22:33:02] "GET /selector/api/modifications/?model=3189 HTTP/1.1" 200 1006
+[17/Jun/2026 22:33:10] "GET /selector/api/products/?modification=30055 HTTP/1.1" 200 9728
+[17/Jun/2026 22:33:43] "GET /selector/api/modifications/?model=3225 HTTP/1.1" 200 1944
+[17/Jun/2026 22:33:47] "GET /selector/api/products/?modification=30995 HTTP/1.1" 200 49
+[17/Jun/2026 22:33:49] "GET /selector/api/products/?modification=30998 HTTP/1.1" 200 49
+[17/Jun/2026 22:33:51] "GET /selector/api/products/?modification=30994 HTTP/1.1" 200 49
+[17/Jun/2026 22:33:53] "GET /selector/api/products/?modification=31000 HTTP/1.1" 200 49
+[17/Jun/2026 22:33:55] "GET /selector/api/products/?modification=31004 HTTP/1.1" 200 49
+[17/Jun/2026 22:34:00] "GET /selector/api/modifications/?model=3252 HTTP/1.1" 200 1737
+[17/Jun/2026 22:34:02] "GET /selector/api/products/?modification=31421 HTTP/1.1" 200 49
+[17/Jun/2026 22:34:05] "GET /selector/api/modifications/?model=3215 HTTP/1.1" 200 1421
+[17/Jun/2026 22:34:07] "GET /selector/api/modifications/?model=3218 HTTP/1.1" 200 4241
+[17/Jun/2026 22:39:38] "GET /selector/api/products/?modification=30772 HTTP/1.1" 200 49
+C:\Users\USER\xadobaltic\selector\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\xadobaltic\selector\views.py changed, reloading.
+Watching for file changes with StatReloader
+[17/Jun/2026 23:45:29] "GET /selector/?modification=30975 HTTP/1.1" 200 28140
+[17/Jun/2026 23:45:30] "GET /static/js/main.js HTTP/1.1" 200 463
+[17/Jun/2026 23:45:30] "GET /static/img/xado_balts_2.png HTTP/1.1" 200 34464
+[17/Jun/2026 23:45:30] "GET /static/css/style.css HTTP/1.1" 200 10200
+[17/Jun/2026 23:45:30] "GET /selector/api/products/?modification=30975 HTTP/1.1" 200 49
+Not Found: /favicon.ico
+[17/Jun/2026 23:45:30] "GET /favicon.ico HTTP/1.1" 404 6055
+[17/Jun/2026 23:45:33] "GET /selector/api/brands/?lm_cat=1 HTTP/1.1" 200 3545
+[17/Jun/2026 23:45:35] "GET /selector/api/models/?brand=392&lm_cat=1 HTTP/1.1" 200 5751
+[17/Jun/2026 23:45:41] "GET /selector/api/modifications/?model=3225 HTTP/1.1" 200 1944
+[17/Jun/2026 23:45:44] "GET /selector/api/products/?modification=30999 HTTP/1.1" 200 625
+[17/Jun/2026 23:45:53] "GET /selector/api/products/?modification=31004 HTTP/1.1" 200 627
+[17/Jun/2026 23:45:55] "GET /selector/api/products/?modification=31005 HTTP/1.1" 200 627
+[17/Jun/2026 23:45:57] "GET /selector/api/products/?modification=31006 HTTP/1.1" 200 627
+[17/Jun/2026 23:46:00] "GET /selector/api/products/?modification=30991 HTTP/1.1" 200 625
+[17/Jun/2026 23:46:02] "GET /selector/api/products/?modification=30994 HTTP/1.1" 200 627
+[17/Jun/2026 23:46:05] "GET /selector/api/modifications/?model=3250 HTTP/1.1" 200 1611
+[17/Jun/2026 23:46:07] "GET /selector/api/products/?modification=31386 HTTP/1.1" 200 627
+[17/Jun/2026 23:46:14] "GET /selector/api/modifications/?model=3246 HTTP/1.1" 200 1268
+[17/Jun/2026 23:46:16] "GET /selector/api/products/?modification=31328 HTTP/1.1" 200 627
+[17/Jun/2026 23:46:21] "GET /selector/api/products/?modification=31329 HTTP/1.1" 200 627
+[17/Jun/2026 23:46:25] "GET /selector/api/models/?brand=561&lm_cat=1 HTTP/1.1" 200 3845
+[17/Jun/2026 23:46:40] "GET /selector/api/modifications/?model=6684 HTTP/1.1" 200 1897
+[17/Jun/2026 23:47:03] "GET /selector/api/modifications/?model=6685 HTTP/1.1" 200 2316
+[17/Jun/2026 23:47:16] "GET /selector/api/products/?modification=63326 HTTP/1.1" 200 49
+[17/Jun/2026 23:47:30] "GET /selector/api/products/?modification=63325 HTTP/1.1" 200 49
+[17/Jun/2026 23:47:32] "GET /selector/api/products/?modification=63337 HTTP/1.1" 200 49
+[17/Jun/2026 23:47:34] "GET /selector/api/products/?modification=63338 HTTP/1.1" 200 49
+[17/Jun/2026 23:47:36] "GET /selector/api/products/?modification=63335 HTTP/1.1" 200 49
+[17/Jun/2026 23:47:38] "GET /selector/api/products/?modification=63334 HTTP/1.1" 200 49
+C:\Users\USER\xadobaltic\catalog\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\xadobaltic\catalog\models.py changed, reloading.
+Watching for file changes with StatReloader
+[17/Jun/2026 23:51:54] "GET /admin/ HTTP/1.1" 200 28046
+[17/Jun/2026 23:51:54] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+[17/Jun/2026 23:51:57] "GET /admin/catalog/product/ HTTP/1.1" 200 155635
+[17/Jun/2026 23:51:57] "GET /admin/jsi18n/ HTTP/1.1" 200 8710
+[17/Jun/2026 23:52:01] "GET /admin/catalog/product/27/change/ HTTP/1.1" 200 183222
+[17/Jun/2026 23:52:01] "GET /admin/jsi18n/ HTTP/1.1" 200 8710
+C:\Users\USER\xadobaltic\catalog\models.py changed, reloading.
+Watching for file changes with StatReloader
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+    self.run()
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\USER\xadobaltic\venv\Lib\site-packages\django\utils\autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Users\USER\xadobaltic\venv\Lib\site-packages\django\core\management\commands\runserver.py", line 124, in inner_run
+    autoreload.raise_last_exception()
+  File "C:\Users\USER\xadobaltic\venv\Lib\site-packages\django\utils\autoreload.py", line 86, in raise_last_exception
+    raise _exception[1]
+  File "C:\Users\USER\xadobaltic\venv\Lib\site-packages\django\core\management\__init__.py", line 394, in execute
+    autoreload.check_errors(django.setup)()
+  File "C:\Users\USER\xadobaltic\venv\Lib\site-packages\django\utils\autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Users\USER\xadobaltic\venv\Lib\site-packages\django\__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "C:\Users\USER\xadobaltic\venv\Lib\site-packages\django\apps\registry.py", line 116, in populate
+    app_config.import_models()
+  File "C:\Users\USER\xadobaltic\venv\Lib\site-packages\django\apps\config.py", line 269, in import_models
+    self.models_module = import_module(models_module_name)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\USER\xadobaltic\catalog\models.py", line 128, in <module>
+    class Product(models.Model):
+  File "C:\Users\USER\xadobaltic\catalog\models.py", line 152, in Product
+    product_type = models.CharField(max_length=20, choices=PRODUCT_TYPES, default='oil')
+                                                           ^^^^^^^^^^^^^
+NameError: name 'PRODUCT_TYPES' is not defined
+C:\Users\USER\xadobaltic\catalog\models.py changed, reloading.
+Watching for file changes with StatReloader
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1075, in _bootstrap_inner
+    self.run()
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\threading.py", line 1012, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\USER\xadobaltic\venv\Lib\site-packages\django\utils\autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Users\USER\xadobaltic\venv\Lib\site-packages\django\core\management\commands\runserver.py", line 134, in inner_run
+    self.check(**check_kwargs)
+  File "C:\Users\USER\xadobaltic\venv\Lib\site-packages\django\core\management\base.py", line 569, in check
+    raise SystemCheckError(msg)
+django.core.management.base.SystemCheckError: SystemCheckError: System check identified some issues:
+
+ERRORS:
+<class 'catalog.admin.ProductAdmin'>: (admin.E116) The value of 'list_filter[4]' refers to 'product_type', which does not refer to a Field.
+
+System check identified 1 issue (0 silenced).
+C:\Users\USER\xadobaltic\catalog\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\xadobaltic\catalog\admin.py changed, reloading.
+Watching for file changes with StatReloader
+[17/Jun/2026 23:56:45] "GET /admin/catalog/product/27/change/ HTTP/1.1" 200 182383
+[17/Jun/2026 23:56:45] "GET /static/admin/css/base.css HTTP/1.1" 200 22154
+[17/Jun/2026 23:56:45] "GET /admin/jsi18n/ HTTP/1.1" 200 8710
+[17/Jun/2026 23:56:45] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[17/Jun/2026 23:56:45] "GET /static/admin/js/packaging_autofill.js HTTP/1.1" 200 3903
+[17/Jun/2026 23:56:45] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[17/Jun/2026 23:56:45] "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[17/Jun/2026 23:56:45] "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+[17/Jun/2026 23:56:45] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[17/Jun/2026 23:56:45] "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[17/Jun/2026 23:56:45] "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[17/Jun/2026 23:56:45] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[17/Jun/2026 23:56:45] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[17/Jun/2026 23:56:45] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[17/Jun/2026 23:56:45] "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+[17/Jun/2026 23:56:45] "GET /static/admin/css/responsive.css HTTP/1.1" 200 16632
+[17/Jun/2026 23:56:45] "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+[17/Jun/2026 23:56:45] "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+[17/Jun/2026 23:56:45] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+[17/Jun/2026 23:56:45] "GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+[17/Jun/2026 23:56:45] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[17/Jun/2026 23:56:45] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[17/Jun/2026 23:56:45] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[17/Jun/2026 23:56:45] "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+[17/Jun/2026 23:56:45] "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[17/Jun/2026 23:56:45] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[17/Jun/2026 23:56:45] "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[17/Jun/2026 23:56:45] "GET /static/admin/img/inline-delete.svg HTTP/1.1" 200 537
+Not Found: /favicon.ico
+[17/Jun/2026 23:56:45] "GET /favicon.ico HTTP/1.1" 404 6055
+C:\Users\USER\xadobaltic\catalog\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\xadobaltic\catalog\admin.py changed, reloading.
+Watching for file changes with StatReloader
+[18/Jun/2026 00:00:10] "GET /admin/catalog/product/27/change/ HTTP/1.1" 200 183825
+[18/Jun/2026 00:00:11] "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+[18/Jun/2026 00:00:11] "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+[18/Jun/2026 00:00:11] "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+[18/Jun/2026 00:00:11] "GET /static/admin/js/packaging_autofill.js HTTP/1.1" 200 3903
+[18/Jun/2026 00:00:11] "GET /static/admin/css/base.css HTTP/1.1" 200 22154
+[18/Jun/2026 00:00:11] "GET /admin/jsi18n/ HTTP/1.1" 200 8710
+[18/Jun/2026 00:00:11] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+[18/Jun/2026 00:00:11] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[18/Jun/2026 00:00:11] "GET /static/admin/css/responsive.css HTTP/1.1" 200 16632
+[18/Jun/2026 00:00:11] "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[18/Jun/2026 00:00:11] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[18/Jun/2026 00:00:11] "GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+[18/Jun/2026 00:00:11] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[18/Jun/2026 00:00:11] "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[18/Jun/2026 00:00:11] "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+[18/Jun/2026 00:00:11] "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[18/Jun/2026 00:00:11] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[18/Jun/2026 00:00:11] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[18/Jun/2026 00:00:11] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[18/Jun/2026 00:00:11] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[18/Jun/2026 00:00:11] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[18/Jun/2026 00:00:11] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[18/Jun/2026 00:00:11] "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[18/Jun/2026 00:00:11] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[18/Jun/2026 00:00:11] "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+[18/Jun/2026 00:00:11] "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[18/Jun/2026 00:00:11] "GET /static/admin/img/inline-delete.svg HTTP/1.1" 200 537
+Not Found: /favicon.ico
+[18/Jun/2026 00:00:11] "GET /favicon.ico HTTP/1.1" 404 6055
+C:\Users\USER\xadobaltic\catalog\admin.py changed, reloading.
+Watching for file changes with StatReloader
+[18/Jun/2026 00:03:42] "GET /admin/catalog/product/27/change/ HTTP/1.1" 200 181749
+[18/Jun/2026 00:03:43] "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+[18/Jun/2026 00:03:43] "GET /static/admin/css/base.css HTTP/1.1" 200 22154
+[18/Jun/2026 00:03:43] "GET /admin/jsi18n/ HTTP/1.1" 200 8710
+[18/Jun/2026 00:03:43] "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+[18/Jun/2026 00:03:43] "GET /static/admin/js/packaging_autofill.js HTTP/1.1" 200 3903
+[18/Jun/2026 00:03:43] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[18/Jun/2026 00:03:43] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[18/Jun/2026 00:03:43] "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[18/Jun/2026 00:03:43] "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+[18/Jun/2026 00:03:43] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+[18/Jun/2026 00:03:43] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[18/Jun/2026 00:03:43] "GET /static/admin/css/responsive.css HTTP/1.1" 200 16632
+[18/Jun/2026 00:03:43] "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+[18/Jun/2026 00:03:43] "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[18/Jun/2026 00:03:43] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[18/Jun/2026 00:03:43] "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[18/Jun/2026 00:03:43] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[18/Jun/2026 00:03:43] "GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+[18/Jun/2026 00:03:43] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[18/Jun/2026 00:03:43] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[18/Jun/2026 00:03:43] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[18/Jun/2026 00:03:43] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[18/Jun/2026 00:03:43] "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[18/Jun/2026 00:03:43] "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[18/Jun/2026 00:03:43] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[18/Jun/2026 00:03:43] "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+[18/Jun/2026 00:03:43] "GET /static/admin/img/inline-delete.svg HTTP/1.1" 200 537
+Not Found: /favicon.ico
+[18/Jun/2026 00:03:43] "GET /favicon.ico HTTP/1.1" 404 6055
+C:\Users\USER\xadobaltic\catalog\admin.py changed, reloading.
+Watching for file changes with StatReloader
+[18/Jun/2026 00:11:27] "GET /admin/catalog/product/27/change/ HTTP/1.1" 200 181828
+[18/Jun/2026 00:11:27] "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+[18/Jun/2026 00:11:27] "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+[18/Jun/2026 00:11:27] "GET /admin/jsi18n/ HTTP/1.1" 200 8710
+[18/Jun/2026 00:11:27] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[18/Jun/2026 00:11:27] "GET /static/admin/js/packaging_autofill.js HTTP/1.1" 200 3903
+[18/Jun/2026 00:11:27] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[18/Jun/2026 00:11:27] "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[18/Jun/2026 00:11:27] "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+[18/Jun/2026 00:11:27] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[18/Jun/2026 00:11:27] "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[18/Jun/2026 00:11:27] "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[18/Jun/2026 00:11:27] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[18/Jun/2026 00:11:27] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[18/Jun/2026 00:11:27] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[18/Jun/2026 00:11:27] "GET /static/admin/css/responsive.css HTTP/1.1" 200 16632
+[18/Jun/2026 00:11:27] "GET /static/admin/css/base.css HTTP/1.1" 200 22154
+[18/Jun/2026 00:11:27] "GET /static/admin/css/volume_inline.css HTTP/1.1" 200 124
+[18/Jun/2026 00:11:27] "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+[18/Jun/2026 00:11:27] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[18/Jun/2026 00:11:27] "GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+[18/Jun/2026 00:11:27] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+[18/Jun/2026 00:11:27] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[18/Jun/2026 00:11:27] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[18/Jun/2026 00:11:28] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[18/Jun/2026 00:11:28] "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[18/Jun/2026 00:11:28] "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[18/Jun/2026 00:11:28] "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+[18/Jun/2026 00:11:28] "GET /static/admin/img/inline-delete.svg HTTP/1.1" 200 537
+Not Found: /favicon.ico
+[18/Jun/2026 00:11:28] "GET /favicon.ico HTTP/1.1" 404 6055
+C:\Users\USER\xadobaltic\catalog\admin.py changed, reloading.
+Watching for file changes with StatReloader
+[18/Jun/2026 00:16:38] "GET /admin/catalog/product/27/change/ HTTP/1.1" 200 172937
+[18/Jun/2026 00:16:38] "GET /static/admin/css/responsive.css HTTP/1.1" 200 16632
+[18/Jun/2026 00:16:38] "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+[18/Jun/2026 00:16:38] "GET /admin/jsi18n/ HTTP/1.1" 200 8710
+[18/Jun/2026 00:16:39] "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+[18/Jun/2026 00:16:39] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[18/Jun/2026 00:16:39] "GET /static/admin/js/packaging_autofill.js HTTP/1.1" 200 3903
+[18/Jun/2026 00:16:39] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[18/Jun/2026 00:16:39] "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+[18/Jun/2026 00:16:39] "GET /static/admin/css/volume_inline.css HTTP/1.1" 200 124
+[18/Jun/2026 00:16:39] "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[18/Jun/2026 00:16:39] "GET /static/admin/css/base.css HTTP/1.1" 200 22154
+[18/Jun/2026 00:16:39] "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+[18/Jun/2026 00:16:39] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[18/Jun/2026 00:16:39] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+[18/Jun/2026 00:16:39] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[18/Jun/2026 00:16:39] "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[18/Jun/2026 00:16:39] "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[18/Jun/2026 00:16:39] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[18/Jun/2026 00:16:39] "GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+[18/Jun/2026 00:16:39] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[18/Jun/2026 00:16:39] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[18/Jun/2026 00:16:39] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[18/Jun/2026 00:16:39] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[18/Jun/2026 00:16:39] "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[18/Jun/2026 00:16:39] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[18/Jun/2026 00:16:39] "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+[18/Jun/2026 00:16:39] "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[18/Jun/2026 00:16:39] "GET /static/admin/img/inline-delete.svg HTTP/1.1" 200 537
+Not Found: /favicon.ico
+[18/Jun/2026 00:16:39] "GET /favicon.ico HTTP/1.1" 404 6055
+C:\Users\USER\xadobaltic\catalog\admin.py changed, reloading.
+Watching for file changes with StatReloader
+[18/Jun/2026 00:20:59] "GET /admin/catalog/product/27/change/ HTTP/1.1" 200 172937
+[18/Jun/2026 00:21:00] "GET /static/admin/css/base.css HTTP/1.1" 200 22154
+[18/Jun/2026 00:21:00] "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+[18/Jun/2026 00:21:00] "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+[18/Jun/2026 00:21:00] "GET /admin/jsi18n/ HTTP/1.1" 200 8710
+[18/Jun/2026 00:21:00] "GET /static/admin/css/responsive.css HTTP/1.1" 200 16632
+[18/Jun/2026 00:21:00] "GET /static/admin/js/packaging_autofill.js HTTP/1.1" 200 3903
+[18/Jun/2026 00:21:00] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+[18/Jun/2026 00:21:00] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[18/Jun/2026 00:21:00] "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[18/Jun/2026 00:21:00] "GET /static/admin/css/volume_inline.css HTTP/1.1" 200 212
+[18/Jun/2026 00:21:00] "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+[18/Jun/2026 00:21:00] "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+[18/Jun/2026 00:21:00] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[18/Jun/2026 00:21:00] "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[18/Jun/2026 00:21:00] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[18/Jun/2026 00:21:00] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[18/Jun/2026 00:21:00] "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[18/Jun/2026 00:21:00] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[18/Jun/2026 00:21:00] "GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+[18/Jun/2026 00:21:00] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[18/Jun/2026 00:21:00] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[18/Jun/2026 00:21:00] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[18/Jun/2026 00:21:00] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[18/Jun/2026 00:21:00] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[18/Jun/2026 00:21:00] "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[18/Jun/2026 00:21:00] "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[18/Jun/2026 00:21:00] "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+[18/Jun/2026 00:21:00] "GET /static/admin/img/inline-delete.svg HTTP/1.1" 200 537
+Not Found: /favicon.ico
+[18/Jun/2026 00:21:00] "GET /favicon.ico HTTP/1.1" 404 6055
+C:\Users\USER\xadobaltic\xadobaltic\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\xadobaltic\xadobaltic\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\xadobaltic\xadobaltic\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\xadobaltic\catalog\admin.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\USER\xadobaltic\catalog\admin.py changed, reloading.
+Watching for file changes with StatReloader
+[18/Jun/2026 00:28:44] "GET /admin/catalog/product/27/change/ HTTP/1.1" 200 181969
+[18/Jun/2026 00:28:45] "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+[18/Jun/2026 00:28:45] "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+[18/Jun/2026 00:28:45] "GET /admin/jsi18n/ HTTP/1.1" 200 8710
+[18/Jun/2026 00:28:45] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[18/Jun/2026 00:28:45] "GET /static/tinymce/tinymce.min.js HTTP/1.1" 200 457003
+[18/Jun/2026 00:28:45] "GET /static/admin/js/packaging_autofill.js HTTP/1.1" 200 3903
+[18/Jun/2026 00:28:45] "GET /static/admin/css/responsive.css HTTP/1.1" 200 16632
+[18/Jun/2026 00:28:45] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[18/Jun/2026 00:28:45] "GET /static/django_tinymce/init_tinymce.js HTTP/1.1" 200 2564
+[18/Jun/2026 00:28:45] "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+[18/Jun/2026 00:28:45] "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+[18/Jun/2026 00:28:45] "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+[18/Jun/2026 00:28:45] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+[18/Jun/2026 00:28:45] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[18/Jun/2026 00:28:45] "GET /static/admin/css/volume_inline.css HTTP/1.1" 200 212
+[18/Jun/2026 00:28:45] "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[18/Jun/2026 00:28:45] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+[18/Jun/2026 00:28:45] "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+[18/Jun/2026 00:28:45] "GET /static/admin/css/base.css HTTP/1.1" 200 22154
+[18/Jun/2026 00:28:45] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[18/Jun/2026 00:28:45] "GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+[18/Jun/2026 00:28:45] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[18/Jun/2026 00:28:45] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[18/Jun/2026 00:28:45] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[18/Jun/2026 00:28:45] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[18/Jun/2026 00:28:45] "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[18/Jun/2026 00:28:45] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[18/Jun/2026 00:28:45] "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[18/Jun/2026 00:28:45] "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+[18/Jun/2026 00:28:45] "GET /static/tinymce/langs/lv.js HTTP/1.1" 200 17539
+[18/Jun/2026 00:28:45] "GET /static/tinymce/plugins/lists/plugin.min.js HTTP/1.1" 200 28236
+[18/Jun/2026 00:28:45] "GET /static/tinymce/plugins/link/plugin.min.js HTTP/1.1" 200 16946
+[18/Jun/2026 00:28:45] "GET /static/tinymce/icons/default/icons.min.js HTTP/1.1" 200 87781
+[18/Jun/2026 00:28:45] "GET /static/tinymce/models/dom/model.min.js HTTP/1.1" 200 97814
+[18/Jun/2026 00:28:45] "GET /static/tinymce/plugins/code/plugin.min.js HTTP/1.1" 200 870
+[18/Jun/2026 00:28:45] "GET /static/tinymce/plugins/image/plugin.min.js HTTP/1.1" 200 19637
+[18/Jun/2026 00:28:45] "GET /static/tinymce/plugins/wordcount/plugin.min.js HTTP/1.1" 200 12135
+[18/Jun/2026 00:28:45] "GET /static/tinymce/plugins/table/plugin.min.js HTTP/1.1" 200 47885
+[18/Jun/2026 00:28:45] "GET /static/tinymce/themes/silver/theme.min.js HTTP/1.1" 200 452582
+[18/Jun/2026 00:28:45] "GET /static/admin/img/inline-delete.svg HTTP/1.1" 200 537
+[18/Jun/2026 00:28:45] "GET /static/tinymce/skins/ui/oxide/skin.min.css HTTP/1.1" 200 107361
+[18/Jun/2026 00:28:45] "GET /static/tinymce/skins/content/default/content.min.css HTTP/1.1" 200 1149
+[18/Jun/2026 00:28:45] "GET /static/tinymce/skins/ui/oxide/content.min.css HTTP/1.1" 200 26865
+[18/Jun/2026 00:28:45] "GET /static/tinymce/skins/content/default/content.min.css HTTP/1.1" 200 1149
+[18/Jun/2026 00:28:45] "GET /static/tinymce/skins/ui/oxide/content.min.css HTTP/1.1" 200 26865
+[18/Jun/2026 00:28:45] "GET /static/tinymce/skins/content/default/content.min.css HTTP/1.1" 200 1149
+[18/Jun/2026 00:28:45] "GET /static/tinymce/skins/content/default/content.min.css HTTP/1.1" 200 1149
+[18/Jun/2026 00:28:45] "GET /static/tinymce/skins/ui/oxide/content.min.css HTTP/1.1" 200 26865
+[18/Jun/2026 00:28:45] "GET /static/tinymce/skins/ui/oxide/content.min.css HTTP/1.1" 200 26865
+[18/Jun/2026 00:28:45] "GET /static/tinymce/skins/content/default/content.min.css HTTP/1.1" 200 1149
+[18/Jun/2026 00:28:45] "GET /static/tinymce/skins/ui/oxide/content.min.css HTTP/1.1" 200 26865
+[18/Jun/2026 00:28:45] "GET /static/tinymce/skins/content/default/content.min.css HTTP/1.1" 200 1149
+[18/Jun/2026 00:28:45] "GET /static/tinymce/skins/ui/oxide/content.min.css HTTP/1.1" 200 26865
+[18/Jun/2026 00:28:45] "GET /static/tinymce/skins/content/default/content.min.css HTTP/1.1" 200 1149
+[18/Jun/2026 00:28:45] "GET /static/tinymce/skins/ui/oxide/content.min.css HTTP/1.1" 200 26865
+[18/Jun/2026 00:28:45] "GET /static/tinymce/skins/content/default/content.min.css HTTP/1.1" 200 1149
+[18/Jun/2026 00:28:45] "GET /static/tinymce/skins/ui/oxide/content.min.css HTTP/1.1" 200 26865
+Not Found: /favicon.ico
+[18/Jun/2026 00:28:46] "GET /favicon.ico HTTP/1.1" 404 6206
+[18/Jun/2026 00:29:24] "GET /admin/core/navcategory/ HTTP/1.1" 200 82055
+[18/Jun/2026 00:29:24] "GET /admin/jsi18n/ HTTP/1.1" 200 8710

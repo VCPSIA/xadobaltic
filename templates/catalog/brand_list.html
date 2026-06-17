@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Zīmoli" %} — XADO Baltic{% endblock %}
+{% block extra_css %}
+<style>
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+@media (max-width: 991px) { .brands-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 575px)  { .brands-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1 class="section-title mb-5">{% trans "Mūsu zīmoli" %}</h1>
+    <div class="brands-grid">
+        {% for brand in brands %}
+        <a href="{% url 'brand_detail' brand.slug %}" class="brand-card text-decoration-none text-center d-block p-4 rounded border">
+            {% if brand.logo %}
+            <img src="{{ brand.logo.url }}" alt="{{ brand.name }}" class="brand-card-logo mb-2" style="max-height:70px;width:auto;object-fit:contain">
+            {% else %}
+            <div class="fw-bold fs-4 text-danger mb-2">{{ brand.name }}</div>
+            <span class="text-dark fw-semibold">{{ brand.name }}</span>
+            {% endif %}
+            <div class="text-muted small mt-1">{{ brand.products.count }} {% trans "produkti" %}</div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

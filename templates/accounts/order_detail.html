@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Pasūtījums" %} #{{ order.number }} — XADO Baltic{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <a href="{% url 'order_history' %}" class="btn btn-outline-secondary mb-4"><i class="bi bi-arrow-left"></i> {% trans "Atpakaļ" %}</a>
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-header bg-dark text-white d-flex justify-content-between">
+                    <span class="fw-bold">{% trans "Pasūtījums" %} #{{ order.number }}</span>
+                    <span class="badge {% if order.status == 'delivered' %}bg-success{% elif order.status == 'cancelled' %}bg-danger{% else %}bg-warning text-dark{% endif %}">
+                        {{ order.get_status_display }}
+                    </span>
+                </div>
+                <div class="card-body p-0">
+                    {% for item in order.items.all %}
+                    <div class="d-flex align-items-center p-3 border-bottom gap-3">
+                        <div class="flex-grow-1">
+                            <div class="fw-semibold">{{ item.product_name }}</div>
+                            <div class="text-muted small">{{ item.volume_label }}{% if item.sku %} | Art.: {{ item.sku }}{% endif %}</div>
+                            <div class="text-muted small">{{ item.price_with_vat }} € × {{ item.quantity }}</div>
+                        </div>
+                        <div class="fw-bold text-danger text-nowrap">{{ item.line_total }} €</div>
+                    </div>
+                    {% endfor %}
+                    <div class="p-3">
+                        <div class="d-flex justify-content-between text-muted"><span>{% trans "Bez PVN:" %}</span><span>{{ order.subtotal }} €</span></div>
+                        <div class="d-flex justify-content-between text-muted"><span>{% trans "PVN 21%:" %}</span><span>{{ order.vat_amount }} €</span></div>
+                        <div class="d-flex justify-content-between text-muted"><span>{% trans "Piegāde:" %}</span><span>{{ order.shipping_cost }} €</span></div>
+                        <div class="d-flex justify-content-between fw-bold fs-5 mt-2"><span>{% trans "KOPĀ:" %}</span><span class="text-danger">{{ order.total }} €</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm mb-3">
+                <div class="card-header bg-light fw-semibold">{% trans "Piegādes adrese" %}</div>
+                <div class="card-body small">
+                    <p class="mb-1 fw-semibold">{{ order.full_name }}</p>
+                    <p class="mb-1">{{ order.address_line1 }}{% if order.address_line2 %}, {{ order.address_line2 }}{% endif %}</p>
+                    <p class="mb-1">{{ order.postal_code }} {{ order.city }}, {{ order.country }}</p>
+                    <p class="mb-0">{{ order.phone }}</p>
+                </div>
+            </div>
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-light fw-semibold">{% trans "Maksājums" %}</div>
+                <div class="card-body small">
+                    <p class="mb-1">{{ order.get_payment_method_display }}</p>
+                    <span class="badge {% if order.payment_status == 'paid' %}bg-success{% elif order.payment_status == 'failed' %}bg-danger{% else %}bg-warning text-dark{% endif %}">
+                        {{ order.get_payment_status_display }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

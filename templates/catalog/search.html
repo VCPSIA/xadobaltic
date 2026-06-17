@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Meklēšana" %}: {{ q }} — XADO Baltic{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <h1 class="section-title mb-2">{% trans "Meklēšanas rezultāti" %}</h1>
+    {% if q %}<p class="text-muted mb-4">{% trans "Meklēts:" %} <strong>{{ q }}</strong> — {{ products.count }} {% trans "rezultāti" %}</p>{% endif %}
+    <div class="row g-3">
+        {% for product in products %}
+        {% include 'catalog/product_card.html' %}
+        {% empty %}
+        <div class="col-12">
+            <div class="alert alert-light">{% trans "Nekas netika atrasts. Mēģiniet citu meklēšanas frāzi." %}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

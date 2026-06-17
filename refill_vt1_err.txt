@@ -1,0 +1,2 @@
+C:\Users\USER\xadobaltic\xado_refill_vt1.py:4: SyntaxWarning: invalid escape sequence '\S'
+  Run: venv\Scripts\python.exe xado_refill_vt1.py
