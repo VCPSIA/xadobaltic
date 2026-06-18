@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}{% trans "PasÅ«tÄ«juma noformÄ“Åana" %} ā€” XADO Baltic{% endblock %}
+{% block title %}{% trans "Pasūtījuma noformÄ“šana" %} ā€” XADO Baltic{% endblock %}
 
 {% block content %}
 <div class="container py-5">
-    <h1 class="section-title mb-5"><i class="bi bi-bag-check text-danger"></i> {% trans "PasÅ«tÄ«juma noformÄ“Åana" %}</h1>
+    <h1 class="section-title mb-5"><i class="bi bi-bag-check text-danger"></i> {% trans "Pasūtījuma noformÄ“šana" %}</h1>
 
-    <!-- InformatÄ«vs paziÅ†ojums -->
+    <!-- Informatīvs paziÅ†ojums -->
     <div class="alert border-0 shadow-sm mb-5 d-flex gap-3 align-items-start" style="background:#fff8e1;border-left:5px solid #f59e0b!important;border-radius:10px">
         <div style="font-size:2rem;line-height:1;color:#f59e0b">
             <i class="bi bi-info-circle-fill"></i>
@@ -23,8 +23,8 @@
                 <strong class="d-block mb-1" style="font-size:1rem">Sehr geehrter Kunde!</strong>
                 Ihre Bestellung wird innerhalb von zwei Werktagen bearbeitet. Nach der Bearbeitung erhalten Sie per E-Mail oder in Ihrem Profil eine Rechnung oder eine ErklĆ¤rung zum nĆ¤chstmĆ¶glichen Kaufzeitpunkt. Dies ist notwendig, um die aktuellen LagerbestĆ¤nde zu Ć¼berprĆ¼fen.
             {% else %}
-                <strong class="d-block mb-1" style="font-size:1rem">CienÄ«jamais pircÄ“j!</strong>
-                JÅ«su pasÅ«tÄ«jums tiks apstrÄdÄts lÄ«dz divu darba dienu laikÄ. PÄ“c apstrÄdes JÅ«s saÅ†emsiet uz e-pastu vai JÅ«su profilÄ izveidotu rÄ“Ä·inu vai arÄ« paskaidrojumu par tuvÄko laiku preces iegÄdei. Tas ir nepiecieÅams, lai salÄ«dzinÄtu noliktavas atlikumus dzÄ«vÄ“.
+                <strong class="d-block mb-1" style="font-size:1rem">Cienījamais pircÄ“j!</strong>
+                Jūsu pasūtījums tiks apstrādāts līdz divu darba dienu laikā. PÄ“c apstrādes Jūs saÅ†emsiet uz e-pastu vai Jūsu profilā izveidotu rÄ“ķinu vai arī paskaidrojumu par tuvāko laiku preces iegādei. Tas ir nepieciešams, lai salīdzinātu noliktavas atlikumus dzīvÄ“.
             {% endif %}
         </div>
     </div>
@@ -34,10 +34,10 @@
         <div class="row g-4">
             <!-- Forma -->
             <div class="col-lg-7">
-                <!-- KontaktinformÄcija -->
+                <!-- Kontaktinformācija -->
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-header bg-dark text-white fw-bold">
-                        <i class="bi bi-person"></i> {% trans "KontaktinformÄcija" %}
+                        <i class="bi bi-person"></i> {% trans "Kontaktinformācija" %}
                     </div>
                     <div class="card-body">
                         <div class="row g-3">
@@ -68,10 +68,10 @@
                     </div>
                 </div>
 
-                <!-- PiegÄdes adrese -->
+                <!-- Piegādes adrese -->
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-header bg-dark text-white fw-bold">
-                        <i class="bi bi-geo-alt"></i> {% trans "PiegÄdes adrese" %}
+                        <i class="bi bi-geo-alt"></i> {% trans "Piegādes adrese" %}
                     </div>
                     <div class="card-body">
                         <div class="row g-3">
@@ -106,10 +106,10 @@
                     </div>
                 </div>
 
-                <!-- MaksÄjuma veids -->
+                <!-- Maksājuma veids -->
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-header bg-dark text-white fw-bold">
-                        <i class="bi bi-credit-card"></i> {% trans "MaksÄjuma veids" %}
+                        <i class="bi bi-credit-card"></i> {% trans "Maksājuma veids" %}
                     </div>
                     <div class="card-body">
                         {% for radio in form.payment_method %}
@@ -118,12 +118,12 @@
                             <label class="form-check-label ms-2 w-100" for="{{ radio.id_for_label }}">
                                 {% if radio.data.value == 'bank' %}
                                 <i class="bi bi-bank text-danger me-2 fs-5"></i>
-                                <span class="fw-semibold">{% trans "Bankas pÄrskaitÄ«jums" %}</span>
-                                <div class="text-muted small mt-1">{% trans "PasÅ«tÄ«jums tiks apstrÄdÄts pÄ“c maksÄjuma saÅ†emÅanas." %}</div>
+                                <span class="fw-semibold">{% trans "Bankas pārskaitījums" %}</span>
+                                <div class="text-muted small mt-1">{% trans "Pasūtījums tiks apstrādāts pÄ“c maksājuma saÅ†emšanas." %}</div>
                                 {% else %}
                                 <i class="bi bi-credit-card text-danger me-2 fs-5"></i>
-                                <span class="fw-semibold">{% trans "KredÄ«tkarte" %}</span>
-                                <div class="text-muted small mt-1">{% trans "DroÅa karte apmaksa tieÅsaistÄ“." %}</div>
+                                <span class="fw-semibold">{% trans "Kredītkarte" %}</span>
+                                <div class="text-muted small mt-1">{% trans "Droša karte apmaksa tiešsaistÄ“." %}</div>
                                 {% endif %}
                             </label>
                         </div>
@@ -131,9 +131,9 @@
                     </div>
                 </div>
 
-                <!-- PiezÄ«mes -->
+                <!-- Piezīmes -->
                 <div class="card border-0 shadow-sm mb-4">
-                    <div class="card-header bg-light fw-semibold">{% trans "PiezÄ«mes" %}</div>
+                    <div class="card-header bg-light fw-semibold">{% trans "Piezīmes" %}</div>
                     <div class="card-body">
                         <label class="form-label">{{ form.notes.label }}</label>
                         {{ form.notes }}
@@ -145,7 +145,7 @@
             <div class="col-lg-5">
                 <div class="card border-0 shadow-sm sticky-top" style="top:80px">
                     <div class="card-header bg-dark text-white fw-bold">
-                        <i class="bi bi-cart-check"></i> {% trans "JÅ«su pasÅ«tÄ«jums" %}
+                        <i class="bi bi-cart-check"></i> {% trans "Jūsu pasūtījums" %}
                     </div>
                     <div class="card-body p-0">
                         <div class="order-items" style="max-height:300px;overflow-y:auto">
@@ -176,7 +176,7 @@
                                     <td class="text-end">{{ cart.total_vat }} €</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-muted">{% trans "PiegÄde" %}</td>
+                                    <td class="text-muted">{% trans "Piegāde" %}</td>
                                     <td class="text-end">
                                         {% if shipping == 0 %}<span class="text-success fw-semibold">{% trans "Bezmaksas" %}</span>
                                         {% else %}{{ shipping }} €{% endif %}
@@ -188,11 +188,11 @@
                                 </tr>
                             </table>
                             <button type="submit" class="btn btn-danger btn-lg w-100">
-                                <i class="bi bi-check-lg"></i> {% trans "ApstiprinÄt pasÅ«tÄ«jumu" %}
+                                <i class="bi bi-check-lg"></i> {% trans "Apstiprināt pasūtījumu" %}
                             </button>
                             <p class="text-muted small text-center mt-2">
                                 <i class="bi bi-shield-lock text-success"></i>
-                                {% trans "DroÅa pasÅ«tÄ«Åana" %}
+                                {% trans "Droša pasūtīšana" %}
                             </p>
                         </div>
                     </div>

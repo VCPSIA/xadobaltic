@@ -4,7 +4,7 @@ from .models import CarBrand, CarModel, CarModification, ProductCompatibility
 from catalog.models import Product
 
 LM_CATS = {
-    1: {'name_lv': 'AutomaÅÄ«nas', 'name_ru': 'ŠŠ²Ń‚Š¾Š¼Š¾Š±ŠøŠ»Šø', 'name_en': 'Cars', 'name_de': 'Pkw', 'icon': 'bi-car-front-fill'},
+    1: {'name_lv': 'Automašīnas', 'name_ru': 'ŠŠ²Ń‚Š¾Š¼Š¾Š±ŠøŠ»Šø', 'name_en': 'Cars', 'name_de': 'Pkw', 'icon': 'bi-car-front-fill'},
     2: {'name_lv': 'Furgoni un pikapi', 'name_ru': 'Š¤ŃŃ€Š³Š¾Š½Ń‹ Šø ŠæŠøŠŗŠ°ŠæŃ‹', 'name_en': 'Vans & Pickups', 'name_de': 'Transporter', 'icon': 'bi-truck'},
     3: {'name_lv': 'Kravas auto un autobusi', 'name_ru': 'Š“Ń€ŃŠ·Š¾Š²ŠøŠŗŠø Šø Š°Š²Ń‚Š¾Š±ŃŃŃ‹', 'name_en': 'Trucks & Buses', 'name_de': 'LKW', 'icon': 'bi-bus-front-fill'},
     4: {'name_lv': 'Motocikli', 'name_ru': 'ŠŠ¾Ń‚Š¾Ń†ŠøŠŗŠ»Ń‹', 'name_en': 'Motorcycles', 'name_de': 'MotorrĆ¤der', 'icon': 'bi-bicycle'},
@@ -28,7 +28,7 @@ def api_brands(request):
     if lm_cat:
         brands = brands.filter(models__lm_category=lm_cat).distinct()
 
-    # ParÄdam tikai EU + neregionÄlÄs markas (bez USA/MENA/CHN/TUR/THA/BRA/RUS/AUS)
+    # Parādam tikai EU + neregionālās markas (bez USA/MENA/CHN/TUR/THA/BRA/RUS/AUS)
     if not show_all:
         from django.db.models import Q
         brands = brands.filter(
@@ -104,7 +104,7 @@ def _products_by_viscosity(viscosity, oil_spec, lang):
 
 
 def _score_product(prod, oem_tokens):
-    """SkaitÄm cik OEM tokeni atbilst produkta specifikÄcijÄm. AugstÄks = labÄks."""
+    """Skaitām cik OEM tokeni atbilst produkta specifikācijām. Augstāks = labāks."""
     combined = ' '.join([
         prod.specifications_lv or '',
         prod.requirements_lv or '',
@@ -136,7 +136,7 @@ def api_products(request):
     if oil_spec:
         oem_tokens = [t.strip().lower() for t in oil_spec.split(',') if t.strip()]
 
-    # PrimÄrais avots: ProductCompatibility ieraksti Åai modifikÄcijai
+    # Primārais avots: ProductCompatibility ieraksti šai modifikācijai
     compat_qs = ProductCompatibility.objects.filter(
         modification_id=modification_id, product__is_active=True
     ).select_related('product', 'product__brand', 'product__category')
@@ -164,11 +164,11 @@ def api_products(request):
                 'score': score,
             })
     elif viscosity:
-        # Rezerves variants: filtrÄ“ pÄ“c viskozitÄtes, ja nav compat ierakstu
+        # Rezerves variants: filtrÄ“ pÄ“c viskozitātes, ja nav compat ierakstu
         products = _products_by_viscosity(viscosity, oil_spec, lang)
 
     if not products:
-        # MeklÄ“ compat ierakstus citÄs tÄ paÅa modeÄ¼a modifikÄcijÄs
+        # MeklÄ“ compat ierakstus citās tā paša modeļa modifikācijās
         sibling_compat = ProductCompatibility.objects.filter(
             modification__car_model=mod.car_model,
             product__is_active=True
@@ -201,7 +201,7 @@ def api_products(request):
                 })
 
     if not products:
-        # Izmanto tÄ paÅa modeÄ¼a citu modifikÄciju viskozitÄti
+        # Izmanto tā paša modeļa citu modifikāciju viskozitāti
         sibling_viscs = CarModification.objects.filter(
             car_model=mod.car_model
         ).exclude(oil_viscosity='').values_list('oil_viscosity', flat=True)

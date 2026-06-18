@@ -27,7 +27,7 @@
                 </div>
                 {% if cat.children.exists %}
                 <div class="category-big-sub text-muted small">
-                    {{ cat.children.count }} {% trans "apakÅkategorijas" %}
+                    {{ cat.children.count }} {% trans "apakškategorijas" %}
                 </div>
                 {% endif %}
             </a>
@@ -38,7 +38,7 @@
 
     <h1 class="section-title mb-4">{% trans "Visi produkti" %}</h1>
 
-    <!-- ZÄ«molu filtrs -->
+    <!-- Zīmolu filtrs -->
     {% if brands %}
     <div class="d-flex flex-wrap gap-2 mb-4">
         <a href="{% url 'catalog' %}" class="btn btn-sm {% if not selected_brand %}btn-danger{% else %}btn-outline-secondary{% endif %}">
@@ -52,7 +52,7 @@
     </div>
     {% endif %}
 
-    <!-- MeklÄ“Åana -->
+    <!-- MeklÄ“šana -->
     <form method="get" class="mb-4 d-flex gap-2" style="max-width:400px">
         {% if selected_brand %}<input type="hidden" name="brand" value="{{ selected_brand }}">{% endif %}
         <input type="text" name="q" value="{{ q }}" class="form-control" placeholder="MeklÄ“t produktu...">
@@ -90,7 +90,7 @@
                         <div class="fw-bold text-danger">€ {{ product.price }}</div>
                         {% endif %}
                         <a href="{% url 'product_detail' product.slug %}" class="btn btn-outline-danger btn-sm mt-2 w-100">
-                            SkatÄ«t
+                            Skatīt
                         </a>
                     </div>
                 </div>
