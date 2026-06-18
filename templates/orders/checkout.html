@@ -1,30 +1,30 @@
-{% extends 'base.html' %}
+﻿{% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}{% trans "Pasūtījuma noformēšana" %} — XADO Baltic{% endblock %}
+{% block title %}{% trans "PasÅ«tÄ«juma noformÄ“Åana" %} ā€” XADO Baltic{% endblock %}
 
 {% block content %}
 <div class="container py-5">
-    <h1 class="section-title mb-5"><i class="bi bi-bag-check text-danger"></i> {% trans "Pasūtījuma noformēšana" %}</h1>
+    <h1 class="section-title mb-5"><i class="bi bi-bag-check text-danger"></i> {% trans "PasÅ«tÄ«juma noformÄ“Åana" %}</h1>
 
-    <!-- Informatīvs paziņojums -->
+    <!-- InformatÄ«vs paziÅ†ojums -->
     <div class="alert border-0 shadow-sm mb-5 d-flex gap-3 align-items-start" style="background:#fff8e1;border-left:5px solid #f59e0b!important;border-radius:10px">
         <div style="font-size:2rem;line-height:1;color:#f59e0b">
             <i class="bi bi-info-circle-fill"></i>
         </div>
         <div class="small">
             {% if LANGUAGE_CODE == 'ru' %}
-                <strong class="d-block mb-1" style="font-size:1rem">Уважаемый покупатель!</strong>
-                Ваш заказ будет обработан в течение двух рабочих дней. После обработки Вы получите на электронную почту или в Вашем профиле счёт или пояснение о ближайшем сроке приобретения товара. Это необходимо для сверки остатков на складе.
+                <strong class="d-block mb-1" style="font-size:1rem">Š£Š²Š°Š¶Š°ŠµŠ¼Ń‹Š¹ ŠæŠ¾ŠŗŃŠæŠ°Ń‚ŠµŠ»Ń!</strong>
+                Š’Š°Ń Š·Š°ŠŗŠ°Š· Š±ŃŠ´ŠµŃ‚ Š¾Š±Ń€Š°Š±Š¾Ń‚Š°Š½ Š² Ń‚ŠµŃ‡ŠµŠ½ŠøŠµ Š´Š²ŃŃ… Ń€Š°Š±Š¾Ń‡ŠøŃ… Š´Š½ŠµŠ¹. ŠŠ¾ŃŠ»Šµ Š¾Š±Ń€Š°Š±Š¾Ń‚ŠŗŠø Š’Ń‹ ŠæŠ¾Š»ŃŃ‡ŠøŃ‚Šµ Š½Š° Ń¨Š»ŠµŠŗŃ‚Ń€Š¾Š½Š½ŃŃˇ ŠæŠ¾Ń‡Ń‚Ń ŠøŠ»Šø Š² Š’Š°ŃŠµŠ¼ ŠæŃ€Š¾Ń„ŠøŠ»Šµ ŃŃ‡Ń‘Ń‚ ŠøŠ»Šø ŠæŠ¾Ń¸ŃŠ½ŠµŠ½ŠøŠµ Š¾ Š±Š»ŠøŠ¶Š°Š¹ŃŠµŠ¼ ŃŃ€Š¾ŠŗŠµ ŠæŃ€ŠøŠ¾Š±Ń€ŠµŃ‚ŠµŠ½ŠøŃ¸ Ń‚Š¾Š²Š°Ń€Š°. Š­Ń‚Š¾ Š½ŠµŠ¾Š±Ń…Š¾Š´ŠøŠ¼Š¾ Š´Š»Ń¸ ŃŠ²ŠµŃ€ŠŗŠø Š¾ŃŃ‚Š°Ń‚ŠŗŠ¾Š² Š½Š° ŃŠŗŠ»Š°Š´Šµ.
             {% elif LANGUAGE_CODE == 'en' %}
                 <strong class="d-block mb-1" style="font-size:1rem">Dear customer!</strong>
-                Your order will be processed within two business days. After processing, you will receive an invoice or an explanation regarding the nearest available time for purchasing the goods — via email or in your profile. This is necessary to verify current warehouse stock levels.
+                Your order will be processed within two business days. After processing, you will receive an invoice or an explanation regarding the nearest available time for purchasing the goods ā€” via email or in your profile. This is necessary to verify current warehouse stock levels.
             {% elif LANGUAGE_CODE == 'de' %}
                 <strong class="d-block mb-1" style="font-size:1rem">Sehr geehrter Kunde!</strong>
-                Ihre Bestellung wird innerhalb von zwei Werktagen bearbeitet. Nach der Bearbeitung erhalten Sie per E-Mail oder in Ihrem Profil eine Rechnung oder eine Erklärung zum nächstmöglichen Kaufzeitpunkt. Dies ist notwendig, um die aktuellen Lagerbestände zu überprüfen.
+                Ihre Bestellung wird innerhalb von zwei Werktagen bearbeitet. Nach der Bearbeitung erhalten Sie per E-Mail oder in Ihrem Profil eine Rechnung oder eine ErklĆ¤rung zum nĆ¤chstmĆ¶glichen Kaufzeitpunkt. Dies ist notwendig, um die aktuellen LagerbestĆ¤nde zu Ć¼berprĆ¼fen.
             {% else %}
-                <strong class="d-block mb-1" style="font-size:1rem">Cienījamais pircēj!</strong>
-                Jūsu pasūtījums tiks apstrādāts līdz divu darba dienu laikā. Pēc apstrādes Jūs saņemsiet uz e-pastu vai Jūsu profilā izveidotu rēķinu vai arī paskaidrojumu par tuvāko laiku preces iegādei. Tas ir nepieciešams, lai salīdzinātu noliktavas atlikumus dzīvē.
+                <strong class="d-block mb-1" style="font-size:1rem">CienÄ«jamais pircÄ“j!</strong>
+                JÅ«su pasÅ«tÄ«jums tiks apstrÄdÄts lÄ«dz divu darba dienu laikÄ. PÄ“c apstrÄdes JÅ«s saÅ†emsiet uz e-pastu vai JÅ«su profilÄ izveidotu rÄ“Ä·inu vai arÄ« paskaidrojumu par tuvÄko laiku preces iegÄdei. Tas ir nepiecieÅams, lai salÄ«dzinÄtu noliktavas atlikumus dzÄ«vÄ“.
             {% endif %}
         </div>
     </div>
@@ -34,10 +34,10 @@
         <div class="row g-4">
             <!-- Forma -->
             <div class="col-lg-7">
-                <!-- Kontaktinformācija -->
+                <!-- KontaktinformÄcija -->
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-header bg-dark text-white fw-bold">
-                        <i class="bi bi-person"></i> {% trans "Kontaktinformācija" %}
+                        <i class="bi bi-person"></i> {% trans "KontaktinformÄcija" %}
                     </div>
                     <div class="card-body">
                         <div class="row g-3">
@@ -68,10 +68,10 @@
                     </div>
                 </div>
 
-                <!-- Piegādes adrese -->
+                <!-- PiegÄdes adrese -->
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-header bg-dark text-white fw-bold">
-                        <i class="bi bi-geo-alt"></i> {% trans "Piegādes adrese" %}
+                        <i class="bi bi-geo-alt"></i> {% trans "PiegÄdes adrese" %}
                     </div>
                     <div class="card-body">
                         <div class="row g-3">
@@ -106,10 +106,10 @@
                     </div>
                 </div>
 
-                <!-- Maksājuma veids -->
+                <!-- MaksÄjuma veids -->
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-header bg-dark text-white fw-bold">
-                        <i class="bi bi-credit-card"></i> {% trans "Maksājuma veids" %}
+                        <i class="bi bi-credit-card"></i> {% trans "MaksÄjuma veids" %}
                     </div>
                     <div class="card-body">
                         {% for radio in form.payment_method %}
@@ -118,12 +118,12 @@
                             <label class="form-check-label ms-2 w-100" for="{{ radio.id_for_label }}">
                                 {% if radio.data.value == 'bank' %}
                                 <i class="bi bi-bank text-danger me-2 fs-5"></i>
-                                <span class="fw-semibold">{% trans "Bankas pārskaitījums" %}</span>
-                                <div class="text-muted small mt-1">{% trans "Pasūtījums tiks apstrādāts pēc maksājuma saņemšanas." %}</div>
+                                <span class="fw-semibold">{% trans "Bankas pÄrskaitÄ«jums" %}</span>
+                                <div class="text-muted small mt-1">{% trans "PasÅ«tÄ«jums tiks apstrÄdÄts pÄ“c maksÄjuma saÅ†emÅanas." %}</div>
                                 {% else %}
                                 <i class="bi bi-credit-card text-danger me-2 fs-5"></i>
-                                <span class="fw-semibold">{% trans "Kredītkarte" %}</span>
-                                <div class="text-muted small mt-1">{% trans "Droša karte apmaksa tiešsaistē." %}</div>
+                                <span class="fw-semibold">{% trans "KredÄ«tkarte" %}</span>
+                                <div class="text-muted small mt-1">{% trans "DroÅa karte apmaksa tieÅsaistÄ“." %}</div>
                                 {% endif %}
                             </label>
                         </div>
@@ -131,9 +131,9 @@
                     </div>
                 </div>
 
-                <!-- Piezīmes -->
+                <!-- PiezÄ«mes -->
                 <div class="card border-0 shadow-sm mb-4">
-                    <div class="card-header bg-light fw-semibold">{% trans "Piezīmes" %}</div>
+                    <div class="card-header bg-light fw-semibold">{% trans "PiezÄ«mes" %}</div>
                     <div class="card-body">
                         <label class="form-label">{{ form.notes.label }}</label>
                         {{ form.notes }}
@@ -145,23 +145,23 @@
             <div class="col-lg-5">
                 <div class="card border-0 shadow-sm sticky-top" style="top:80px">
                     <div class="card-header bg-dark text-white fw-bold">
-                        <i class="bi bi-cart-check"></i> {% trans "Jūsu pasūtījums" %}
+                        <i class="bi bi-cart-check"></i> {% trans "JÅ«su pasÅ«tÄ«jums" %}
                     </div>
                     <div class="card-body p-0">
                         <div class="order-items" style="max-height:300px;overflow-y:auto">
                             {% for item in cart %}
                             <div class="d-flex align-items-center p-3 border-bottom gap-3">
-                                {% if item.product.image %}
-                                <img src="{{ item.product.image.url }}" style="width:50px;height:50px;object-fit:contain" alt="">
+                                {% if item.product.main_image %}
+                                <img src="{{ item.product.main_image.url }}" style="width:50px;height:50px;object-fit:contain" alt="">
                                 {% endif %}
                                 <div class="flex-grow-1">
                                     <div class="fw-semibold small">
                                         {% if LANGUAGE_CODE == 'ru' and item.product.name_ru %}{{ item.product.name_ru|truncatechars:40 }}
                                         {% else %}{{ item.product.name_lv|truncatechars:40 }}{% endif %}
                                     </div>
-                                    <div class="text-muted small">{{ item.volume.label }} × {{ item.quantity }}</div>
+                                    <div class="text-muted small">{{ item.volume.label }} Ć— {{ item.quantity }}</div>
                                 </div>
-                                <div class="fw-bold text-danger text-nowrap">{{ item.line_total }} €</div>
+                                <div class="fw-bold text-danger text-nowrap">{{ item.line_total }} ā‚¬</div>
                             </div>
                             {% endfor %}
                         </div>
@@ -169,30 +169,30 @@
                             <table class="table table-borderless table-sm mb-2">
                                 <tr>
                                     <td class="text-muted">{% trans "Bez PVN" %}</td>
-                                    <td class="text-end">{{ cart.total_without_vat }} €</td>
+                                    <td class="text-end">{{ cart.total_without_vat }} ā‚¬</td>
                                 </tr>
                                 <tr>
                                     <td class="text-muted">{% trans "PVN 21%" %}</td>
-                                    <td class="text-end">{{ cart.total_vat }} €</td>
+                                    <td class="text-end">{{ cart.total_vat }} ā‚¬</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-muted">{% trans "Piegāde" %}</td>
+                                    <td class="text-muted">{% trans "PiegÄde" %}</td>
                                     <td class="text-end">
                                         {% if shipping == 0 %}<span class="text-success fw-semibold">{% trans "Bezmaksas" %}</span>
-                                        {% else %}{{ shipping }} €{% endif %}
+                                        {% else %}{{ shipping }} ā‚¬{% endif %}
                                     </td>
                                 </tr>
                                 <tr class="border-top">
-                                    <td class="fw-bold fs-5">{% trans "KOPĀ" %}</td>
-                                    <td class="text-end fw-bold fs-5 text-danger">{{ total }} €</td>
+                                    <td class="fw-bold fs-5">{% trans "KOPÄ€" %}</td>
+                                    <td class="text-end fw-bold fs-5 text-danger">{{ total }} ā‚¬</td>
                                 </tr>
                             </table>
                             <button type="submit" class="btn btn-danger btn-lg w-100">
-                                <i class="bi bi-check-lg"></i> {% trans "Apstiprināt pasūtījumu" %}
+                                <i class="bi bi-check-lg"></i> {% trans "ApstiprinÄt pasÅ«tÄ«jumu" %}
                             </button>
                             <p class="text-muted small text-center mt-2">
                                 <i class="bi bi-shield-lock text-success"></i>
-                                {% trans "Droša pasūtīšana" %}
+                                {% trans "DroÅa pasÅ«tÄ«Åana" %}
                             </p>
                         </div>
                     </div>
@@ -202,3 +202,4 @@
     </form>
 </div>
 {% endblock %}
+

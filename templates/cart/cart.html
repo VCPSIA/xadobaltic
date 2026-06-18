@@ -1,7 +1,7 @@
-{% extends 'base.html' %}
+﻿{% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}{% trans "Grozs" %} — XADO Baltic{% endblock %}
+{% block title %}{% trans "Grozs" %} ā€” XADO Baltic{% endblock %}
 
 {% block content %}
 <div class="container py-5">
@@ -10,12 +10,12 @@
     {% if cart.is_empty %}
     <div class="text-center py-5">
         <i class="bi bi-cart-x text-muted" style="font-size:5rem"></i>
-        <h4 class="mt-3 text-muted">{% trans "Grozs ir tukšs" %}</h4>
+        <h4 class="mt-3 text-muted">{% trans "Grozs ir tukÅs" %}</h4>
         <a href="{% url 'catalog' %}" class="btn btn-danger mt-3 px-5">{% trans "Doties uz katalogu" %}</a>
     </div>
     {% else %}
     <div class="row g-4">
-        <!-- Groza pozīcijas -->
+        <!-- Groza pozÄ«cijas -->
         <div class="col-lg-8">
             <div class="card border-0 shadow-sm">
                 <div class="card-body p-0">
@@ -26,7 +26,7 @@
                                 <th>{% trans "Produkts" %}</th>
                                 <th class="text-center" style="width:130px">{% trans "Daudzums" %}</th>
                                 <th class="text-end" style="width:120px">{% trans "Cena" %}</th>
-                                <th class="text-end" style="width:130px">{% trans "Kopā" %}</th>
+                                <th class="text-end" style="width:130px">{% trans "KopÄ" %}</th>
                                 <th style="width:50px"></th>
                             </tr>
                         </thead>
@@ -34,8 +34,8 @@
                             {% for item in cart %}
                             <tr>
                                 <td class="ps-3">
-                                    {% if item.product.image %}
-                                    <img src="{{ item.product.image.url }}" style="width:65px;height:65px;object-fit:contain;border-radius:8px" alt="">
+                                    {% if item.product.main_image %}
+                                    <img src="{{ item.product.main_image.url }}" style="width:65px;height:65px;object-fit:contain;border-radius:8px" alt="">
                                     {% else %}
                                     <div class="bg-light d-flex align-items-center justify-content-center rounded" style="width:65px;height:65px">
                                         <i class="bi bi-image text-muted fs-3"></i>
@@ -53,29 +53,29 @@
                                         {{ item.volume.label }}
                                         {% if item.volume.sku %}<span class="ms-1">| {% trans "Art." %}: {{ item.volume.sku }}</span>{% endif %}
                                     </div>
-                                    <div class="text-muted small">{% trans "Bez PVN:" %} {{ item.price_no_vat }} €</div>
+                                    <div class="text-muted small">{% trans "Bez PVN:" %} {{ item.price_no_vat }} ā‚¬</div>
                                 </td>
                                 <td class="text-center">
                                     <form method="post" action="{% url 'cart_update' item.product.id %}" class="d-flex align-items-center justify-content-center gap-1">
                                         {% csrf_token %}
                                         <input type="hidden" name="volume_id" value="{{ item.volume.id }}">
-                                        <button type="submit" name="quantity" value="{{ item.quantity|add:'-1' }}" class="btn btn-sm btn-outline-secondary px-2">−</button>
+                                        <button type="submit" name="quantity" value="{{ item.quantity|add:'-1' }}" class="btn btn-sm btn-outline-secondary px-2">ā’</button>
                                         <span class="px-2 fw-bold">{{ item.quantity }}</span>
                                         <button type="submit" name="quantity" value="{{ item.quantity|add:'1' }}" class="btn btn-sm btn-outline-secondary px-2">+</button>
                                     </form>
                                 </td>
                                 <td class="text-end">
-                                    <div class="fw-semibold">{{ item.price }} €</div>
+                                    <div class="fw-semibold">{{ item.price }} ā‚¬</div>
                                     {% if item.volume.price_old %}
-                                    <div class="text-muted text-decoration-line-through small">{{ item.volume.price_old }} €</div>
+                                    <div class="text-muted text-decoration-line-through small">{{ item.volume.price_old }} ā‚¬</div>
                                     {% endif %}
                                 </td>
-                                <td class="text-end fw-bold text-danger">{{ item.line_total }} €</td>
+                                <td class="text-end fw-bold text-danger">{{ item.line_total }} ā‚¬</td>
                                 <td class="pe-3 text-center">
                                     <form method="post" action="{% url 'cart_remove' item.product.id %}">
                                         {% csrf_token %}
                                         <input type="hidden" name="volume_id" value="{{ item.volume.id }}">
-                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="{% trans 'Noņemt' %}">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="{% trans 'NoÅ†emt' %}">
                                             <i class="bi bi-trash3"></i>
                                         </button>
                                     </form>
@@ -88,7 +88,7 @@
             </div>
             <div class="mt-3">
                 <a href="{% url 'catalog' %}" class="btn btn-outline-secondary">
-                    <i class="bi bi-arrow-left"></i> {% trans "Turpināt iepirkties" %}
+                    <i class="bi bi-arrow-left"></i> {% trans "TurpinÄt iepirkties" %}
                 </a>
             </div>
         </div>
@@ -103,28 +103,28 @@
                     <table class="table table-borderless mb-0">
                         <tr>
                             <td class="text-muted">{% trans "Summa bez PVN" %}</td>
-                            <td class="text-end fw-semibold">{{ cart.total_without_vat }} €</td>
+                            <td class="text-end fw-semibold">{{ cart.total_without_vat }} ā‚¬</td>
                         </tr>
                         <tr>
                             <td class="text-muted">{% trans "PVN 21%" %}</td>
-                            <td class="text-end fw-semibold">{{ cart.total_vat }} €</td>
+                            <td class="text-end fw-semibold">{{ cart.total_vat }} ā‚¬</td>
                         </tr>
                         <tr class="border-top">
-                            <td class="fw-bold fs-5">{% trans "Kopā ar PVN" %}</td>
-                            <td class="text-end fw-bold fs-5 text-danger">{{ cart.total_with_vat }} €</td>
+                            <td class="fw-bold fs-5">{% trans "KopÄ ar PVN" %}</td>
+                            <td class="text-end fw-bold fs-5 text-danger">{{ cart.total_with_vat }} ā‚¬</td>
                         </tr>
                     </table>
                     <div class="alert alert-light border mt-3 small">
                         <i class="bi bi-truck text-success"></i>
-                        {% trans "Bezmaksas piegāde no 50,00 €" %}
+                        {% trans "Bezmaksas piegÄde no 50,00 ā‚¬" %}
                     </div>
                     <a href="{% url 'checkout' %}" class="btn btn-danger btn-lg w-100 mt-2">
-                        <i class="bi bi-bag-check"></i> {% trans "Noformēt pasūtījumu" %}
+                        <i class="bi bi-bag-check"></i> {% trans "NoformÄ“t pasÅ«tÄ«jumu" %}
                     </a>
                     {% if not user.is_authenticated %}
                     <p class="text-center text-muted small mt-3">
-                        <a href="{% url 'login' %}?next={% url 'checkout' %}">{% trans "Ienākt" %}</a>
-                        {% trans "vai turpināt kā viesis" %}
+                        <a href="{% url 'login' %}?next={% url 'checkout' %}">{% trans "IenÄkt" %}</a>
+                        {% trans "vai turpinÄt kÄ viesis" %}
                     </p>
                     {% endif %}
                 </div>
@@ -134,3 +134,4 @@
     {% endif %}
 </div>
 {% endblock %}
+

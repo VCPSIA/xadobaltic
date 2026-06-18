@@ -1,7 +1,7 @@
-{% extends 'base.html' %}
+﻿{% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}{% trans "Katalogs" %} — XADO Baltic{% endblock %}
+{% block title %}{% trans "Katalogs" %} ā€” XADO Baltic{% endblock %}
 
 {% block content %}
 <div class="container py-5">
@@ -27,7 +27,7 @@
                 </div>
                 {% if cat.children.exists %}
                 <div class="category-big-sub text-muted small">
-                    {{ cat.children.count }} {% trans "apakškategorijas" %}
+                    {{ cat.children.count }} {% trans "apakÅkategorijas" %}
                 </div>
                 {% endif %}
             </a>
@@ -38,7 +38,7 @@
 
     <h1 class="section-title mb-4">{% trans "Visi produkti" %}</h1>
 
-    <!-- Zīmolu filtrs -->
+    <!-- ZÄ«molu filtrs -->
     {% if brands %}
     <div class="d-flex flex-wrap gap-2 mb-4">
         <a href="{% url 'catalog' %}" class="btn btn-sm {% if not selected_brand %}btn-danger{% else %}btn-outline-secondary{% endif %}">
@@ -52,10 +52,10 @@
     </div>
     {% endif %}
 
-    <!-- Meklēšana -->
+    <!-- MeklÄ“Åana -->
     <form method="get" class="mb-4 d-flex gap-2" style="max-width:400px">
         {% if selected_brand %}<input type="hidden" name="brand" value="{{ selected_brand }}">{% endif %}
-        <input type="text" name="q" value="{{ q }}" class="form-control" placeholder="Meklēt produktu...">
+        <input type="text" name="q" value="{{ q }}" class="form-control" placeholder="MeklÄ“t produktu...">
         <button type="submit" class="btn btn-danger">
             <i class="bi bi-search"></i>
         </button>
@@ -66,8 +66,8 @@
         <div class="col-6 col-md-4 col-lg-3">
             <div class="card h-100 shadow-sm border-0 product-card">
                 <a href="{% url 'product_detail' product.slug %}">
-                    {% if product.image %}
-                    <img src="{{ product.image.url }}" alt="{{ product.name_lv }}" class="card-img-top p-2" style="height:180px;object-fit:contain">
+                    {% if product.main_image %}
+                    <img src="{{ product.main_image.url }}" alt="{{ product.name_lv }}" class="card-img-top p-2" style="height:180px;object-fit:contain">
                     {% else %}
                     <div class="bg-light d-flex align-items-center justify-content-center" style="height:180px">
                         <i class="bi bi-droplet fs-1 text-muted"></i>
@@ -87,10 +87,10 @@
                     </a>
                     <div class="mt-auto">
                         {% if product.price %}
-                        <div class="fw-bold text-danger">€ {{ product.price }}</div>
+                        <div class="fw-bold text-danger">ā‚¬ {{ product.price }}</div>
                         {% endif %}
                         <a href="{% url 'product_detail' product.slug %}" class="btn btn-outline-danger btn-sm mt-2 w-100">
-                            Skatīt
+                            SkatÄ«t
                         </a>
                     </div>
                 </div>
@@ -104,3 +104,4 @@
     </div>
 </div>
 {% endblock %}
+

@@ -225,6 +225,8 @@ class ProductAdmin(admin.ModelAdmin):
             ).select_related('parent').order_by('parent__name_lv', 'name_lv')
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
+    filter_horizontal = ('applications', 'vehicle_types')
+
     list_display = ('image_preview', 'name_lv', 'sku', 'brand', 'category',
                     'price', 'shipping_info', 'is_featured', 'is_new', 'is_sale', 'is_active')
     list_display_links = ('name_lv',)
@@ -239,6 +241,7 @@ class ProductAdmin(admin.ModelAdmin):
         ('Kategorijas', {'fields': (
             ('tab_passenger_cars', 'tab_motorcycle', 'tab_heavy_truckbus', 'tab_ieroci'),
             'nav_subcategory',
+            'applications',
         )}),
         ('Video', {'fields': ('video_url',)}),
         ('Statusi', {'fields': ('is_featured', 'is_new', 'is_sale', 'is_active', 'order')}),

@@ -58,8 +58,8 @@
         <div class="col-lg-5">
             <div class="product-gallery">
                 <div class="product-main-img-wrap mb-3 rounded border bg-light p-3 text-center">
-                    {% if product.image %}
-                    <img src="{{ product.image.url }}" id="mainImg" class="img-fluid product-main-img" alt="{{ product.name_lv }}" style="max-height:420px;object-fit:contain">
+                    {% if product.main_image %}
+                    <img src="{{ product.main_image.url }}" id="mainImg" class="img-fluid product-main-img" alt="{{ product.name_lv }}" style="max-height:420px;object-fit:contain">
                     {% else %}
                     <div class="d-flex align-items-center justify-content-center" style="height:350px">
                         <i class="bi bi-image text-muted" style="font-size:5rem"></i>
@@ -70,8 +70,8 @@
                 {% with all_imgs=product.images.all %}
                 {% if product.image2 or product.image3 or all_imgs %}
                 <div class="d-flex gap-2 flex-wrap" id="thumbWrap">
-                    {% if product.image %}
-                    <img src="{{ product.image.url }}" class="product-thumb active" onclick="switchImg(this, '{{ product.image.url }}')">
+                    {% if product.main_image %}
+                    <img src="{{ product.main_image.url }}" class="product-thumb active" onclick="switchImg(this, '{{ product.main_image.url }}')">
                     {% endif %}
                     {% if product.image2 %}
                     <img src="{{ product.image2.url }}" class="product-thumb" onclick="switchImg(this, '{{ product.image2.url }}')">

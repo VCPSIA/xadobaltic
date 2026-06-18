@@ -1,7 +1,7 @@
-{% extends 'base.html' %}
+﻿{% extends 'base.html' %}
 {% load i18n static %}
 
-{% block title %}XADO Baltic — {% trans "Eļļas un autoķīmija Baltijā" %}{% endblock %}
+{% block title %}XADO Baltic ā€” {% trans "EÄ¼Ä¼as un autoÄ·Ä«mija BaltijÄ" %}{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -267,7 +267,7 @@
 .why-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
 .why-text { font-size: 13px; color: #777; line-height: 1.6; }
 
-/* ===== KATEGORIJU NAVIGĀCIJAS JOSLA ===== */
+/* ===== KATEGORIJU NAVIGÄ€CIJAS JOSLA ===== */
 .cat-nav-bar {
     background: #e30613;
     position: relative;
@@ -317,7 +317,7 @@
     border-bottom: 8px solid #e30613;
 }
 
-/* ===== NOLAIŽAMAIS PANELIS ===== */
+/* ===== NOLAIÅ½AMAIS PANELIS ===== */
 .cat-dropdown {
     position: absolute;
     top: 100%;
@@ -425,7 +425,7 @@
 
 {% block content %}
 
-<!-- ===== KATEGORIJU NAVIGĀCIJAS JOSLA ===== -->
+<!-- ===== KATEGORIJU NAVIGÄ€CIJAS JOSLA ===== -->
 {% if nav_vts %}
 <div class="cat-nav-bar" id="catNavBar">
     <div class="container-fluid px-0">
@@ -439,7 +439,7 @@
             {% endfor %}
         </div>
     </div>
-    <!-- Nolaižamais panelis -->
+    <!-- NolaiÅ¾amais panelis -->
     <div class="cat-dropdown" id="catDropdown">
         <div class="container cat-dropdown-inner">
             {% for vt in nav_vts %}
@@ -467,7 +467,7 @@
                             {% endif %}{% endwith %}
                         </div>
                         {% empty %}
-                        <span style="color:#aaa;font-size:13px">{% trans "Drīzumā..." %}</span>
+                        <span style="color:#aaa;font-size:13px">{% trans "DrÄ«zumÄ..." %}</span>
                         {% endfor %}
                     </div>
                 </div>
@@ -502,7 +502,7 @@
             </div>
             {% else %}
             <div class="hero-section"><div class="container"><div class="row align-items-center"><div class="col-lg-6">
-                <span class="hero-badge">{% trans "Oficiālais izplatītājs" %}</span>
+                <span class="hero-badge">{% trans "OficiÄlais izplatÄ«tÄjs" %}</span>
                 <h1 class="hero-title">{% if LANGUAGE_CODE == 'ru' and banner.title_ru %}{{ banner.title_ru }}{% elif LANGUAGE_CODE == 'en' and banner.title_en %}{{ banner.title_en }}{% elif LANGUAGE_CODE == 'de' and banner.title_de %}{{ banner.title_de }}{% else %}{{ banner.title_lv }}{% endif %}</h1>
                 <p class="hero-sub">{% if LANGUAGE_CODE == 'ru' and banner.subtitle_ru %}{{ banner.subtitle_ru }}{% elif LANGUAGE_CODE == 'en' and banner.subtitle_en %}{{ banner.subtitle_en }}{% elif LANGUAGE_CODE == 'de' and banner.subtitle_de %}{{ banner.subtitle_de }}{% else %}{{ banner.subtitle_lv }}{% endif %}</p>
             </div></div></div></div>
@@ -518,18 +518,18 @@
     <div class="container position-relative" style="z-index:2">
         <div class="row align-items-center gy-5">
             <div class="col-lg-6">
-                <span class="hero-badge"><i class="bi bi-patch-check-fill me-1"></i> {% trans "Oficiālais XADO izplatītājs" %}</span>
-                <h1 class="hero-title">{% trans "Tehnoloģija,<br>kas aizsargā<br>" %}<span>{% trans "Jūsu motoru" %}</span></h1>
-                <p class="hero-sub">{% trans "XADO eļļas un autoķīmija ar revitalizācijas tehnoloģiju. Pagariniet motora mūžu un samaziniet degvielas patēriņu." %}</p>
+                <span class="hero-badge"><i class="bi bi-patch-check-fill me-1"></i> {% trans "OficiÄlais XADO izplatÄ«tÄjs" %}</span>
+                <h1 class="hero-title">{% trans "TehnoloÄ£ija,<br>kas aizsargÄ<br>" %}<span>{% trans "JÅ«su motoru" %}</span></h1>
+                <p class="hero-sub">{% trans "XADO eÄ¼Ä¼as un autoÄ·Ä«mija ar revitalizÄcijas tehnoloÄ£iju. Pagariniet motora mÅ«Å¾u un samaziniet degvielas patÄ“riÅ†u." %}</p>
                 <div class="d-flex flex-wrap gap-3">
-                    <a href="{% url 'catalog' %}" class="hero-cta-primary"><i class="bi bi-grid3x3-gap"></i> {% trans "Skatīt katalogs" %}</a>
-                    <a href="{% url 'selector' %}" class="hero-cta-secondary"><i class="bi bi-search"></i> {% trans "Atlasīt pēc auto" %}</a>
+                    <a href="{% url 'catalog' %}" class="hero-cta-primary"><i class="bi bi-grid3x3-gap"></i> {% trans "SkatÄ«t katalogs" %}</a>
+                    <a href="{% url 'selector' %}" class="hero-cta-secondary"><i class="bi bi-search"></i> {% trans "AtlasÄ«t pÄ“c auto" %}</a>
                 </div>
                 <div class="hero-stats">
                     <div class="row g-4">
                         <div class="col-4">
                             <div class="hero-stat-num">30<span>+</span></div>
-                            <div class="hero-stat-label">{% trans "Gadi tirgū" %}</div>
+                            <div class="hero-stat-label">{% trans "Gadi tirgÅ«" %}</div>
                         </div>
                         <div class="col-4">
                             <div class="hero-stat-num">100<span>+</span></div>
@@ -537,7 +537,7 @@
                         </div>
                         <div class="col-4">
                             <div class="hero-stat-num">8<span>+</span></div>
-                            <div class="hero-stat-label">{% trans "Zīmoli" %}</div>
+                            <div class="hero-stat-label">{% trans "ZÄ«moli" %}</div>
                         </div>
                     </div>
                 </div>
@@ -557,7 +557,7 @@
 <div class="selector-bar">
     <div class="container">
         <div class="d-flex align-items-center gap-2 flex-wrap flex-md-nowrap">
-            <span class="text-white fw-bold text-nowrap"><i class="bi bi-search me-1"></i>{% trans "Atlasīt pēc auto:" %}</span>
+            <span class="text-white fw-bold text-nowrap"><i class="bi bi-search me-1"></i>{% trans "AtlasÄ«t pÄ“c auto:" %}</span>
             <select class="form-select" id="homeVT" onchange="homeSelectVT()">
                 <option value="">{% trans "Kategorija" %}</option>
                 {% for vt in vehicle_types %}
@@ -571,16 +571,16 @@
                 <option value="">{% trans "Modelis" %}</option>
             </select>
             <select class="form-select" id="homeMod" disabled>
-                <option value="">{% trans "Modifikācija" %}</option>
+                <option value="">{% trans "ModifikÄcija" %}</option>
             </select>
             <button class="btn-search text-nowrap" onclick="homeSearch()">
-                <i class="bi bi-search me-1"></i> {% trans "Meklēt" %}
+                <i class="bi bi-search me-1"></i> {% trans "MeklÄ“t" %}
             </button>
         </div>
     </div>
 </div>
 
-<!-- ===== ZĪMOLI ===== -->
+<!-- ===== ZÄŖMOLI ===== -->
 {% if brands %}
 <div class="border-bottom" style="background:#fff">
     <div class="container-fluid px-0">
@@ -645,9 +645,9 @@
         <div class="d-flex justify-content-between align-items-end mb-4">
             <div>
                 <div class="sec-label">{% trans "Bestselleri" %}</div>
-                <h2 class="sec-title mb-0">{% trans "Populārākie produkti" %}</h2>
+                <h2 class="sec-title mb-0">{% trans "PopulÄrÄkie produkti" %}</h2>
             </div>
-            <a href="{% url 'catalog' %}" class="btn btn-outline-danger btn-sm">{% trans "Skatīt visus" %} <i class="bi bi-arrow-right"></i></a>
+            <a href="{% url 'catalog' %}" class="btn btn-outline-danger btn-sm">{% trans "SkatÄ«t visus" %} <i class="bi bi-arrow-right"></i></a>
         </div>
         <div class="row g-3">
             {% for product in featured_products %}
@@ -658,8 +658,8 @@
                             {% if product.is_new %}<span class="badge bg-success">NEW</span>{% endif %}
                             {% if product.is_sale %}<span class="badge bg-danger">SALE</span>{% endif %}
                         </div>
-                        {% if product.image %}
-                        <img src="{{ product.image.url }}" alt="{{ product.name_lv }}" class="pcard-img">
+                        {% if product.main_image %}
+                        <img src="{{ product.main_image.url }}" alt="{{ product.name_lv }}" class="pcard-img">
                         {% else %}
                         <div class="pcard-no-img"><i class="bi bi-image text-muted fs-1"></i></div>
                         {% endif %}
@@ -679,10 +679,10 @@
                             <div>
                                 {% with vol=product.default_volume %}
                                 {% if vol %}
-                                <div class="pcard-price">{{ vol.price }} €</div>
-                                {% if vol.price_old %}<div class="pcard-price-old">{{ vol.price_old }} €</div>{% endif %}
+                                <div class="pcard-price">{{ vol.price }} ā‚¬</div>
+                                {% if vol.price_old %}<div class="pcard-price-old">{{ vol.price_old }} ā‚¬</div>{% endif %}
                                 {% elif product.price %}
-                                <div class="pcard-price">{{ product.price }} €</div>
+                                <div class="pcard-price">{{ product.price }} ā‚¬</div>
                                 {% endif %}
                                 {% endwith %}
                             </div>
@@ -709,8 +709,8 @@
             <div class="col-md-7" style="padding:40px 48px">
                 <div class="text-white">
                     <h3 class="fw-bold mb-2" style="font-size:1.5rem">{% trans "XADO Atomic Oil" %}</h3>
-                    <p style="color:#aaa;font-size:14px;line-height:1.7;margin-bottom:24px">{% trans "Motoreļļas ar revitalizācijas tehnoloģiju, kas ne tikai smērē, bet arī atjauno nolietotas virsmas. Patentēta tehnoloģija no XADO." %}</p>
-                    <a href="{% url 'brand_detail' 'xado-atomic-oil' %}" class="hero-cta-primary" style="font-size:13px;padding:10px 24px">{% trans "Uzzināt vairāk" %} <i class="bi bi-arrow-right"></i></a>
+                    <p style="color:#aaa;font-size:14px;line-height:1.7;margin-bottom:24px">{% trans "MotoreÄ¼Ä¼as ar revitalizÄcijas tehnoloÄ£iju, kas ne tikai smÄ“rÄ“, bet arÄ« atjauno nolietotas virsmas. PatentÄ“ta tehnoloÄ£ija no XADO." %}</p>
+                    <a href="{% url 'brand_detail' 'xado-atomic-oil' %}" class="hero-cta-primary" style="font-size:13px;padding:10px 24px">{% trans "UzzinÄt vairÄk" %} <i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -734,8 +734,8 @@
                 <div class="pcard">
                     <div class="pcard-img-wrap">
                         <span class="badge bg-success" style="position:absolute;top:10px;left:10px">NEW</span>
-                        {% if product.image %}
-                        <img src="{{ product.image.url }}" alt="{{ product.name_lv }}" class="pcard-img">
+                        {% if product.main_image %}
+                        <img src="{{ product.main_image.url }}" alt="{{ product.name_lv }}" class="pcard-img">
                         {% else %}
                         <div class="pcard-no-img"><i class="bi bi-image text-muted fs-1"></i></div>
                         {% endif %}
@@ -753,8 +753,8 @@
                         <div class="pcard-footer">
                             <div>
                                 {% with vol=product.default_volume %}
-                                {% if vol %}<div class="pcard-price">{{ vol.price }} €</div>
-                                {% elif product.price %}<div class="pcard-price">{{ product.price }} €</div>{% endif %}
+                                {% if vol %}<div class="pcard-price">{{ vol.price }} ā‚¬</div>
+                                {% elif product.price %}<div class="pcard-price">{{ product.price }} ā‚¬</div>{% endif %}
                                 {% endwith %}
                             </div>
                             <a href="{% url 'product_detail' product.slug %}" class="btn-add-cart"><i class="bi bi-cart-plus"></i></a>
@@ -768,40 +768,40 @@
 </section>
 {% endif %}
 
-<!-- ===== KĀPĒC MĒS ===== -->
+<!-- ===== KÄ€PÄ’C MÄ’S ===== -->
 <section class="py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <div class="sec-label">{% trans "Mūsu priekšrocības" %}</div>
-            <h2 class="sec-title">{% trans "Kāpēc izvēlēties XADO Baltic?" %}</h2>
+            <div class="sec-label">{% trans "MÅ«su priekÅrocÄ«bas" %}</div>
+            <h2 class="sec-title">{% trans "KÄpÄ“c izvÄ“lÄ“ties XADO Baltic?" %}</h2>
         </div>
         <div class="row g-4">
             <div class="col-md-3">
                 <div class="why-card">
                     <div class="why-icon"><i class="bi bi-patch-check-fill"></i></div>
-                    <div class="why-title">{% trans "Oriģinālie produkti" %}</div>
-                    <div class="why-text">{% trans "100% oriģinālā XADO produkcija tieši no ražotāja. Garantija katram produktam." %}</div>
+                    <div class="why-title">{% trans "OriÄ£inÄlie produkti" %}</div>
+                    <div class="why-text">{% trans "100% oriÄ£inÄlÄ XADO produkcija tieÅi no raÅ¾otÄja. Garantija katram produktam." %}</div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="why-card">
                     <div class="why-icon"><i class="bi bi-truck"></i></div>
-                    <div class="why-title">{% trans "Ātra piegāde" %}</div>
-                    <div class="why-text">{% trans "Piegāde visā Baltijā 1–3 dienās. Bezmaksas piegāde pasūtījumiem virs 50 €." %}</div>
+                    <div class="why-title">{% trans "Ä€tra piegÄde" %}</div>
+                    <div class="why-text">{% trans "PiegÄde visÄ BaltijÄ 1ā€“3 dienÄs. Bezmaksas piegÄde pasÅ«tÄ«jumiem virs 50 ā‚¬." %}</div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="why-card">
                     <div class="why-icon"><i class="bi bi-headset"></i></div>
-                    <div class="why-title">{% trans "Tehniskā konsultācija" %}</div>
-                    <div class="why-text">{% trans "Mūsu speciālisti palīdzēs izvēlēties piemērotāko produktu Jūsu automašīnai." %}</div>
+                    <div class="why-title">{% trans "TehniskÄ konsultÄcija" %}</div>
+                    <div class="why-text">{% trans "MÅ«su speciÄlisti palÄ«dzÄ“s izvÄ“lÄ“ties piemÄ“rotÄko produktu JÅ«su automaÅÄ«nai." %}</div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="why-card">
                     <div class="why-icon"><i class="bi bi-award"></i></div>
-                    <div class="why-title">{% trans "30+ gadi tirgū" %}</div>
-                    <div class="why-text">{% trans "XADO ir starptautiski atzīts zīmols, kas darbojas vairāk nekā 100 valstīs visā pasaulē." %}</div>
+                    <div class="why-title">{% trans "30+ gadi tirgÅ«" %}</div>
+                    <div class="why-text">{% trans "XADO ir starptautiski atzÄ«ts zÄ«mols, kas darbojas vairÄk nekÄ 100 valstÄ«s visÄ pasaulÄ“." %}</div>
                 </div>
             </div>
         </div>
@@ -814,13 +814,13 @@
         <div class="cta-banner">
             <div class="row align-items-center gy-4">
                 <div class="col-lg-8">
-                    <div class="sec-label" style="color:rgba(255,255,255,.6)">{% trans "Sāciet jau šodien" %}</div>
-                    <h2 class="fw-bold text-white mb-2" style="font-size:1.8rem">{% trans "Nezini kādu eļļu izvēlēties?" %}</h2>
-                    <p style="color:rgba(255,255,255,.65);font-size:14px;margin:0">{% trans "Izmantojiet mūsu eļļu atlasītāju — ievadiet automašīnas marku un modeli, un mēs ieteiksmim piemērotāko produktu." %}</p>
+                    <div class="sec-label" style="color:rgba(255,255,255,.6)">{% trans "SÄciet jau Åodien" %}</div>
+                    <h2 class="fw-bold text-white mb-2" style="font-size:1.8rem">{% trans "Nezini kÄdu eÄ¼Ä¼u izvÄ“lÄ“ties?" %}</h2>
+                    <p style="color:rgba(255,255,255,.65);font-size:14px;margin:0">{% trans "Izmantojiet mÅ«su eÄ¼Ä¼u atlasÄ«tÄju ā€” ievadiet automaÅÄ«nas marku un modeli, un mÄ“s ieteiksmim piemÄ“rotÄko produktu." %}</p>
                 </div>
                 <div class="col-lg-4 text-lg-end">
                     <a href="{% url 'selector' %}" class="hero-cta-primary" style="font-size:15px;padding:14px 32px">
-                        <i class="bi bi-search"></i> {% trans "Atlasīt eļļu" %}
+                        <i class="bi bi-search"></i> {% trans "AtlasÄ«t eÄ¼Ä¼u" %}
                     </a>
                 </div>
             </div>
@@ -844,7 +844,7 @@ function homeSelectVT() {
     brandSel.disabled = true;
     document.getElementById('homeModel').innerHTML = '<option value="">{% trans "Modelis" %}</option>';
     document.getElementById('homeModel').disabled = true;
-    document.getElementById('homeMod').innerHTML = '<option value="">{% trans "Modifikācija" %}</option>';
+    document.getElementById('homeMod').innerHTML = '<option value="">{% trans "ModifikÄcija" %}</option>';
     document.getElementById('homeMod').disabled = true;
     if (!vtId) return;
     fetch(API_BRANDS + '?vehicle_type=' + vtId).then(r => r.json()).then(data => {
@@ -858,7 +858,7 @@ function homeLoadModels() {
     const sel = document.getElementById('homeModel');
     sel.innerHTML = '<option value="">{% trans "Modelis" %}</option>';
     sel.disabled = true;
-    document.getElementById('homeMod').innerHTML = '<option value="">{% trans "Modifikācija" %}</option>';
+    document.getElementById('homeMod').innerHTML = '<option value="">{% trans "ModifikÄcija" %}</option>';
     document.getElementById('homeMod').disabled = true;
     if (!brandId) return;
     fetch(API_MODELS + '?brand=' + brandId).then(r => r.json()).then(data => {
@@ -870,7 +870,7 @@ function homeLoadModels() {
 function homeLoadMods() {
     const modelId = document.getElementById('homeModel').value;
     const sel = document.getElementById('homeMod');
-    sel.innerHTML = '<option value="">{% trans "Modifikācija" %}</option>';
+    sel.innerHTML = '<option value="">{% trans "ModifikÄcija" %}</option>';
     sel.disabled = true;
     if (!modelId) return;
     fetch(API_MODS + '?model=' + modelId).then(r => r.json()).then(data => {
@@ -886,7 +886,7 @@ function homeSearch() {
 </script>
 
 <script>
-/* ===== KATEGORIJU NAVIGĀCIJAS JOSLA ===== */
+/* ===== KATEGORIJU NAVIGÄ€CIJAS JOSLA ===== */
 (function () {
     const tabs = document.querySelectorAll('.cat-nav-tab');
     const dropdown = document.getElementById('catDropdown');
@@ -929,7 +929,7 @@ function homeSearch() {
     const el = document.getElementById('heroBanners');
     if (!el) return;
 
-    /* --- CSS animācijas --- */
+    /* --- CSS animÄcijas --- */
     const s = document.createElement('style');
     s.textContent = `
         #heroBanners.no-bs-tr .carousel-item{transition:none!important;transform:none!important;opacity:1!important}
@@ -947,7 +947,7 @@ function homeSearch() {
 
     let savedEffect = null, savedPrevSrc = null;
 
-    /* Pirms Bootstrap mainīšanas — saglabā efektu un pašreizējo bildi */
+    /* Pirms Bootstrap mainÄ«Åanas ā€” saglabÄ efektu un paÅreizÄ“jo bildi */
     el.addEventListener('slide.bs.carousel', function (e) {
         const effect = (e.relatedTarget.dataset.effect) || 'slide';
         if (effect === 'slide') return;
@@ -956,10 +956,10 @@ function homeSearch() {
             const img = el.querySelector('.carousel-item.active img');
             savedPrevSrc = img ? img.src : null;
         }
-        el.classList.add('no-bs-tr'); /* Bootstrap pārslēdz momentāni, bez animācijas */
+        el.classList.add('no-bs-tr'); /* Bootstrap pÄrslÄ“dz momentÄni, bez animÄcijas */
     });
 
-    /* Pēc Bootstrap mainīšanas — ieslēdz mūsu animāciju */
+    /* PÄ“c Bootstrap mainÄ«Åanas ā€” ieslÄ“dz mÅ«su animÄciju */
     el.addEventListener('slid.bs.carousel', function () {
         el.classList.remove('no-bs-tr');
         const effect = savedEffect;
@@ -977,7 +977,7 @@ function homeSearch() {
         }
     });
 
-    /* Mozaīka: vecā bilde sadalās kvadrātiņos un pazūd, atklājot jauno */
+    /* MozaÄ«ka: vecÄ bilde sadalÄs kvadrÄtiÅ†os un pazÅ«d, atklÄjot jauno */
     function doMosaic(activeSlide, prevSrc) {
         if (!prevSrc) return;
         const C = 7, R = 5;
@@ -1004,7 +1004,7 @@ function homeSearch() {
         activeSlide.appendChild(overlay);
         overlay.offsetHeight; /* reflow */
 
-        /* Izdzēš flīzes nejaušā secībā */
+        /* IzdzÄ“Å flÄ«zes nejauÅÄ secÄ«bÄ */
         const shuffled = tiles.slice().sort(() => Math.random() - 0.5);
         shuffled.forEach(function (t, i) {
             setTimeout(function () { t.style.opacity = '0'; }, i * 22);
@@ -1014,3 +1014,4 @@ function homeSearch() {
 })();
 </script>
 {% endblock %}
+

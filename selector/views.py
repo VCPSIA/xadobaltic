@@ -1,13 +1,13 @@
-from django.shortcuts import render
+﻿from django.shortcuts import render
 from django.http import JsonResponse
 from .models import CarBrand, CarModel, CarModification, ProductCompatibility
 from catalog.models import Product
 
 LM_CATS = {
-    1: {'name_lv': 'Automašīnas', 'name_ru': 'Автомобили', 'name_en': 'Cars', 'name_de': 'Pkw', 'icon': 'bi-car-front-fill'},
-    2: {'name_lv': 'Furgoni un pikapi', 'name_ru': 'Фургоны и пикапы', 'name_en': 'Vans & Pickups', 'name_de': 'Transporter', 'icon': 'bi-truck'},
-    3: {'name_lv': 'Kravas auto un autobusi', 'name_ru': 'Грузовики и автобусы', 'name_en': 'Trucks & Buses', 'name_de': 'LKW', 'icon': 'bi-bus-front-fill'},
-    4: {'name_lv': 'Motocikli', 'name_ru': 'Мотоциклы', 'name_en': 'Motorcycles', 'name_de': 'Motorräder', 'icon': 'bi-bicycle'},
+    1: {'name_lv': 'AutomaÅÄ«nas', 'name_ru': 'ŠŠ²Ń‚Š¾Š¼Š¾Š±ŠøŠ»Šø', 'name_en': 'Cars', 'name_de': 'Pkw', 'icon': 'bi-car-front-fill'},
+    2: {'name_lv': 'Furgoni un pikapi', 'name_ru': 'Š¤ŃŃ€Š³Š¾Š½Ń‹ Šø ŠæŠøŠŗŠ°ŠæŃ‹', 'name_en': 'Vans & Pickups', 'name_de': 'Transporter', 'icon': 'bi-truck'},
+    3: {'name_lv': 'Kravas auto un autobusi', 'name_ru': 'Š“Ń€ŃŠ·Š¾Š²ŠøŠŗŠø Šø Š°Š²Ń‚Š¾Š±ŃŃŃ‹', 'name_en': 'Trucks & Buses', 'name_de': 'LKW', 'icon': 'bi-bus-front-fill'},
+    4: {'name_lv': 'Motocikli', 'name_ru': 'ŠŠ¾Ń‚Š¾Ń†ŠøŠŗŠ»Ń‹', 'name_en': 'Motorcycles', 'name_de': 'MotorrĆ¤der', 'icon': 'bi-bicycle'},
 }
 
 
@@ -28,7 +28,7 @@ def api_brands(request):
     if lm_cat:
         brands = brands.filter(models__lm_category=lm_cat).distinct()
 
-    # Parādam tikai EU + neregionālās markas (bez USA/MENA/CHN/TUR/THA/BRA/RUS/AUS)
+    # ParÄdam tikai EU + neregionÄlÄs markas (bez USA/MENA/CHN/TUR/THA/BRA/RUS/AUS)
     if not show_all:
         from django.db.models import Q
         brands = brands.filter(
@@ -40,7 +40,7 @@ def api_brands(request):
 
     data = []
     for b in brands:
-        # Noņemam "(EU)" sufiksu no displeja nosaukuma
+        # NoÅ†emam "(EU)" sufiksu no displeja nosaukuma
         display = b.name.replace(' (EU)', '').strip()
         data.append({'id': b.id, 'name': display})
     return JsonResponse(data, safe=False)
@@ -93,7 +93,7 @@ def _products_by_viscosity(viscosity, oil_spec, lang):
             'brand': p.brand.name if p.brand else '',
             'price': str(p.price) if p.price else '',
             'price_old': str(p.price_old) if p.price_old else '',
-            'image': p.image.url if p.image else '',
+            'image': p.main_image.url if p.main_image else '',
             'viscosity': p.viscosity,
             'short_description': short_desc,
             'note': '',
@@ -104,7 +104,7 @@ def _products_by_viscosity(viscosity, oil_spec, lang):
 
 
 def _score_product(prod, oem_tokens):
-    """Skaitām cik OEM tokeni atbilst produkta specifikācijām. Augstāks = labāks."""
+    """SkaitÄm cik OEM tokeni atbilst produkta specifikÄcijÄm. AugstÄks = labÄks."""
     combined = ' '.join([
         prod.specifications_lv or '',
         prod.requirements_lv or '',
@@ -136,7 +136,7 @@ def api_products(request):
     if oil_spec:
         oem_tokens = [t.strip().lower() for t in oil_spec.split(',') if t.strip()]
 
-    # Primārais avots: ProductCompatibility ieraksti šai modifikācijai
+    # PrimÄrais avots: ProductCompatibility ieraksti Åai modifikÄcijai
     compat_qs = ProductCompatibility.objects.filter(
         modification_id=modification_id, product__is_active=True
     ).select_related('product', 'product__brand', 'product__category')
@@ -156,7 +156,7 @@ def api_products(request):
                 'brand': p.brand.name if p.brand else '',
                 'price': str(p.price) if p.price else '',
                 'price_old': str(p.price_old) if p.price_old else '',
-                'image': p.image.url if p.image else '',
+                'image': p.main_image.url if p.main_image else '',
                 'viscosity': p.viscosity,
                 'short_description': short_desc,
                 'note': note,
@@ -164,11 +164,11 @@ def api_products(request):
                 'score': score,
             })
     elif viscosity:
-        # Rezerves variants: filtrē pēc viskozitātes, ja nav compat ierakstu
+        # Rezerves variants: filtrÄ“ pÄ“c viskozitÄtes, ja nav compat ierakstu
         products = _products_by_viscosity(viscosity, oil_spec, lang)
 
     if not products:
-        # Meklē compat ierakstus citās tā paša modeļa modifikācijās
+        # MeklÄ“ compat ierakstus citÄs tÄ paÅa modeÄ¼a modifikÄcijÄs
         sibling_compat = ProductCompatibility.objects.filter(
             modification__car_model=mod.car_model,
             product__is_active=True
@@ -192,7 +192,7 @@ def api_products(request):
                     'brand': p.brand.name if p.brand else '',
                     'price': str(p.price) if p.price else '',
                     'price_old': str(p.price_old) if p.price_old else '',
-                    'image': p.image.url if p.image else '',
+                    'image': p.main_image.url if p.main_image else '',
                     'viscosity': p.viscosity,
                     'short_description': short_desc,
                     'note': '',
@@ -201,7 +201,7 @@ def api_products(request):
                 })
 
     if not products:
-        # Izmanto tā paša modeļa citu modifikāciju viskozitāti
+        # Izmanto tÄ paÅa modeÄ¼a citu modifikÄciju viskozitÄti
         sibling_viscs = CarModification.objects.filter(
             car_model=mod.car_model
         ).exclude(oil_viscosity='').values_list('oil_viscosity', flat=True)
@@ -216,3 +216,4 @@ def api_products(request):
             products = _products_by_viscosity(','.join(all_visc), sibling_oil_spec, lang)
 
     return JsonResponse({'products': products, 'viscosity': viscosity, 'oil_spec': oil_spec})
+

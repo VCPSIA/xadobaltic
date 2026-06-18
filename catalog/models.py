@@ -220,6 +220,13 @@ class Product(models.Model):
         v = self.volumes.filter(is_active=True).order_by('price').first()
         return v.price if v else self.price
 
+    @property
+    def main_image(self):
+        vol = self.volumes.filter(is_active=True).exclude(image='').order_by('order', 'volume_ml').first()
+        if vol and vol.image:
+            return vol.image
+        return self.image or None
+
     def discount_percent(self):
         if self.price and self.price_old and self.price_old > self.price:
             return int((1 - self.price / self.price_old) * 100)

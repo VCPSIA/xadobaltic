@@ -1,4 +1,4 @@
-{% load i18n %}
+﻿{% load i18n %}
 <div class="col-6 col-md-4 col-lg-3">
     <div class="product-card h-100 position-relative">
         <!-- Wishlist/Compare pogas -->
@@ -6,20 +6,20 @@
             <button class="pca-btn wishlist-btn"
                     data-id="{{ product.pk }}"
                     data-url="{% url 'wishlist_toggle' product.pk %}"
-                    title="Pievienot vēlmju sarakstam">
+                    title="Pievienot vÄ“lmju sarakstam">
                 <i class="bi bi-heart"></i>
             </button>
             <button class="pca-btn compare-btn"
                     data-id="{{ product.pk }}"
                     data-url="{% url 'compare_toggle' product.pk %}"
-                    title="Pievienot salīdzināšanai">
+                    title="Pievienot salÄ«dzinÄÅanai">
                 <i class="bi bi-bar-chart-line"></i>
             </button>
         </div>
 
         <a href="{% url 'product_detail' product.slug %}" class="product-card-img-link">
-            {% if product.image %}
-            <img src="{{ product.image.url }}" alt="{{ product.name_lv }}" class="product-card-img">
+            {% if product.main_image %}
+            <img src="{{ product.main_image.url }}" alt="{{ product.name_lv }}" class="product-card-img">
             {% else %}
             <div class="product-card-no-img"><i class="bi bi-image text-muted fs-1"></i></div>
             {% endif %}
@@ -46,12 +46,13 @@
             {% endif %}
             <div class="product-price mt-2">
                 {% if product.price %}
-                <span class="fw-bold text-danger fs-5">{{ product.price|floatformat:2 }} €</span>
+                <span class="fw-bold text-danger fs-5">{{ product.price|floatformat:2 }} ā‚¬</span>
                 {% if product.price_old %}
-                <span class="text-muted text-decoration-line-through ms-2 small">{{ product.price_old|floatformat:2 }} €</span>
+                <span class="text-muted text-decoration-line-through ms-2 small">{{ product.price_old|floatformat:2 }} ā‚¬</span>
                 {% endif %}
                 {% endif %}
             </div>
         </div>
     </div>
 </div>
+
