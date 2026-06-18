@@ -26,7 +26,7 @@
                 <div class="nav-subcat-card h-100 border rounded-3 overflow-hidden" style="transition: box-shadow .2s, transform .2s;">
                     {% if sub.image %}
                     <img src="{{ sub.image.url }}" alt="{{ sub.name_lv }}"
-                         style="width:100%; height:140px; object-fit:contain; background:#f5f5f5; display:block;">
+                         style="width:100%; height:140px; object-fit:contain; background:#fff; display:block;">
                     {% else %}
                     <div style="height:140px; background:#f5f5f5; display:flex; align-items:center; justify-content:center;">
                         <i class="bi {{ sub.icon|default:'bi-box' }}" style="font-size:2.5rem; color:#c0000f;"></i>
