@@ -1,4 +1,4 @@
-﻿from django.shortcuts import render
+from django.shortcuts import render
 from django.http import JsonResponse
 from .models import CarBrand, CarModel, CarModification, ProductCompatibility
 from catalog.models import Product

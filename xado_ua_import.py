@@ -1,4 +1,4 @@
-﻿"""
+"""
 Imports car oil compatibility data from xado.ua.
 Run: venv\Scripts\python.exe xado_ua_import.py
 

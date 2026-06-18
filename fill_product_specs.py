@@ -1,4 +1,4 @@
-﻿"""Auto-aizpilda XADO produktu specifications_lv no nosaukumiem."""
+"""Auto-aizpilda XADO produktu specifications_lv no nosaukumiem."""
 import os, sys, re, django
 os.environ["DJANGO_SETTINGS_MODULE"] = "xadobaltic.settings"
 sys.path.insert(0, r"C:\Users\USER\xadobaltic")

@@ -1,4 +1,4 @@
-﻿import os, django, sys
+import os, django, sys
 os.environ["DJANGO_SETTINGS_MODULE"] = "xadobaltic.settings"
 sys.path.insert(0, r"C:\Users\USER\xadobaltic")
 sys.stdout.reconfigure(encoding="utf-8")
