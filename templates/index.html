@@ -679,10 +679,10 @@
                             <div>
                                 {% with vol=product.default_volume %}
                                 {% if vol %}
-                                <div class="pcard-price">{{ vol.price }} ā‚¬</div>
-                                {% if vol.price_old %}<div class="pcard-price-old">{{ vol.price_old }} ā‚¬</div>{% endif %}
+                                <div class="pcard-price">{{ vol.price }} €</div>
+                                {% if vol.price_old %}<div class="pcard-price-old">{{ vol.price_old }} €</div>{% endif %}
                                 {% elif product.price %}
-                                <div class="pcard-price">{{ product.price }} ā‚¬</div>
+                                <div class="pcard-price">{{ product.price }} €</div>
                                 {% endif %}
                                 {% endwith %}
                             </div>
@@ -753,8 +753,8 @@
                         <div class="pcard-footer">
                             <div>
                                 {% with vol=product.default_volume %}
-                                {% if vol %}<div class="pcard-price">{{ vol.price }} ā‚¬</div>
-                                {% elif product.price %}<div class="pcard-price">{{ product.price }} ā‚¬</div>{% endif %}
+                                {% if vol %}<div class="pcard-price">{{ vol.price }} €</div>
+                                {% elif product.price %}<div class="pcard-price">{{ product.price }} €</div>{% endif %}
                                 {% endwith %}
                             </div>
                             <a href="{% url 'product_detail' product.slug %}" class="btn-add-cart"><i class="bi bi-cart-plus"></i></a>
@@ -787,7 +787,7 @@
                 <div class="why-card">
                     <div class="why-icon"><i class="bi bi-truck"></i></div>
                     <div class="why-title">{% trans "Ä€tra piegÄde" %}</div>
-                    <div class="why-text">{% trans "PiegÄde visÄ BaltijÄ 1ā€“3 dienÄs. Bezmaksas piegÄde pasÅ«tÄ«jumiem virs 50 ā‚¬." %}</div>
+                    <div class="why-text">{% trans "PiegÄde visÄ BaltijÄ 1ā€“3 dienÄs. Bezmaksas piegÄde pasÅ«tÄ«jumiem virs 50 €." %}</div>
                 </div>
             </div>
             <div class="col-md-3">

@@ -46,9 +46,9 @@
             {% endif %}
             <div class="product-price mt-2">
                 {% if product.price %}
-                <span class="fw-bold text-danger fs-5">{{ product.price|floatformat:2 }} ā‚¬</span>
+                <span class="fw-bold text-danger fs-5">{{ product.price|floatformat:2 }} €</span>
                 {% if product.price_old %}
-                <span class="text-muted text-decoration-line-through ms-2 small">{{ product.price_old|floatformat:2 }} ā‚¬</span>
+                <span class="text-muted text-decoration-line-through ms-2 small">{{ product.price_old|floatformat:2 }} €</span>
                 {% endif %}
                 {% endif %}
             </div>

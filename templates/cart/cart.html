@@ -53,7 +53,7 @@
                                         {{ item.volume.label }}
                                         {% if item.volume.sku %}<span class="ms-1">| {% trans "Art." %}: {{ item.volume.sku }}</span>{% endif %}
                                     </div>
-                                    <div class="text-muted small">{% trans "Bez PVN:" %} {{ item.price_no_vat }} ā‚¬</div>
+                                    <div class="text-muted small">{% trans "Bez PVN:" %} {{ item.price_no_vat }} €</div>
                                 </td>
                                 <td class="text-center">
                                     <form method="post" action="{% url 'cart_update' item.product.id %}" class="d-flex align-items-center justify-content-center gap-1">
@@ -65,12 +65,12 @@
                                     </form>
                                 </td>
                                 <td class="text-end">
-                                    <div class="fw-semibold">{{ item.price }} ā‚¬</div>
+                                    <div class="fw-semibold">{{ item.price }} €</div>
                                     {% if item.volume.price_old %}
-                                    <div class="text-muted text-decoration-line-through small">{{ item.volume.price_old }} ā‚¬</div>
+                                    <div class="text-muted text-decoration-line-through small">{{ item.volume.price_old }} €</div>
                                     {% endif %}
                                 </td>
-                                <td class="text-end fw-bold text-danger">{{ item.line_total }} ā‚¬</td>
+                                <td class="text-end fw-bold text-danger">{{ item.line_total }} €</td>
                                 <td class="pe-3 text-center">
                                     <form method="post" action="{% url 'cart_remove' item.product.id %}">
                                         {% csrf_token %}
@@ -103,20 +103,20 @@
                     <table class="table table-borderless mb-0">
                         <tr>
                             <td class="text-muted">{% trans "Summa bez PVN" %}</td>
-                            <td class="text-end fw-semibold">{{ cart.total_without_vat }} ā‚¬</td>
+                            <td class="text-end fw-semibold">{{ cart.total_without_vat }} €</td>
                         </tr>
                         <tr>
                             <td class="text-muted">{% trans "PVN 21%" %}</td>
-                            <td class="text-end fw-semibold">{{ cart.total_vat }} ā‚¬</td>
+                            <td class="text-end fw-semibold">{{ cart.total_vat }} €</td>
                         </tr>
                         <tr class="border-top">
                             <td class="fw-bold fs-5">{% trans "KopÄ ar PVN" %}</td>
-                            <td class="text-end fw-bold fs-5 text-danger">{{ cart.total_with_vat }} ā‚¬</td>
+                            <td class="text-end fw-bold fs-5 text-danger">{{ cart.total_with_vat }} €</td>
                         </tr>
                     </table>
                     <div class="alert alert-light border mt-3 small">
                         <i class="bi bi-truck text-success"></i>
-                        {% trans "Bezmaksas piegÄde no 50,00 ā‚¬" %}
+                        {% trans "Bezmaksas piegÄde no 50,00 €" %}
                     </div>
                     <a href="{% url 'checkout' %}" class="btn btn-danger btn-lg w-100 mt-2">
                         <i class="bi bi-bag-check"></i> {% trans "NoformÄ“t pasÅ«tÄ«jumu" %}
