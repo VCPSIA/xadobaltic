@@ -256,8 +256,9 @@ class ProductAdmin(admin.ModelAdmin):
     )
 
     def image_preview(self, obj):
-        if obj.image:
-            return format_html('<img src="{}" style="height:50px;border-radius:4px">', obj.image.url)
+        img = obj.main_image
+        if img:
+            return format_html('<img src="{}" style="height:50px;border-radius:4px">', img.url)
         return '-'
     image_preview.short_description = 'Foto'
 
