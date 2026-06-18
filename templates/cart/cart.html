@@ -75,7 +75,7 @@
                                     <form method="post" action="{% url 'cart_remove' item.product.id %}">
                                         {% csrf_token %}
                                         <input type="hidden" name="volume_id" value="{{ item.volume.id }}">
-                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="{% trans 'NoÅ†emt' %}">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="{% trans 'Noņemt' %}">
                                             <i class="bi bi-trash3"></i>
                                         </button>
                                     </form>
@@ -119,7 +119,7 @@
                         {% trans "Bezmaksas piegāde no 50,00 €" %}
                     </div>
                     <a href="{% url 'checkout' %}" class="btn btn-danger btn-lg w-100 mt-2">
-                        <i class="bi bi-bag-check"></i> {% trans "NoformÄ“t pasūtījumu" %}
+                        <i class="bi bi-bag-check"></i> {% trans "Noformēt pasūtījumu" %}
                     </a>
                     {% if not user.is_authenticated %}
                     <p class="text-center text-muted small mt-3">

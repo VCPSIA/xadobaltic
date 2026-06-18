@@ -52,10 +52,10 @@
     </div>
     {% endif %}
 
-    <!-- MeklÄ“šana -->
+    <!-- Meklēšana -->
     <form method="get" class="mb-4 d-flex gap-2" style="max-width:400px">
         {% if selected_brand %}<input type="hidden" name="brand" value="{{ selected_brand }}">{% endif %}
-        <input type="text" name="q" value="{{ q }}" class="form-control" placeholder="MeklÄ“t produktu...">
+        <input type="text" name="q" value="{{ q }}" class="form-control" placeholder="Meklēt produktu...">
         <button type="submit" class="btn btn-danger">
             <i class="bi bi-search"></i>
         </button>

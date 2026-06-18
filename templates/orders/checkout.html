@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}{% trans "Pasūtījuma noformÄ“šana" %} ā€” XADO Baltic{% endblock %}
+{% block title %}{% trans "Pasūtījuma noformēšana" %} ā€” XADO Baltic{% endblock %}
 
 {% block content %}
 <div class="container py-5">
-    <h1 class="section-title mb-5"><i class="bi bi-bag-check text-danger"></i> {% trans "Pasūtījuma noformÄ“šana" %}</h1>
+    <h1 class="section-title mb-5"><i class="bi bi-bag-check text-danger"></i> {% trans "Pasūtījuma noformēšana" %}</h1>
 
-    <!-- Informatīvs paziÅ†ojums -->
+    <!-- Informatīvs paziņojums -->
     <div class="alert border-0 shadow-sm mb-5 d-flex gap-3 align-items-start" style="background:#fff8e1;border-left:5px solid #f59e0b!important;border-radius:10px">
         <div style="font-size:2rem;line-height:1;color:#f59e0b">
             <i class="bi bi-info-circle-fill"></i>
@@ -23,8 +23,8 @@
                 <strong class="d-block mb-1" style="font-size:1rem">Sehr geehrter Kunde!</strong>
                 Ihre Bestellung wird innerhalb von zwei Werktagen bearbeitet. Nach der Bearbeitung erhalten Sie per E-Mail oder in Ihrem Profil eine Rechnung oder eine ErklĆ¤rung zum nĆ¤chstmĆ¶glichen Kaufzeitpunkt. Dies ist notwendig, um die aktuellen LagerbestĆ¤nde zu Ć¼berprĆ¼fen.
             {% else %}
-                <strong class="d-block mb-1" style="font-size:1rem">Cienījamais pircÄ“j!</strong>
-                Jūsu pasūtījums tiks apstrādāts līdz divu darba dienu laikā. PÄ“c apstrādes Jūs saÅ†emsiet uz e-pastu vai Jūsu profilā izveidotu rÄ“ķinu vai arī paskaidrojumu par tuvāko laiku preces iegādei. Tas ir nepieciešams, lai salīdzinātu noliktavas atlikumus dzīvÄ“.
+                <strong class="d-block mb-1" style="font-size:1rem">Cienījamais pircēj!</strong>
+                Jūsu pasūtījums tiks apstrādāts līdz divu darba dienu laikā. Pēc apstrādes Jūs saņemsiet uz e-pastu vai Jūsu profilā izveidotu rēķinu vai arī paskaidrojumu par tuvāko laiku preces iegādei. Tas ir nepieciešams, lai salīdzinātu noliktavas atlikumus dzīvē.
             {% endif %}
         </div>
     </div>
@@ -119,11 +119,11 @@
                                 {% if radio.data.value == 'bank' %}
                                 <i class="bi bi-bank text-danger me-2 fs-5"></i>
                                 <span class="fw-semibold">{% trans "Bankas pārskaitījums" %}</span>
-                                <div class="text-muted small mt-1">{% trans "Pasūtījums tiks apstrādāts pÄ“c maksājuma saÅ†emšanas." %}</div>
+                                <div class="text-muted small mt-1">{% trans "Pasūtījums tiks apstrādāts pēc maksājuma saņemšanas." %}</div>
                                 {% else %}
                                 <i class="bi bi-credit-card text-danger me-2 fs-5"></i>
                                 <span class="fw-semibold">{% trans "Kredītkarte" %}</span>
-                                <div class="text-muted small mt-1">{% trans "Droša karte apmaksa tiešsaistÄ“." %}</div>
+                                <div class="text-muted small mt-1">{% trans "Droša karte apmaksa tiešsaistē." %}</div>
                                 {% endif %}
                             </label>
                         </div>
@@ -183,7 +183,7 @@
                                     </td>
                                 </tr>
                                 <tr class="border-top">
-                                    <td class="fw-bold fs-5">{% trans "KOPÄ€" %}</td>
+                                    <td class="fw-bold fs-5">{% trans "KOPĀ" %}</td>
                                     <td class="text-end fw-bold fs-5 text-danger">{{ total }} €</td>
                                 </tr>
                             </table>

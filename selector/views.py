@@ -40,7 +40,7 @@ def api_brands(request):
 
     data = []
     for b in brands:
-        # NoÅ†emam "(EU)" sufiksu no displeja nosaukuma
+        # Noņemam "(EU)" sufiksu no displeja nosaukuma
         display = b.name.replace(' (EU)', '').strip()
         data.append({'id': b.id, 'name': display})
     return JsonResponse(data, safe=False)
@@ -164,11 +164,11 @@ def api_products(request):
                 'score': score,
             })
     elif viscosity:
-        # Rezerves variants: filtrÄ“ pÄ“c viskozitātes, ja nav compat ierakstu
+        # Rezerves variants: filtrē pēc viskozitātes, ja nav compat ierakstu
         products = _products_by_viscosity(viscosity, oil_spec, lang)
 
     if not products:
-        # MeklÄ“ compat ierakstus citās tā paša modeļa modifikācijās
+        # Meklē compat ierakstus citās tā paša modeļa modifikācijās
         sibling_compat = ProductCompatibility.objects.filter(
             modification__car_model=mod.car_model,
             product__is_active=True
